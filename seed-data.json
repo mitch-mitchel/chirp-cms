@@ -7,10 +7,7 @@
       "firstName": "Daniel",
       "lastName": "White",
       "memberSince": "2022-02-28T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -112,10 +109,7 @@
       "firstName": "Kevin",
       "lastName": "Moore",
       "memberSince": "2021-09-12T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -218,10 +212,7 @@
       "firstName": "Brian",
       "lastName": "Taylor",
       "memberSince": "2021-05-05T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -311,10 +302,7 @@
       "firstName": "Lauren",
       "lastName": "Rodriguez",
       "memberSince": "2020-08-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -433,10 +421,7 @@
       "firstName": "Amanda",
       "lastName": "Miller",
       "memberSince": "2021-01-20T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -534,10 +519,7 @@
       "firstName": "Jessica",
       "lastName": "Williams",
       "memberSince": "2020-03-10T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -643,9 +625,7 @@
       "firstName": "Sarah",
       "lastName": "Martinez",
       "memberSince": "2019-06-20T00:00:00.000Z",
-      "roles": [
-        "Listener"
-      ],
+      "roles": ["Listener"],
       "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -707,9 +687,7 @@
       "firstName": "Alex",
       "lastName": "Johnson",
       "memberSince": "2018-03-15T00:00:00.000Z",
-      "roles": [
-        "Listener"
-      ],
+      "roles": ["Listener"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -728,7 +706,7 @@
           "artistName": "Taylor Swift",
           "albumName": "Lover",
           "labelName": "Republic Records",
-          "albumArt": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=200&h=200&fit=crop",
+          "albumArt": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/album-art-generic.jpg",
           "albumArtAlt": null,
           "isLocal": null,
           "dateAdded": "2024-12-01T14:30:00.000Z"
@@ -739,7 +717,7 @@
           "artistName": "Chance the Rapper",
           "albumName": "Acid Rap",
           "labelName": "Chance the Rapper",
-          "albumArt": "https://upload.wikimedia.org/wikipedia/en/5/5b/Chance_the_rapper_acid_rap.jpg",
+          "albumArt": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Chance_the_rapper_acid_rap.jpg",
           "albumArtAlt": null,
           "isLocal": true,
           "dateAdded": "2024-12-02T10:15:00.000Z"
@@ -750,7 +728,7 @@
           "artistName": "Alkaline Trio",
           "albumName": "From Here to Infirmary",
           "labelName": "Vagrant Records",
-          "albumArt": "https://upload.wikimedia.org/wikipedia/en/c/ce/Alkaline_Trio_-_From_Here_to_Infirmary_cover.jpg",
+          "albumArt": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Alkaline_Trio_-_From_Here_to_Infirmary_cover.jpg",
           "albumArtAlt": null,
           "isLocal": true,
           "dateAdded": "2024-12-03T16:45:00.000Z"
@@ -814,11 +792,7 @@
       "firstName": "Skylar",
       "lastName": "Fox",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -880,11 +854,7 @@
       "firstName": "Rowan",
       "lastName": "Blake",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -946,11 +916,7 @@
       "firstName": "Parker",
       "lastName": "Shaw",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1012,11 +978,7 @@
       "firstName": "Morgan",
       "lastName": "Knight",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1078,11 +1040,7 @@
       "firstName": "Jordan",
       "lastName": "Vale",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1144,11 +1102,7 @@
       "firstName": "Ellis",
       "lastName": "Hunt",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1210,11 +1164,7 @@
       "firstName": "Camden",
       "lastName": "Walsh",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1276,11 +1226,7 @@
       "firstName": "Michelle",
       "lastName": "Carter",
       "memberSince": "2019-07-22T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1342,11 +1288,7 @@
       "firstName": "Eric",
       "lastName": "Sullivan",
       "memberSince": "2018-09-05T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1408,11 +1350,7 @@
       "firstName": "Samantha",
       "lastName": "Foster",
       "memberSince": "2019-04-18T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1474,11 +1412,7 @@
       "firstName": "Jonathan",
       "lastName": "Kim",
       "memberSince": "2017-11-30T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1540,11 +1474,7 @@
       "firstName": "Angela",
       "lastName": "Martinez",
       "memberSince": "2018-02-25T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1606,11 +1536,7 @@
       "firstName": "Steven",
       "lastName": "Brooks",
       "memberSince": "2016-08-12T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1672,11 +1598,7 @@
       "firstName": "Patricia",
       "lastName": "Lee",
       "memberSince": "2017-05-20T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1738,11 +1660,7 @@
       "firstName": "Marcus",
       "lastName": "Thompson",
       "memberSince": "2016-03-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1804,11 +1722,7 @@
       "firstName": "Jennifer",
       "lastName": "Roberts",
       "memberSince": "2015-01-10T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1870,11 +1784,7 @@
       "firstName": "Devon",
       "lastName": "Chase",
       "memberSince": "2020-01-25T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -1936,11 +1846,7 @@
       "firstName": "Taylor",
       "lastName": "Kim",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2002,11 +1908,7 @@
       "firstName": "Skyler",
       "lastName": "Davis",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2068,11 +1970,7 @@
       "firstName": "Bailey",
       "lastName": "Stone",
       "memberSince": "2019-06-18T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2134,11 +2032,7 @@
       "firstName": "Arden",
       "lastName": "Miles",
       "memberSince": "2019-02-12T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2200,11 +2094,7 @@
       "firstName": "Sage",
       "lastName": "Mitchell",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2266,11 +2156,7 @@
       "firstName": "Riley",
       "lastName": "Parker",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2332,11 +2218,7 @@
       "firstName": "Reese",
       "lastName": "Morgan",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2398,11 +2280,7 @@
       "firstName": "Quinnine",
       "lastName": "Murphy",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2464,11 +2342,7 @@
       "firstName": "Peyton",
       "lastName": "Clark",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2530,11 +2404,7 @@
       "firstName": "Morgan",
       "lastName": "Taylor",
       "memberSince": "2016-05-30T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2596,11 +2466,7 @@
       "firstName": "Mike",
       "lastName": "Chen",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2662,11 +2528,7 @@
       "firstName": "Jordan",
       "lastName": "Lee",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2728,11 +2590,7 @@
       "firstName": "Jessica",
       "lastName": "Martinez",
       "memberSince": "2018-11-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2794,11 +2652,7 @@
       "firstName": "Jamie",
       "lastName": "Foster",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2860,11 +2714,7 @@
       "firstName": "Harper",
       "lastName": "Reed",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2926,11 +2776,7 @@
       "firstName": "Frankie",
       "lastName": "West",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -2992,11 +2838,7 @@
       "firstName": "Finley",
       "lastName": "Brooks",
       "memberSince": "2017-07-08T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3058,11 +2900,7 @@
       "firstName": "Emerson",
       "lastName": "Gray",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3124,11 +2962,7 @@
       "firstName": "Emma",
       "lastName": "Wilson",
       "memberSince": "2018-03-22T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3190,11 +3024,7 @@
       "firstName": "Drew",
       "lastName": "Sanders",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3256,11 +3086,7 @@
       "firstName": "David",
       "lastName": "Thompson",
       "memberSince": "2016-08-12T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3322,11 +3148,7 @@
       "firstName": "Dakota",
       "lastName": "Jones",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3388,11 +3210,7 @@
       "firstName": "Chris",
       "lastName": "Anderson",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3454,11 +3272,7 @@
       "firstName": "Charlie",
       "lastName": "Hayes",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3520,11 +3334,7 @@
       "firstName": "Casey",
       "lastName": "Brown",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3586,11 +3396,7 @@
       "firstName": "Cameron",
       "lastName": "Scott",
       "memberSince": "2015-01-10T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3652,11 +3458,7 @@
       "firstName": "Blake",
       "lastName": "Cooper",
       "memberSince": "2016-04-20T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3718,11 +3520,7 @@
       "firstName": "Avery",
       "lastName": "Collins",
       "memberSince": "2017-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3784,11 +3582,7 @@
       "firstName": "Alexandra",
       "lastName": "Rivera",
       "memberSince": "2017-09-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -3899,12 +3693,7 @@
       "firstName": "Demon",
       "lastName": "BoardMember",
       "memberSince": "2018-01-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ",
-        "Board Member"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ", "Board Member"],
       "profileImage": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -4002,11 +3791,7 @@
       "firstName": "Demo",
       "lastName": "SubDJ",
       "memberSince": "2022-08-20T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Substitute DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Substitute DJ"],
       "profileImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -4117,11 +3902,7 @@
       "firstName": "Demo",
       "lastName": "DJ",
       "memberSince": "2020-03-10T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer",
-        "Regular DJ"
-      ],
+      "roles": ["Listener", "Volunteer", "Regular DJ"],
       "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -4223,10 +4004,7 @@
       "firstName": "Demo",
       "lastName": "Volunteer",
       "memberSince": "2023-06-15T00:00:00.000Z",
-      "roles": [
-        "Listener",
-        "Volunteer"
-      ],
+      "roles": ["Listener", "Volunteer"],
       "profileImage": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -4319,9 +4097,7 @@
       "firstName": "Demo",
       "lastName": "Listener",
       "memberSince": "2024-01-01T00:00:00.000Z",
-      "roles": [
-        "Listener"
-      ],
+      "roles": ["Listener"],
       "profileImage": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces",
       "fullProfileImage": null,
       "profileImageOrientation": null,
@@ -4387,7 +4163,7 @@
       "category": "apparel",
       "price": 20,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/Shawn_chirp_shirt.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Shawn_chirp_shirt.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [
@@ -4430,7 +4206,7 @@
       "category": "apparel",
       "price": 20,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/Red_CHIRP_shirt_3.JPG",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Red_CHIRP_shirt_3.JPG",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [
@@ -4519,7 +4295,7 @@
           "alt": "CHIRP Sandcastle Toddler T-Shirt"
         }
       ],
-      "imageUrl": "https://chirpradio.org/_/files/store/image5.jpeg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/image5.jpeg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [
@@ -4566,7 +4342,7 @@
       "category": "merchandise",
       "price": 20,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/RF_poster_2017_-_2.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [],
@@ -4588,7 +4364,7 @@
       "category": "merchandise",
       "price": 20,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/20180227-CHIRP-RF-poster.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/20180227-CHIRP-RF-poster.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [],
@@ -4610,7 +4386,7 @@
       "category": "merchandise",
       "price": 15,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/CHiRP2019_Poster_11x17.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHiRP2019_Poster_11x17.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [],
@@ -4632,7 +4408,7 @@
       "category": "merchandise",
       "price": 20,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/Record_Fair_2015.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [],
@@ -4654,7 +4430,7 @@
       "category": "merchandise",
       "price": 30,
       "images": [],
-      "imageUrl": "https://chirpradio.org/_/files/store/CHIRP_spring_2013_design.jpg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHIRP_spring_2013_design.jpg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [],
@@ -4767,7 +4543,7 @@
           "alt": "CHIRP Baby Onesie - Front View"
         }
       ],
-      "imageUrl": "https://chirpradio.org/_/files/store/Baby_onesie-3.jpeg",
+      "imageUrl": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Baby_onesie-3.jpeg",
       "additionalImageUrls": [],
       "inStock": true,
       "sizes": [

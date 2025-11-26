@@ -19,6 +19,7 @@ CURRENT_TASK_DEF=$(aws ecs describe-services \
   --cluster $CLUSTER_NAME \
   --services $SERVICE_NAME \
   --region $REGION \
+  --profile sberardelli \
   --query 'services[0].taskDefinition' \
   --output text)
 
@@ -32,6 +33,7 @@ aws ecs list-task-definitions \
   --sort DESC \
   --max-items 5 \
   --region $REGION \
+  --profile sberardelli \
   --query 'taskDefinitionArns' \
   --output table
 
@@ -58,7 +60,8 @@ aws ecs update-service \
   --service $SERVICE_NAME \
   --task-definition $ROLLBACK_TASK_DEF \
   --force-new-deployment \
-  --region $REGION
+  --region $REGION \
+  --profile sberardelli
 
 echo ""
 echo "✓ Rollback initiated"

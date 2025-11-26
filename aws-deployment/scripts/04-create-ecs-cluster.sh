@@ -21,7 +21,8 @@ aws ecs create-cluster \
     --cluster-name "${PROJECT_NAME}-cluster" \
     --capacity-providers FARGATE FARGATE_SPOT \
     --default-capacity-provider-strategy capacityProvider=FARGATE,weight=1 \
-    --region $REGION 2>/dev/null || echo "✓ Cluster already exists"
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || echo "✓ Cluster already exists"
 
 echo ""
 echo "✓ ECS Cluster created: ${PROJECT_NAME}-cluster"

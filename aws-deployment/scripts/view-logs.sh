@@ -14,4 +14,5 @@ echo ""
 aws logs tail $LOG_GROUP \
   --follow \
   --format short \
-  --region $REGION
+  --region $REGION \
+  --profile sberardelli

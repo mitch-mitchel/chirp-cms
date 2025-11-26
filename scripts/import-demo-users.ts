@@ -15,7 +15,8 @@ const importDemoUsers = async () => {
       username: 'listeneruser',
       firstName: 'Demo',
       lastName: 'Listener',
-      profileImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces',
+      profileImage:
+        'https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/avatar-listener.jpg',
       bio: 'Demo listener account for testing basic listener functionality.',
       location: 'Chicago, IL',
       memberSince: '2024-01-01',
@@ -26,15 +27,16 @@ const importDemoUsers = async () => {
         emailNotifications: true,
         showNotifications: true,
         darkMode: 'light' as const,
-        autoPlay: true
-      }
+        autoPlay: true,
+      },
     },
     {
       email: 'volunteer@chirpradio.org',
       username: 'volunteeruser',
       firstName: 'Demo',
       lastName: 'Volunteer',
-      profileImage: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=faces',
+      profileImage:
+        'https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/avatar-volunteer.jpg',
       location: 'Chicago, Illinois',
       roles: ['Listener', 'Volunteer'],
       memberSince: '2021-01-20',
@@ -44,14 +46,15 @@ const importDemoUsers = async () => {
       education: 'University of Illinois at Chicago',
       employer: 'Starbucks',
       collection: [],
-      favoriteDJs: []
+      favoriteDJs: [],
     },
     {
       email: 'regular-dj@chirpradio.org',
       username: 'regulardj',
       firstName: 'Demo',
       lastName: 'DJ',
-      profileImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces',
+      profileImage:
+        'https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/avatar-regular-dj.jpg',
       location: 'Chicago, Illinois',
       roles: ['Listener', 'Volunteer', 'Regular DJ'],
       memberSince: '2017-09-15',
@@ -61,14 +64,15 @@ const importDemoUsers = async () => {
       djExcerpt: 'Demo DJ profile for testing the regular DJ role and functionality.',
       djBio: 'This is a demo DJ profile used for development and testing purposes.',
       collection: [],
-      favoriteDJs: []
+      favoriteDJs: [],
     },
     {
       email: 'substitute-dj@chirpradio.org',
       username: 'subdj',
       firstName: 'Demo',
       lastName: 'SubDJ',
-      profileImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces',
+      profileImage:
+        'https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/avatar-sub-dj.jpg',
       location: 'Chicago, Illinois',
       roles: ['Listener', 'Volunteer', 'Substitute DJ'],
       memberSince: '2019-06-15',
@@ -76,14 +80,15 @@ const importDemoUsers = async () => {
       showName: 'Fill-In Show',
       djExcerpt: 'Demo substitute DJ profile for testing substitute DJ role.',
       collection: [],
-      favoriteDJs: []
+      favoriteDJs: [],
     },
     {
       email: 'board-member@chirpradio.org',
       username: 'boardmember',
       firstName: 'Demo',
       lastName: 'BoardMember',
-      profileImage: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=200&h=200&fit=crop&crop=faces',
+      profileImage:
+        'https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/avatar-board-member.jpg',
       location: 'Chicago, Illinois',
       roles: ['Listener', 'Volunteer', 'Regular DJ', 'Board Member'],
       memberSince: '2015-03-10',
@@ -94,8 +99,8 @@ const importDemoUsers = async () => {
       boardSince: '2020-01-15',
       boardTermEnd: '2026-01-15',
       collection: [],
-      favoriteDJs: []
-    }
+      favoriteDJs: [],
+    },
   ]
 
   let imported = 0

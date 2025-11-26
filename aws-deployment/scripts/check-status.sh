@@ -27,6 +27,7 @@ SERVICE_STATUS=$(aws ecs describe-services \
   --cluster $CLUSTER_NAME \
   --services $SERVICE_NAME \
   --region $REGION \
+  --profile sberardelli \
   --query 'services[0].{Status:status,Running:runningCount,Desired:desiredCount,Pending:pendingCount}' \
   --output table 2>/dev/null)
 
@@ -45,6 +46,7 @@ TASKS=$(aws ecs list-tasks \
   --cluster $CLUSTER_NAME \
   --service-name $SERVICE_NAME \
   --region $REGION \
+  --profile sberardelli \
   --query 'taskArns' \
   --output text 2>/dev/null)
 
@@ -54,6 +56,7 @@ if [ ! -z "$TASKS" ]; then
       --cluster $CLUSTER_NAME \
       --tasks $TASK \
       --region $REGION \
+      --profile sberardelli \
       --query 'tasks[0].{Status:lastStatus,Health:healthStatus,Started:startedAt}' \
       --output table)
     echo "$TASK_INFO"
@@ -75,6 +78,7 @@ if [ -f "aws-deployment/infrastructure-config.env" ]; then
   HEALTH=$(aws elbv2 describe-target-health \
     --target-group-arn $TG_ARN \
     --region $REGION \
+    --profile sberardelli \
     --query 'TargetHealthDescriptions[*].{Target:Target.Id,Port:Target.Port,State:TargetHealth.State,Reason:TargetHealth.Reason}' \
     --output table 2>/dev/null)
 

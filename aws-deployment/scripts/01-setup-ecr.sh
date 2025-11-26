@@ -26,25 +26,26 @@ if ! command -v aws &> /dev/null; then
 fi
 
 # Check if AWS credentials are configured
-if ! aws sts get-caller-identity &> /dev/null; then
+if ! aws sts get-caller-identity --profile sberardelli &> /dev/null; then
     echo "Error: AWS credentials not configured"
     echo "Run: aws configure"
     exit 1
 fi
 
 # Get AWS Account ID
-ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+ACCOUNT_ID=$(aws sts get-caller-identity --profile sberardelli --query Account --output text)
 echo "AWS Account ID: $ACCOUNT_ID"
 echo ""
 
 # Create ECR repository if it doesn't exist
 echo "Creating ECR repository..."
-if aws ecr describe-repositories --repository-names $REPOSITORY_NAME --region $REGION &> /dev/null; then
+if aws ecr describe-repositories --repository-names $REPOSITORY_NAME --region $REGION --profile sberardelli &> /dev/null; then
     echo "✓ Repository already exists"
 else
     aws ecr create-repository \
         --repository-name $REPOSITORY_NAME \
         --region $REGION \
+        --profile sberardelli \
         --image-scanning-configuration scanOnPush=true \
         --encryption-configuration encryptionType=AES256
     echo "✓ Repository created"
@@ -75,6 +76,7 @@ EOF
 aws ecr put-lifecycle-policy \
     --repository-name $REPOSITORY_NAME \
     --region $REGION \
+    --profile sberardelli \
     --lifecycle-policy-text file:///tmp/ecr-lifecycle-policy.json
 
 echo "✓ Lifecycle policy set"

@@ -40,6 +40,10 @@
     "migrate:all-sql": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts DATABASE_URI=postgresql://chirp:chirp_dev_password@localhost:5432/chirp_cms tsx scripts/migrate-all-direct-sql.ts",
     "migrate:remaining": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts DATABASE_URI=postgresql://chirp:chirp_dev_password@localhost:5432/chirp_cms tsx scripts/migrate-remaining-collections.ts",
     "migrate:media": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts DATABASE_URI=postgresql://chirp:chirp_dev_password@localhost:5432/chirp_cms tsx scripts/migrate-media.ts",
+    "migrate:to-rds": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/migrate-to-aws-rds.ts",
+    "migrate:to-rds-api": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/migrate-payload-api.ts",
+    "migrate:fix-remaining": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/fix-and-migrate-remaining.ts",
+    "migrate:direct-sql": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/migrate-direct-to-postgres.ts",
     "backup": "bash scripts/backup.sh",
     "prepare": "husky"
   },

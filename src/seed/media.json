@@ -5,8 +5,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T06:03:54.686Z",
       "createdAt": "2025-11-02T06:03:54.686Z",
-      "url": "http://localhost:3000/api/media/file/black_chirp_shirt.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/black_chirp_shirt-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/black_chirp_shirt.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/black_chirp_shirt-400x300.jpg",
       "filename": "black_chirp_shirt.jpg",
       "mimeType": "image/jpeg",
       "filesize": 55752,
@@ -16,7 +16,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/black_chirp_shirt-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/black_chirp_shirt-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -24,7 +24,7 @@
           "filename": "black_chirp_shirt-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/black_chirp_shirt-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/black_chirp_shirt-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -46,8 +46,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T06:03:35.800Z",
       "createdAt": "2025-11-02T06:03:35.800Z",
-      "url": "http://localhost:3000/api/media/file/Red_CHIRP_shirt_3-1.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/Red_CHIRP_shirt_3-1-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Red_CHIRP_shirt_3-1.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Red_CHIRP_shirt_3-1-400x300.jpg",
       "filename": "Red_CHIRP_shirt_3-1.jpg",
       "mimeType": "image/jpeg",
       "filesize": 33409,
@@ -57,7 +57,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/Red_CHIRP_shirt_3-1-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Red_CHIRP_shirt_3-1-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -65,7 +65,7 @@
           "filename": "Red_CHIRP_shirt_3-1-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/Red_CHIRP_shirt_3-1-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Red_CHIRP_shirt_3-1-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -87,8 +87,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T06:03:11.372Z",
       "createdAt": "2025-11-02T06:03:11.372Z",
-      "url": "http://localhost:3000/api/media/file/chirp_sandcastles01-1.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/chirp_sandcastles01-1-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles01-1.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles01-1-400x300.jpg",
       "filename": "chirp_sandcastles01-1.jpg",
       "mimeType": "image/jpeg",
       "filesize": 486422,
@@ -98,7 +98,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles01-1-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles01-1-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -106,7 +106,7 @@
           "filename": "chirp_sandcastles01-1-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles01-1-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles01-1-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -114,7 +114,7 @@
           "filename": "chirp_sandcastles01-1-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles01-1-1200x1318.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles01-1-1200x1318.jpg",
           "width": 1200,
           "height": 1318,
           "mimeType": "image/jpeg",
@@ -128,8 +128,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T06:02:06.985Z",
       "createdAt": "2025-11-02T06:02:06.985Z",
-      "url": "http://localhost:3000/api/media/file/20180227-CHIRP-RF-poster-2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/20180227-CHIRP-RF-poster-2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/20180227-CHIRP-RF-poster-2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/20180227-CHIRP-RF-poster-2-400x300.jpg",
       "filename": "20180227-CHIRP-RF-poster-2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 197327,
@@ -139,7 +139,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/20180227-CHIRP-RF-poster-2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/20180227-CHIRP-RF-poster-2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -147,7 +147,7 @@
           "filename": "20180227-CHIRP-RF-poster-2-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/20180227-CHIRP-RF-poster-2-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/20180227-CHIRP-RF-poster-2-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -169,8 +169,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T06:00:05.877Z",
       "createdAt": "2025-11-02T06:00:05.877Z",
-      "url": "http://localhost:3000/api/media/file/baby_onesie_1.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/baby_onesie_1-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_1.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_1-400x300.jpg",
       "filename": "baby_onesie_1.jpg",
       "mimeType": "image/jpeg",
       "filesize": 1150192,
@@ -180,7 +180,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_1-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_1-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -188,7 +188,7 @@
           "filename": "baby_onesie_1-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_1-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_1-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -196,7 +196,7 @@
           "filename": "baby_onesie_1-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_1-1200x1600.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_1-1200x1600.jpg",
           "width": 1200,
           "height": 1600,
           "mimeType": "image/jpeg",
@@ -210,8 +210,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T05:59:43.437Z",
       "createdAt": "2025-11-02T05:59:43.437Z",
-      "url": "http://localhost:3000/api/media/file/baby_onesie_3.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/baby_onesie_3-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_3.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_3-400x300.jpg",
       "filename": "baby_onesie_3.jpg",
       "mimeType": "image/jpeg",
       "filesize": 528562,
@@ -221,7 +221,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_3-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_3-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -229,7 +229,7 @@
           "filename": "baby_onesie_3-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_3-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_3-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -237,7 +237,7 @@
           "filename": "baby_onesie_3-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_3-1200x1369.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_3-1200x1369.jpg",
           "width": 1200,
           "height": 1369,
           "mimeType": "image/jpeg",
@@ -251,8 +251,8 @@
       "alt": null,
       "updatedAt": "2025-11-02T05:59:31.933Z",
       "createdAt": "2025-11-02T05:59:31.933Z",
-      "url": "http://localhost:3000/api/media/file/baby_onesie_2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/baby_onesie_2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_2-400x300.jpg",
       "filename": "baby_onesie_2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 20705,
@@ -262,7 +262,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/baby_onesie_2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/baby_onesie_2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -292,8 +292,8 @@
       "alt": "CHIRP Sandcastle Toddler T-Shirt product image",
       "updatedAt": "2025-11-02T06:02:58.156Z",
       "createdAt": "2025-11-02T05:53:25.574Z",
-      "url": "http://localhost:3000/api/media/file/chirp_sandcastles02.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/chirp_sandcastles02-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles02.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles02-400x300.jpg",
       "filename": "chirp_sandcastles02.jpg",
       "mimeType": "image/jpeg",
       "filesize": 433878,
@@ -303,7 +303,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles02-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles02-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -311,7 +311,7 @@
           "filename": "chirp_sandcastles02-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles02-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles02-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -319,7 +319,7 @@
           "filename": "chirp_sandcastles02-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/chirp_sandcastles02-1200x1600.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp_sandcastles02-1200x1600.jpg",
           "width": 1200,
           "height": 1600,
           "mimeType": "image/jpeg",
@@ -333,8 +333,8 @@
       "alt": "CHIRP Record Fair 2017 Poster product image",
       "updatedAt": "2025-11-02T06:02:31.079Z",
       "createdAt": "2025-11-02T05:53:24.791Z",
-      "url": "http://localhost:3000/api/media/file/RF_poster_2017_-_2-2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/RF_poster_2017_-_2-2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2-2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2-2-400x300.jpg",
       "filename": "RF_poster_2017_-_2-2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 715323,
@@ -344,7 +344,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/RF_poster_2017_-_2-2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2-2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -352,7 +352,7 @@
           "filename": "RF_poster_2017_-_2-2-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/RF_poster_2017_-_2-2-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2-2-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -360,7 +360,7 @@
           "filename": "RF_poster_2017_-_2-2-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/RF_poster_2017_-_2-2-1200x1600.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/RF_poster_2017_-_2-2-1200x1600.jpg",
           "width": 1200,
           "height": 1600,
           "mimeType": "image/jpeg",
@@ -374,8 +374,8 @@
       "alt": "CHIRP Record Fair 2019 Poster product image",
       "updatedAt": "2025-11-02T06:01:37.679Z",
       "createdAt": "2025-11-02T05:53:24.284Z",
-      "url": "http://localhost:3000/api/media/file/CHiRP2019_Poster_11x17-2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/CHiRP2019_Poster_11x17-2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHiRP2019_Poster_11x17-2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHiRP2019_Poster_11x17-2-400x300.jpg",
       "filename": "CHiRP2019_Poster_11x17-2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 153266,
@@ -385,7 +385,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/CHiRP2019_Poster_11x17-2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHiRP2019_Poster_11x17-2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -393,7 +393,7 @@
           "filename": "CHiRP2019_Poster_11x17-2-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/CHiRP2019_Poster_11x17-2-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHiRP2019_Poster_11x17-2-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -415,8 +415,8 @@
       "alt": "CHIRP Record Fair 2015 poster product image",
       "updatedAt": "2025-11-02T06:01:09.072Z",
       "createdAt": "2025-11-02T05:53:24.097Z",
-      "url": "http://localhost:3000/api/media/file/Record_Fair_2015-2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/Record_Fair_2015-2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015-2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015-2-400x300.jpg",
       "filename": "Record_Fair_2015-2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 319975,
@@ -426,7 +426,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/Record_Fair_2015-2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015-2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -434,7 +434,7 @@
           "filename": "Record_Fair_2015-2-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/Record_Fair_2015-2-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015-2-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -442,7 +442,7 @@
           "filename": "Record_Fair_2015-2-800x400.jpg"
         },
         "large": {
-          "url": "http://localhost:3000/api/media/file/Record_Fair_2015-2-1200x1600.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/Record_Fair_2015-2-1200x1600.jpg",
           "width": 1200,
           "height": 1600,
           "mimeType": "image/jpeg",
@@ -456,8 +456,8 @@
       "alt": "CHIRP 2013 Poster product image",
       "updatedAt": "2025-11-02T06:00:34.862Z",
       "createdAt": "2025-11-02T05:53:23.856Z",
-      "url": "http://localhost:3000/api/media/file/CHIRP_spring_2013_design-2.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/CHIRP_spring_2013_design-2-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHIRP_spring_2013_design-2.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHIRP_spring_2013_design-2-400x300.jpg",
       "filename": "CHIRP_spring_2013_design-2.jpg",
       "mimeType": "image/jpeg",
       "filesize": 75552,
@@ -467,7 +467,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/CHIRP_spring_2013_design-2-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHIRP_spring_2013_design-2-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -475,7 +475,7 @@
           "filename": "CHIRP_spring_2013_design-2-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/CHIRP_spring_2013_design-2-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/CHIRP_spring_2013_design-2-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",
@@ -497,8 +497,8 @@
       "alt": "Logo for Chicago’s Department of Cultural Affairs and Special Events, showing a blue square, a red six-pointed star, and the text “DCASE” with the full department name below.",
       "updatedAt": "2025-11-02T05:45:17.975Z",
       "createdAt": "2025-11-02T05:45:17.975Z",
-      "url": "http://localhost:3000/api/media/file/dcase.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/dcase-400x300.png",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/dcase.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/dcase-400x300.png",
       "filename": "dcase.jpg",
       "mimeType": "image/jpeg",
       "filesize": 37071,
@@ -508,7 +508,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/dcase-400x300.png",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/dcase-400x300.png",
           "width": 400,
           "height": 300,
           "mimeType": "image/png",
@@ -516,7 +516,7 @@
           "filename": "dcase-400x300.png"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/dcase-800x400.png",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/dcase-800x400.png",
           "width": 800,
           "height": 400,
           "mimeType": "image/png",
@@ -538,8 +538,8 @@
       "alt": "Logo with the words \"Illinois ARTS Council,\" with \"ARTS\" in large green letters and the other words in black.",
       "updatedAt": "2025-11-02T05:45:17.945Z",
       "createdAt": "2025-11-02T05:45:17.945Z",
-      "url": "http://localhost:3000/api/media/file/NEW%20IAC%20LOGO_Black_Green.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/NEW%20IAC%20LOGO_Black_Green-400x300.png",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/NEW%20IAC%20LOGO_Black_Green.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/NEW%20IAC%20LOGO_Black_Green-400x300.png",
       "filename": "NEW IAC LOGO_Black_Green.jpg",
       "mimeType": "image/jpeg",
       "filesize": 44094,
@@ -549,7 +549,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/NEW%20IAC%20LOGO_Black_Green-400x300.png",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/NEW%20IAC%20LOGO_Black_Green-400x300.png",
           "width": 400,
           "height": 300,
           "mimeType": "image/png",
@@ -557,7 +557,7 @@
           "filename": "NEW IAC LOGO_Black_Green-400x300.png"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/NEW%20IAC%20LOGO_Black_Green-800x400.png",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/NEW%20IAC%20LOGO_Black_Green-800x400.png",
           "width": 800,
           "height": 400,
           "mimeType": "image/png",
@@ -579,8 +579,8 @@
       "alt": "Dark background image with bold, distressed text reading \"THE FIRST TIME\" in large letters. The text evokes a mysterious and dramatic tone.",
       "updatedAt": "2025-11-02T05:45:17.913Z",
       "createdAt": "2025-11-02T05:45:17.913Z",
-      "url": "http://localhost:3000/api/media/file/FirstTimeLogo.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/FirstTimeLogo-400x300.png",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/FirstTimeLogo.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/FirstTimeLogo-400x300.png",
       "filename": "FirstTimeLogo.jpg",
       "mimeType": "image/jpeg",
       "filesize": 8134,
@@ -590,7 +590,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/FirstTimeLogo-400x300.png",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/FirstTimeLogo-400x300.png",
           "width": 400,
           "height": 300,
           "mimeType": "image/png",
@@ -620,8 +620,8 @@
       "alt": "Banner for the Chirp Music Film Festival. White text on a gray background with 'FILM' highlighted in red paint. Filmstrip border adds a cinematic feel.",
       "updatedAt": "2025-11-02T05:45:17.862Z",
       "createdAt": "2025-11-02T05:45:17.862Z",
-      "url": "http://localhost:3000/api/media/file/chirp-film-fest-1.jpg",
-      "thumbnailURL": "http://localhost:3000/api/media/file/chirp-film-fest-1-400x300.jpg",
+      "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp-film-fest-1.jpg",
+      "thumbnailURL": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp-film-fest-1-400x300.jpg",
       "filename": "chirp-film-fest-1.jpg",
       "mimeType": "image/jpeg",
       "filesize": 44154,
@@ -631,7 +631,7 @@
       "focalY": 50,
       "sizes": {
         "thumbnail": {
-          "url": "http://localhost:3000/api/media/file/chirp-film-fest-1-400x300.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp-film-fest-1-400x300.jpg",
           "width": 400,
           "height": 300,
           "mimeType": "image/jpeg",
@@ -639,7 +639,7 @@
           "filename": "chirp-film-fest-1-400x300.jpg"
         },
         "card": {
-          "url": "http://localhost:3000/api/media/file/chirp-film-fest-1-800x400.jpg",
+          "url": "https://amz-s3-chirp-bucket.s3.us-east-2.amazonaws.com/media/chirp-film-fest-1-800x400.jpg",
           "width": 800,
           "height": 400,
           "mimeType": "image/jpeg",

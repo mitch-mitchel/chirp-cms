@@ -16,12 +16,18 @@ export const Articles: CollectionConfig = {
     livePreview: {
       url: ({ data }) => {
         // Use existing slug or generate from title for preview
-        const slug = data.slug || data.title?.toLowerCase()
-          .replace(/[^\w\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-')
-          .replace(/^-+|-+$/g, '')
-        return `http://localhost:5173/articles/${slug || 'preview'}`
+        const slug =
+          data.slug ||
+          data.title
+            ?.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '')
+        const frontendUrl =
+          process.env.FRONTEND_URL ||
+          'http://chirp-radio-alb-1362747273.us-east-1.elb.amazonaws.com'
+        return `${frontendUrl}/articles/${slug || 'preview'}`
       },
     },
   },
@@ -127,7 +133,8 @@ export const Articles: CollectionConfig = {
       name: 'youtubeVideoId',
       type: 'text',
       admin: {
-        description: 'YouTube video ID or full URL (e.g., rXeaPSu1JFY or https://www.youtube.com/watch?v=rXeaPSu1JFY)',
+        description:
+          'YouTube video ID or full URL (e.g., rXeaPSu1JFY or https://www.youtube.com/watch?v=rXeaPSu1JFY)',
       },
       hooks: {
         beforeChange: [
@@ -137,7 +144,7 @@ export const Articles: CollectionConfig = {
             // Extract video ID from various YouTube URL formats
             const patterns = [
               /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\s?]+)/,
-              /^([a-zA-Z0-9_-]{11})$/ // Direct video ID format
+              /^([a-zA-Z0-9_-]{11})$/, // Direct video ID format
             ]
 
             for (const pattern of patterns) {
@@ -148,9 +155,9 @@ export const Articles: CollectionConfig = {
             }
 
             return value
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
     {
       name: 'tags',

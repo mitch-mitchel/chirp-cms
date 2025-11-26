@@ -53,6 +53,10 @@
         {
           "name": "FRONTEND_URL",
           "value": "${FRONTEND_URL}"
+        },
+        {
+          "name": "WEBHOOK_URL",
+          "value": "http://chirp-radio-frontend.local/api/webhook"
         }
       ],
       "secrets": [

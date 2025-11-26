@@ -27,7 +27,7 @@ if ! docker info > /dev/null 2>&1; then
 fi
 
 # Get AWS Account ID
-ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+ACCOUNT_ID=$(aws sts get-caller-identity --profile sberardelli --query Account --output text)
 REPOSITORY_URI="$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPOSITORY_NAME"
 
 echo "Repository URI: $REPOSITORY_URI"
@@ -35,7 +35,7 @@ echo ""
 
 # Authenticate Docker to ECR
 echo "Authenticating to ECR..."
-aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
+aws ecr get-login-password --region $REGION --profile sberardelli | docker login --username AWS --password-stdin $REPOSITORY_URI
 echo "✓ Authenticated to ECR"
 echo ""
 
@@ -80,6 +80,7 @@ IMAGE_DIGEST=$(aws ecr describe-images \
     --repository-name $REPOSITORY_NAME \
     --image-ids imageTag=$IMAGE_TAG \
     --region $REGION \
+    --profile sberardelli \
     --query 'imageDetails[0].imageDigest' \
     --output text)
 

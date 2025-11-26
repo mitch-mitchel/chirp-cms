@@ -12,7 +12,8 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
     group: 'Website',
     preview: (doc) => {
-      return `http://localhost:5173/${doc.slug}`
+      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173'
+      return `${frontendUrl}/${doc.slug}`
     },
   },
   access: {
@@ -65,7 +66,8 @@ export const Pages: CollectionConfig = {
       name: 'excerpt',
       type: 'textarea',
       admin: {
-        description: 'Brief page summary used for SEO meta description and social media previews (recommended 150-160 characters)',
+        description:
+          'Brief page summary used for SEO meta description and social media previews (recommended 150-160 characters)',
       },
     },
     {
@@ -241,7 +243,8 @@ export const Pages: CollectionConfig = {
       max: 60,
       admin: {
         position: 'sidebar',
-        description: 'Number of minutes users must wait between song requests to prevent spam. Set to 0 to disable cooldown.',
+        description:
+          'Number of minutes users must wait between song requests to prevent spam. Set to 0 to disable cooldown.',
         condition: (data) => data.slug === 'request-song',
       },
     },
@@ -252,7 +255,8 @@ export const Pages: CollectionConfig = {
       defaultValue: 'You can submit another request in {minutes} minutes.',
       admin: {
         position: 'sidebar',
-        description: 'Message shown to users during cooldown period. Use {minutes} as placeholder for remaining time.',
+        description:
+          'Message shown to users during cooldown period. Use {minutes} as placeholder for remaining time.',
         condition: (data) => data.slug === 'request-song',
       },
     },
