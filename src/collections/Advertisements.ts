@@ -11,7 +11,12 @@ export const Advertisements: CollectionConfig = {
     defaultColumns: ['name', 'size', 'contentType', 'isActive', 'updatedAt'],
     group: 'Content Assets',
     livePreview: {
-      url: ({ data }) => `http://localhost:5173/preview/advertisement/${data.id}`,
+      url: ({ data }) => {
+        const frontendUrl =
+          process.env.FRONTEND_URL ||
+          'http://chirp-radio-alb-1362747273.us-east-1.elb.amazonaws.com'
+        return `${frontendUrl}/preview/advertisement/${data.id}`
+      },
     },
   },
   access: {

@@ -54,12 +54,12 @@ if ! command -v aws &> /dev/null; then
     exit 1
 fi
 
-if ! aws sts get-caller-identity &> /dev/null; then
+if ! aws sts get-caller-identity --profile sberardelli &> /dev/null; then
     log_error "AWS credentials not configured"
     exit 1
 fi
 
-ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+ACCOUNT_ID=$(aws sts get-caller-identity --profile sberardelli --query Account --output text)
 log_info "AWS Account ID: $ACCOUNT_ID"
 
 # ================================
@@ -71,7 +71,7 @@ echo "-------------------------------------------"
 
 if [ "$USE_DEFAULT_VPC" = "true" ]; then
     log_info "Using default VPC..."
-    VPC_ID=$(aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --query "Vpcs[0].VpcId" --output text --region $REGION)
+    VPC_ID=$(aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --query "Vpcs[0].VpcId" --output text --region $REGION --profile sberardelli)
 
     if [ "$VPC_ID" = "None" ]; then
         log_error "No default VPC found. Set USE_DEFAULT_VPC=false to create a new VPC"
@@ -81,7 +81,7 @@ if [ "$USE_DEFAULT_VPC" = "true" ]; then
     log_success "Default VPC: $VPC_ID"
 
     # Get default subnets
-    SUBNETS=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC_ID" --query "Subnets[*].SubnetId" --output text --region $REGION)
+    SUBNETS=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC_ID" --query "Subnets[*].SubnetId" --output text --region $REGION --profile sberardelli)
     SUBNET_1=$(echo $SUBNETS | awk '{print $1}')
     SUBNET_2=$(echo $SUBNETS | awk '{print $2}')
 
@@ -108,13 +108,15 @@ ALB_SG_ID=$(aws ec2 create-security-group \
     --description "Security group for CHIRP CMS ALB" \
     --vpc-id $VPC_ID \
     --region $REGION \
+    --profile sberardelli \
     --query 'GroupId' \
     --output text 2>/dev/null || \
     aws ec2 describe-security-groups \
         --filters "Name=group-name,Values=${PROJECT_NAME}-alb-sg" "Name=vpc-id,Values=$VPC_ID" \
         --query 'SecurityGroups[0].GroupId' \
         --output text \
-        --region $REGION)
+        --region $REGION \
+        --profile sberardelli)
 
 # Allow HTTP and HTTPS to ALB
 aws ec2 authorize-security-group-ingress \
@@ -122,14 +124,16 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port 80 \
     --cidr 0.0.0.0/0 \
-    --region $REGION 2>/dev/null || true
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || true
 
 aws ec2 authorize-security-group-ingress \
     --group-id $ALB_SG_ID \
     --protocol tcp \
     --port 443 \
     --cidr 0.0.0.0/0 \
-    --region $REGION 2>/dev/null || true
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || true
 
 log_success "ALB Security Group: $ALB_SG_ID"
 
@@ -140,13 +144,15 @@ ECS_SG_ID=$(aws ec2 create-security-group \
     --description "Security group for CHIRP CMS ECS tasks" \
     --vpc-id $VPC_ID \
     --region $REGION \
+    --profile sberardelli \
     --query 'GroupId' \
     --output text 2>/dev/null || \
     aws ec2 describe-security-groups \
         --filters "Name=group-name,Values=${PROJECT_NAME}-ecs-sg" "Name=vpc-id,Values=$VPC_ID" \
         --query 'SecurityGroups[0].GroupId' \
         --output text \
-        --region $REGION)
+        --region $REGION \
+        --profile sberardelli)
 
 # Allow traffic from ALB to ECS on port 3000
 aws ec2 authorize-security-group-ingress \
@@ -154,7 +160,8 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port 3000 \
     --source-group $ALB_SG_ID \
-    --region $REGION 2>/dev/null || true
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || true
 
 log_success "ECS Security Group: $ECS_SG_ID"
 
@@ -165,13 +172,15 @@ RDS_SG_ID=$(aws ec2 create-security-group \
     --description "Security group for CHIRP CMS RDS" \
     --vpc-id $VPC_ID \
     --region $REGION \
+    --profile sberardelli \
     --query 'GroupId' \
     --output text 2>/dev/null || \
     aws ec2 describe-security-groups \
         --filters "Name=group-name,Values=${PROJECT_NAME}-rds-sg" "Name=vpc-id,Values=$VPC_ID" \
         --query 'SecurityGroups[0].GroupId' \
         --output text \
-        --region $REGION)
+        --region $REGION \
+        --profile sberardelli)
 
 # Allow PostgreSQL from ECS
 aws ec2 authorize-security-group-ingress \
@@ -179,7 +188,8 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port 5432 \
     --source-group $ECS_SG_ID \
-    --region $REGION 2>/dev/null || true
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || true
 
 log_success "RDS Security Group: $RDS_SG_ID"
 
@@ -190,13 +200,15 @@ EFS_SG_ID=$(aws ec2 create-security-group \
     --description "Security group for CHIRP CMS EFS" \
     --vpc-id $VPC_ID \
     --region $REGION \
+    --profile sberardelli \
     --query 'GroupId' \
     --output text 2>/dev/null || \
     aws ec2 describe-security-groups \
         --filters "Name=group-name,Values=${PROJECT_NAME}-efs-sg" "Name=vpc-id,Values=$VPC_ID" \
         --query 'SecurityGroups[0].GroupId' \
         --output text \
-        --region $REGION)
+        --region $REGION \
+        --profile sberardelli)
 
 # Allow NFS from ECS
 aws ec2 authorize-security-group-ingress \
@@ -204,7 +216,8 @@ aws ec2 authorize-security-group-ingress \
     --protocol tcp \
     --port 2049 \
     --source-group $ECS_SG_ID \
-    --region $REGION 2>/dev/null || true
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || true
 
 log_success "EFS Security Group: $EFS_SG_ID"
 
@@ -224,7 +237,8 @@ aws rds create-db-subnet-group \
     --db-subnet-group-name "${PROJECT_NAME}-db-subnet-group" \
     --db-subnet-group-description "Subnet group for CHIRP CMS database" \
     --subnet-ids $SUBNET_1 $SUBNET_2 \
-    --region $REGION 2>/dev/null || log_info "DB subnet group already exists"
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || log_info "DB subnet group already exists"
 
 # Create RDS instance
 log_info "Creating RDS PostgreSQL instance (this takes 5-10 minutes)..."
@@ -244,21 +258,24 @@ aws rds create-db-instance \
     --db-subnet-group-name "${PROJECT_NAME}-db-subnet-group" \
     --backup-retention-period 7 \
     --no-publicly-accessible \
-    --region $REGION 2>/dev/null || log_info "RDS instance already exists"
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || log_info "RDS instance already exists"
 
 log_info "Waiting for RDS instance to be available..."
 aws rds wait db-instance-available \
     --db-instance-identifier $DB_INSTANCE_ID \
-    --region $REGION
+    --region $REGION \
+    --profile sberardelli
 
 # Get RDS endpoint
 DB_ENDPOINT=$(aws rds describe-db-instances \
     --db-instance-identifier $DB_INSTANCE_ID \
     --query 'DBInstances[0].Endpoint.Address' \
     --output text \
-    --region $REGION)
+    --region $REGION \
+    --profile sberardelli)
 
-DATABASE_URI="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_ENDPOINT}:5432/${DB_NAME}"
+DATABASE_URI="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_ENDPOINT}:5432/${DB_NAME}?sslmode=no-verify"
 
 log_success "RDS Database created: $DB_ENDPOINT"
 
@@ -267,11 +284,13 @@ log_info "Storing database credentials in Secrets Manager..."
 aws secretsmanager create-secret \
     --name "${PROJECT_NAME}/database-password" \
     --secret-string "$DB_PASSWORD" \
-    --region $REGION 2>/dev/null || \
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || \
     aws secretsmanager update-secret \
         --secret-id "${PROJECT_NAME}/database-password" \
         --secret-string "$DB_PASSWORD" \
-        --region $REGION
+        --region $REGION \
+        --profile sberardelli
 
 log_success "Database password stored in Secrets Manager"
 
@@ -289,10 +308,12 @@ EFS_ID=$(aws efs create-file-system \
     --encrypted \
     --tags Key=Name,Value="${PROJECT_NAME}-media-storage" \
     --region $REGION \
+    --profile sberardelli \
     --query 'FileSystemId' \
     --output text 2>/dev/null || \
     aws efs describe-file-systems \
         --region $REGION \
+        --profile sberardelli \
         --query "FileSystems[?Tags[?Key=='Name' && Value=='${PROJECT_NAME}-media-storage']].FileSystemId" \
         --output text | head -1)
 
@@ -302,7 +323,8 @@ log_success "EFS File System: $EFS_ID"
 log_info "Waiting for EFS to be available..."
 aws efs describe-file-systems \
     --file-system-id $EFS_ID \
-    --region $REGION > /dev/null
+    --region $REGION \
+    --profile sberardelli > /dev/null
 
 # Create mount targets
 log_info "Creating EFS mount targets..."
@@ -311,7 +333,8 @@ for SUBNET in $SUBNET_1 $SUBNET_2; do
         --file-system-id $EFS_ID \
         --subnet-id $SUBNET \
         --security-groups $EFS_SG_ID \
-        --region $REGION 2>/dev/null || log_info "Mount target already exists for $SUBNET"
+        --region $REGION \
+        --profile sberardelli 2>/dev/null || log_info "Mount target already exists for $SUBNET"
 done
 
 log_success "EFS mount targets created"
@@ -332,11 +355,13 @@ ALB_ARN=$(aws elbv2 create-load-balancer \
     --type application \
     --ip-address-type ipv4 \
     --region $REGION \
+    --profile sberardelli \
     --query 'LoadBalancers[0].LoadBalancerArn' \
     --output text 2>/dev/null || \
     aws elbv2 describe-load-balancers \
         --names "${PROJECT_NAME}-alb" \
         --region $REGION \
+        --profile sberardelli \
         --query 'LoadBalancers[0].LoadBalancerArn' \
         --output text)
 
@@ -344,7 +369,8 @@ ALB_DNS=$(aws elbv2 describe-load-balancers \
     --load-balancer-arns $ALB_ARN \
     --query 'LoadBalancers[0].DNSName' \
     --output text \
-    --region $REGION)
+    --region $REGION \
+    --profile sberardelli)
 
 log_success "ALB created: $ALB_DNS"
 
@@ -363,11 +389,13 @@ TG_ARN=$(aws elbv2 create-target-group \
     --healthy-threshold-count 2 \
     --unhealthy-threshold-count 3 \
     --region $REGION \
+    --profile sberardelli \
     --query 'TargetGroups[0].TargetGroupArn' \
     --output text 2>/dev/null || \
     aws elbv2 describe-target-groups \
         --names "${PROJECT_NAME}-tg" \
         --region $REGION \
+        --profile sberardelli \
         --query 'TargetGroups[0].TargetGroupArn' \
         --output text)
 
@@ -380,7 +408,8 @@ aws elbv2 create-listener \
     --protocol HTTP \
     --port 80 \
     --default-actions Type=forward,TargetGroupArn=$TG_ARN \
-    --region $REGION 2>/dev/null || log_info "Listener already exists"
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || log_info "Listener already exists"
 
 log_success "ALB listener created"
 
@@ -411,11 +440,59 @@ EOF
 EXECUTION_ROLE_NAME="${PROJECT_NAME}-ecs-execution-role"
 aws iam create-role \
     --role-name $EXECUTION_ROLE_NAME \
-    --assume-role-policy-document file:///tmp/ecs-trust-policy.json 2>/dev/null || log_info "Execution role already exists"
+    --assume-role-policy-document file:///tmp/ecs-trust-policy.json \
+    --profile sberardelli 2>/dev/null || log_info "Execution role already exists"
 
 aws iam attach-role-policy \
     --role-name $EXECUTION_ROLE_NAME \
-    --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy 2>/dev/null || true
+    --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy \
+    --profile sberardelli 2>/dev/null || true
+
+# Add Secrets Manager access to execution role
+cat > /tmp/execution-secrets-policy.json <<EXECEOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "arn:aws:secretsmanager:${REGION}:${ACCOUNT_ID}:secret:${PROJECT_NAME}/*"
+    }
+  ]
+}
+EXECEOF
+
+aws iam put-role-policy \
+    --role-name $EXECUTION_ROLE_NAME \
+    --policy-name SecretsManagerAccess \
+    --policy-document file:///tmp/execution-secrets-policy.json \
+    --profile sberardelli 2>/dev/null || true
+
+# Add CloudWatch Logs access to execution role
+cat > /tmp/execution-logs-policy.json <<LOGSEOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:${REGION}:${ACCOUNT_ID}:log-group:/ecs/${PROJECT_NAME}:*"
+    }
+  ]
+}
+LOGSEOF
+
+aws iam put-role-policy \
+    --role-name $EXECUTION_ROLE_NAME \
+    --policy-name CloudWatchLogsAccess \
+    --policy-document file:///tmp/execution-logs-policy.json \
+    --profile sberardelli 2>/dev/null || true
 
 EXECUTION_ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/${EXECUTION_ROLE_NAME}"
 log_success "Execution Role: $EXECUTION_ROLE_ARN"
@@ -424,7 +501,8 @@ log_success "Execution Role: $EXECUTION_ROLE_ARN"
 TASK_ROLE_NAME="${PROJECT_NAME}-ecs-task-role"
 aws iam create-role \
     --role-name $TASK_ROLE_NAME \
-    --assume-role-policy-document file:///tmp/ecs-trust-policy.json 2>/dev/null || log_info "Task role already exists"
+    --assume-role-policy-document file:///tmp/ecs-trust-policy.json \
+    --profile sberardelli 2>/dev/null || log_info "Task role already exists"
 
 # Policy for accessing Secrets Manager
 cat > /tmp/task-policy.json <<EOF
@@ -445,7 +523,8 @@ EOF
 aws iam put-role-policy \
     --role-name $TASK_ROLE_NAME \
     --policy-name SecretsManagerAccess \
-    --policy-document file:///tmp/task-policy.json 2>/dev/null || true
+    --policy-document file:///tmp/task-policy.json \
+    --profile sberardelli 2>/dev/null || true
 
 TASK_ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/${TASK_ROLE_NAME}"
 log_success "Task Role: $TASK_ROLE_ARN"
@@ -474,7 +553,7 @@ echo "DATABASE_URI=$DATABASE_URI"
 echo ""
 
 # Save configuration to file
-cat > aws-deployment/infrastructure-config.env <<EOF
+cat > ../infrastructure-config.env <<EOF
 # AWS Infrastructure Configuration
 # Generated on $(date)
 
@@ -504,7 +583,7 @@ DB_USERNAME=$DB_USERNAME
 DB_NAME=$DB_NAME
 EOF
 
-log_success "Configuration saved to: aws-deployment/infrastructure-config.env"
+log_success "Configuration saved to: ../infrastructure-config.env"
 echo ""
 echo "Next steps:"
 echo "1. Review the configuration file"

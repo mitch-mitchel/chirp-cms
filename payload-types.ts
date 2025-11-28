@@ -59,347 +59,340 @@ export type SupportedTimezones =
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
   | 'Pacific/Auckland'
-  | 'Pacific/Fiji'
+  | 'Pacific/Fiji';
 
 export interface Config {
   auth: {
-    users: UserAuthOperations
-    listeners: ListenerAuthOperations
-  }
-  blocks: {}
+    users: UserAuthOperations;
+    listeners: ListenerAuthOperations;
+  };
+  blocks: {};
   collections: {
-    users: User
-    listeners: Listener
-    showSchedules: ShowSchedule
-    articles: Article
-    events: Event
-    podcasts: Podcast
-    shopItems: ShopItem
-    weeklyCharts: WeeklyChart
-    volunteerCalendar: VolunteerCalendar
-    categories: Category
-    venues: Venue
-    announcements: Announcement
-    advertisements: Advertisement
-    ageGate: AgeGate
-    media: Media
-    'player-fallback-images': PlayerFallbackImage
-    donations: Donation
-    purchases: Purchase
-    pages: Page
-    mobilePageContent: MobilePageContent
-    onboarding: Onboarding
-    redirects: Redirect
-    'payload-locked-documents': PayloadLockedDocument
-    'payload-preferences': PayloadPreference
-    'payload-migrations': PayloadMigration
-  }
-  collectionsJoins: {}
+    users: User;
+    listeners: Listener;
+    showSchedules: ShowSchedule;
+    articles: Article;
+    events: Event;
+    podcasts: Podcast;
+    shopItems: ShopItem;
+    weeklyCharts: WeeklyChart;
+    volunteerCalendar: VolunteerCalendar;
+    categories: Category;
+    venues: Venue;
+    announcements: Announcement;
+    advertisements: Advertisement;
+    ageGate: AgeGate;
+    media: Media;
+    'player-fallback-images': PlayerFallbackImage;
+    donations: Donation;
+    purchases: Purchase;
+    pages: Page;
+    mobilePageContent: MobilePageContent;
+    onboarding: Onboarding;
+    'tracks-played': TracksPlayed;
+    redirects: Redirect;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
+  };
+  collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>
-    listeners: ListenersSelect<false> | ListenersSelect<true>
-    showSchedules: ShowSchedulesSelect<false> | ShowSchedulesSelect<true>
-    articles: ArticlesSelect<false> | ArticlesSelect<true>
-    events: EventsSelect<false> | EventsSelect<true>
-    podcasts: PodcastsSelect<false> | PodcastsSelect<true>
-    shopItems: ShopItemsSelect<false> | ShopItemsSelect<true>
-    weeklyCharts: WeeklyChartsSelect<false> | WeeklyChartsSelect<true>
-    volunteerCalendar: VolunteerCalendarSelect<false> | VolunteerCalendarSelect<true>
-    categories: CategoriesSelect<false> | CategoriesSelect<true>
-    venues: VenuesSelect<false> | VenuesSelect<true>
-    announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>
-    advertisements: AdvertisementsSelect<false> | AdvertisementsSelect<true>
-    ageGate: AgeGateSelect<false> | AgeGateSelect<true>
-    media: MediaSelect<false> | MediaSelect<true>
-    'player-fallback-images': PlayerFallbackImagesSelect<false> | PlayerFallbackImagesSelect<true>
-    donations: DonationsSelect<false> | DonationsSelect<true>
-    purchases: PurchasesSelect<false> | PurchasesSelect<true>
-    pages: PagesSelect<false> | PagesSelect<true>
-    mobilePageContent: MobilePageContentSelect<false> | MobilePageContentSelect<true>
-    onboarding: OnboardingSelect<false> | OnboardingSelect<true>
-    redirects: RedirectsSelect<false> | RedirectsSelect<true>
-    'payload-locked-documents':
-      | PayloadLockedDocumentsSelect<false>
-      | PayloadLockedDocumentsSelect<true>
-    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>
-    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>
-  }
+    users: UsersSelect<false> | UsersSelect<true>;
+    listeners: ListenersSelect<false> | ListenersSelect<true>;
+    showSchedules: ShowSchedulesSelect<false> | ShowSchedulesSelect<true>;
+    articles: ArticlesSelect<false> | ArticlesSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    podcasts: PodcastsSelect<false> | PodcastsSelect<true>;
+    shopItems: ShopItemsSelect<false> | ShopItemsSelect<true>;
+    weeklyCharts: WeeklyChartsSelect<false> | WeeklyChartsSelect<true>;
+    volunteerCalendar: VolunteerCalendarSelect<false> | VolunteerCalendarSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    venues: VenuesSelect<false> | VenuesSelect<true>;
+    announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
+    advertisements: AdvertisementsSelect<false> | AdvertisementsSelect<true>;
+    ageGate: AgeGateSelect<false> | AgeGateSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    'player-fallback-images': PlayerFallbackImagesSelect<false> | PlayerFallbackImagesSelect<true>;
+    donations: DonationsSelect<false> | DonationsSelect<true>;
+    purchases: PurchasesSelect<false> | PurchasesSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    mobilePageContent: MobilePageContentSelect<false> | MobilePageContentSelect<true>;
+    onboarding: OnboardingSelect<false> | OnboardingSelect<true>;
+    'tracks-played': TracksPlayedSelect<false> | TracksPlayedSelect<true>;
+    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
   db: {
-    defaultIDType: number
-  }
+    defaultIDType: number;
+  };
   globals: {
-    mobileAppSettings: MobileAppSetting
-    volunteerFormSettings: VolunteerFormSetting
-    siteSettings: SiteSetting
-  }
+    mobileAppSettings: MobileAppSetting;
+    volunteerFormSettings: VolunteerFormSetting;
+    siteSettings: SiteSetting;
+  };
   globalsSelect: {
-    mobileAppSettings: MobileAppSettingsSelect<false> | MobileAppSettingsSelect<true>
-    volunteerFormSettings: VolunteerFormSettingsSelect<false> | VolunteerFormSettingsSelect<true>
-    siteSettings: SiteSettingsSelect<false> | SiteSettingsSelect<true>
-  }
-  locale: null
+    mobileAppSettings: MobileAppSettingsSelect<false> | MobileAppSettingsSelect<true>;
+    volunteerFormSettings: VolunteerFormSettingsSelect<false> | VolunteerFormSettingsSelect<true>;
+    siteSettings: SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
+  locale: null;
   user:
     | (User & {
-        collection: 'users'
+        collection: 'users';
       })
     | (Listener & {
-        collection: 'listeners'
-      })
+        collection: 'listeners';
+      });
   jobs: {
-    tasks: unknown
-    workflows: unknown
-  }
+    tasks: unknown;
+    workflows: unknown;
+  };
 }
 export interface UserAuthOperations {
   forgotPassword: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   login: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   registerFirstUser: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   unlock: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
 }
 export interface ListenerAuthOperations {
   forgotPassword: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   login: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   registerFirstUser: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   unlock: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: number
-  name?: string | null
-  avatar?: (number | null) | Media
-  updatedAt: string
-  createdAt: string
-  email: string
-  resetPasswordToken?: string | null
-  resetPasswordExpiration?: string | null
-  salt?: string | null
-  hash?: string | null
-  loginAttempts?: number | null
-  lockUntil?: string | null
+  id: number;
+  name?: string | null;
+  avatar?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
   sessions?:
     | {
-        id: string
-        createdAt?: string | null
-        expiresAt: string
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
       }[]
-    | null
-  password?: string | null
+    | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
-  id: number
-  alt?: string | null
+  id: number;
+  alt?: string | null;
   /**
    * Organize media by category
    */
-  category:
-    | 'General'
-    | 'Member Profile Images'
-    | 'Articles'
-    | 'Events'
-    | 'Podcasts'
-    | 'Shop Items'
-    | 'Advertisements'
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
+  category: 'General' | 'Member Profile Images' | 'Articles' | 'Events' | 'Podcasts' | 'Shop Items' | 'Advertisements';
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
   sizes?: {
     thumbnail?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
     card?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
     large?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
-  }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "listeners".
  */
 export interface Listener {
-  id: number
-  displayTitle?: string | null
-  email: string
-  username?: string | null
-  firstName?: string | null
-  lastName?: string | null
-  memberSince?: string | null
+  id: number;
+  displayTitle?: string | null;
+  email: string;
+  username?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  memberSince?: string | null;
   /**
    * User roles - multiple roles can be selected
    */
-  roles: ('Listener' | 'Volunteer' | 'Regular DJ' | 'Substitute DJ' | 'Board Member')[]
+  roles: ('Listener' | 'Volunteer' | 'Regular DJ' | 'Substitute DJ' | 'Board Member')[];
   /**
    * Profile image (use CrImageCropper to create avatar)
    */
-  profileImage?: (number | null) | Media
-  profileImageOrientation?: ('square' | 'landscape' | 'portrait') | null
-  location?: string | null
+  profileImage?: (number | null) | Media;
+  profileImageOrientation?: ('square' | 'landscape' | 'portrait') | null;
+  location?: string | null;
   preferences?: {
-    emailNotifications?: boolean | null
-    showNotifications?: boolean | null
-    darkMode?: ('light' | 'dark' | 'device') | null
-    autoPlay?: boolean | null
-  }
+    emailNotifications?: boolean | null;
+    showNotifications?: boolean | null;
+    darkMode?: ('light' | 'dark' | 'device') | null;
+    autoPlay?: boolean | null;
+  };
   /**
    * Whether the user has completed the initial onboarding tour
    */
-  onboardingCompleted?: boolean | null
+  onboardingCompleted?: boolean | null;
   /**
    * User's saved music collection
    */
   collection?:
     | {
-        id: string
-        trackName: string
-        artistName: string
-        albumName?: string | null
-        labelName?: string | null
-        albumArt?: string | null
-        albumArtAlt?: string | null
-        isLocal?: boolean | null
-        dateAdded: string
+        id: string;
+        trackName: string;
+        artistName: string;
+        albumName?: string | null;
+        labelName?: string | null;
+        albumArt?: string | null;
+        albumArtAlt?: string | null;
+        isLocal?: boolean | null;
+        dateAdded: string;
       }[]
-    | null
+    | null;
   favoriteDJs?:
     | {
-        djId?: string | null
-        id?: string | null
+        djId?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Donor level based on total donations (e.g., Bronze, Silver, Gold)
    */
-  donorLevel?: string | null
+  donorLevel?: string | null;
   /**
    * Store purchases are managed in the Purchases collection. To view this member's purchase history, go to Collections > Purchases and filter by this member.
    */
-  _purchaseNote?: string | null
-  primaryPhoneType?: string | null
-  primaryPhone?: string | null
-  secondaryPhoneType?: string | null
-  secondaryPhone?: string | null
-  address?: string | null
-  city?: string | null
-  state?: string | null
-  zipCode?: string | null
-  age?: string | null
-  education?: string | null
-  employer?: string | null
+  _purchaseNote?: string | null;
+  primaryPhoneType?: string | null;
+  primaryPhone?: string | null;
+  secondaryPhoneType?: string | null;
+  secondaryPhone?: string | null;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zipCode?: string | null;
+  age?: string | null;
+  education?: string | null;
+  employer?: string | null;
   volunteerOrgs?:
     | {
-        org?: string | null
-        id?: string | null
+        org?: string | null;
+        id?: string | null;
       }[]
-    | null
-  hasRadioExperience?: string | null
-  radioStations?: string | null
+    | null;
+  hasRadioExperience?: string | null;
+  radioStations?: string | null;
   specialSkills?:
     | {
-        skill?: string | null
-        id?: string | null
+        skill?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   hearAboutChirp?:
     | {
-        source?: string | null
-        id?: string | null
+        source?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   interests?:
     | {
-        interest?: string | null
-        id?: string | null
+        interest?: string | null;
+        id?: string | null;
       }[]
-    | null
-  wantsToDJ?: string | null
+    | null;
+  wantsToDJ?: string | null;
   djAvailability?:
     | {
-        time?: string | null
-        id?: string | null
+        time?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   socialLinks?: {
-    facebook?: string | null
-    instagram?: string | null
-    twitter?: string | null
-    tiktok?: string | null
-    bluesky?: string | null
-    linkedin?: string | null
-  }
-  djName?: string | null
-  showName?: string | null
+    facebook?: string | null;
+    instagram?: string | null;
+    twitter?: string | null;
+    tiktok?: string | null;
+    bluesky?: string | null;
+    linkedin?: string | null;
+  };
+  djName?: string | null;
+  showName?: string | null;
   /**
    * Auto-populated from Show Schedules assignments
    */
-  showTime?: string | null
+  showTime?: string | null;
   /**
    * Short description for DJ cards and listings (1-2 sentences)
    */
-  djExcerpt?: string | null
+  djExcerpt?: string | null;
   /**
    * Full DJ biography shown on detailed DJ profile page
    */
-  djBio?: string | null
+  djBio?: string | null;
   /**
    * Optional donation link for the DJ
    */
-  djDonationLink?: string | null
+  djDonationLink?: string | null;
   /**
    * Auto-populated from Google Cloud Storage. Shows are automatically added when uploaded to GCS.
    */
@@ -408,368 +401,368 @@ export interface Listener {
         /**
          * Show title (e.g., "Morning Mix - March 15")
          */
-        title: string
+        title: string;
         /**
          * Date the show aired
          */
-        date: string
+        date: string;
         /**
          * Google Cloud Storage URL for the audio file
          */
-        audioUrl: string
+        audioUrl: string;
         /**
          * Show duration (e.g., "2:00:00")
          */
-        duration?: string | null
+        duration?: string | null;
         /**
          * Original GCS file name for reference
          */
-        gcsFileName?: string | null
-        id?: string | null
+        gcsFileName?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Only for Substitute DJs
    */
   substituteAvailability?:
     | {
-        time?: string | null
-        id?: string | null
+        time?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * DJs this substitute can fill in for
    */
   canSubstituteFor?:
     | {
-        djId?: string | null
-        id?: string | null
+        djId?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * e.g., President, Treasurer, Secretary
    */
-  boardPosition?: string | null
-  boardSince?: string | null
-  boardTermEnd?: string | null
-  updatedAt: string
-  createdAt: string
-  resetPasswordToken?: string | null
-  resetPasswordExpiration?: string | null
-  salt?: string | null
-  hash?: string | null
-  _verified?: boolean | null
-  _verificationToken?: string | null
-  loginAttempts?: number | null
-  lockUntil?: string | null
+  boardPosition?: string | null;
+  boardSince?: string | null;
+  boardTermEnd?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  _verified?: boolean | null;
+  _verificationToken?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
   sessions?:
     | {
-        id: string
-        createdAt?: string | null
-        expiresAt: string
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
       }[]
-    | null
-  password?: string | null
+    | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "showSchedules".
  */
 export interface ShowSchedule {
-  id: number
+  id: number;
   /**
    * Auto-generated title for this schedule slot
    */
-  title?: string | null
+  title?: string | null;
   /**
    * Day of the week for this show
    */
-  dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday'
+  dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   /**
    * Start time for this show
    */
-  startTime: string
+  startTime: string;
   /**
    * End time for this show
    */
-  endTime: string
+  endTime: string;
   /**
    * Check this for automated Music Mix slots (no DJ assignment needed)
    */
-  isMusicMix?: boolean | null
+  isMusicMix?: boolean | null;
   /**
    * DJ assigned to this time slot (not required for Music Mix)
    */
-  dj?: (number | null) | Listener
+  dj?: (number | null) | Listener;
   /**
    * Whether this show is currently active
    */
-  isActive?: boolean | null
+  isActive?: boolean | null;
   /**
    * Internal notes about this show slot
    */
-  notes?: string | null
+  notes?: string | null;
   /**
    * Order in which to display (lower numbers appear first)
    */
-  displayOrder?: number | null
-  updatedAt: string
-  createdAt: string
+  displayOrder?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "articles".
  */
 export interface Article {
-  id: number
-  category: number | Category
-  title: string
+  id: number;
+  category: number | Category;
+  title: string;
   /**
    * URL-friendly version of the title (auto-generated if empty)
    */
-  slug?: string | null
-  author: string
-  featuredImage?: (number | null) | Media
+  slug?: string | null;
+  author: string;
+  featuredImage?: (number | null) | Media;
   /**
    * Or provide external URL
    */
-  featuredImageUrl?: string | null
+  featuredImageUrl?: string | null;
   /**
    * Brief summary (max 200 characters)
    */
-  excerpt: string
+  excerpt: string;
   content: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  videoTitle?: string | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  videoTitle?: string | null;
   /**
    * YouTube video ID or full URL (e.g., rXeaPSu1JFY or https://www.youtube.com/watch?v=rXeaPSu1JFY)
    */
-  youtubeVideoId?: string | null
+  youtubeVideoId?: string | null;
   tags?:
     | {
-        tag?: string | null
-        id?: string | null
+        tag?: string | null;
+        id?: string | null;
       }[]
-    | null
-  publishedDate: string
-  updatedAt: string
-  createdAt: string
+    | null;
+  publishedDate: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {
-  id: number
-  name: string
-  updatedAt: string
-  createdAt: string
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events".
  */
 export interface Event {
-  id: number
+  id: number;
   /**
    * Select a category for this event
    */
-  category: number | Category
-  title: string
+  category: number | Category;
+  title: string;
   /**
    * URL-friendly version of the title (auto-generated if empty)
    */
-  slug?: string | null
+  slug?: string | null;
   /**
    * Brief summary (max 200 characters)
    */
-  excerpt: string
+  excerpt: string;
   content?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
-  featuredImage?: (number | null) | Media
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  featuredImage?: (number | null) | Media;
   /**
    * Or provide external URL
    */
-  featuredImageUrl?: string | null
+  featuredImageUrl?: string | null;
   /**
    * Display photo credit on the event page
    */
-  showPhotoCredit?: boolean | null
+  showPhotoCredit?: boolean | null;
   /**
    * Name of the photographer
    */
-  photographerName?: string | null
+  photographerName?: string | null;
   /**
    * Select a venue from the list
    */
-  venue: number | Venue
-  date: string
-  endDate?: string | null
-  featured?: boolean | null
+  venue: number | Venue;
+  date: string;
+  endDate?: string | null;
+  featured?: boolean | null;
   /**
    * Select age restriction if applicable
    */
-  ageRestriction?: (number | null) | AgeGate
-  updatedAt: string
-  createdAt: string
+  ageRestriction?: (number | null) | AgeGate;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "venues".
  */
 export interface Venue {
-  id: number
-  name: string
-  address?: string | null
-  city?: string | null
-  state?: string | null
-  zip?: string | null
-  phone?: string | null
-  website?: string | null
-  mapUrl?: string | null
-  updatedAt: string
-  createdAt: string
+  id: number;
+  name: string;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zip?: string | null;
+  phone?: string | null;
+  website?: string | null;
+  mapUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ageGate".
  */
 export interface AgeGate {
-  id: number
-  age: string
-  updatedAt: string
-  createdAt: string
+  id: number;
+  age: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "podcasts".
  */
 export interface Podcast {
-  id: number
+  id: number;
   /**
    * Select a category for this podcast
    */
-  category: number | Category
-  title: string
+  category: number | Category;
+  title: string;
   /**
    * URL-friendly version of the title (auto-generated if empty)
    */
-  slug?: string | null
+  slug?: string | null;
   /**
    * Brief summary (max 200 characters)
    */
-  excerpt: string
+  excerpt: string;
   content: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  host: string
-  coverArt?: (number | null) | Media
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  host: string;
+  coverArt?: (number | null) | Media;
   /**
    * Or provide external URL
    */
-  coverArtUrl?: string | null
+  coverArtUrl?: string | null;
   /**
    * SoundCloud embed URL
    */
-  soundCloudEmbedUrl?: string | null
-  pullQuote?: string | null
-  pullQuoteAttribution?: string | null
-  additionalInfo?: string | null
-  transcriptUrl?: string | null
+  soundCloudEmbedUrl?: string | null;
+  pullQuote?: string | null;
+  pullQuoteAttribution?: string | null;
+  additionalInfo?: string | null;
+  transcriptUrl?: string | null;
   tags?:
     | {
-        tag?: string | null
-        id?: string | null
+        tag?: string | null;
+        id?: string | null;
       }[]
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "shopItems".
  */
 export interface ShopItem {
-  id: number
+  id: number;
   /**
    * Product name
    */
-  name: string
+  name: string;
   /**
    * URL-friendly identifier (auto-generated from name)
    */
-  slug: string
+  slug: string;
   /**
    * Product description
    */
-  description: string
+  description: string;
   /**
    * Display type (e.g., Apparel, Poster, Merchandise)
    */
-  itemType?: string | null
+  itemType?: string | null;
   /**
    * Product category
    */
-  category: 'apparel' | 'accessories' | 'poster' | 'merchandise' | 'music' | 'other'
+  category: 'apparel' | 'accessories' | 'poster' | 'merchandise' | 'music' | 'other';
   /**
    * Price in USD
    */
-  price: number
+  price: number;
   /**
    * Product images (first image is the main image)
    */
   images?:
     | {
-        image: number | Media
+        image: number | Media;
         /**
          * Alt text for accessibility
          */
-        alt?: string | null
-        id?: string | null
+        alt?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * External image URL (if not using uploaded image)
    */
-  imageUrl?: string | null
+  imageUrl?: string | null;
   /**
    * Additional product images (external URLs)
    */
@@ -778,27 +771,27 @@ export interface ShopItem {
         /**
          * Additional image URL
          */
-        url: string
+        url: string;
         /**
          * Alt text for accessibility
          */
-        alt?: string | null
-        id?: string | null
+        alt?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Is this item currently in stock?
    */
-  inStock?: boolean | null
+  inStock?: boolean | null;
   /**
    * Available sizes (e.g., S, M, L, XL)
    */
   sizes?:
     | {
-        size: string
-        id?: string | null
+        size: string;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Product variants (colors, styles, etc.)
    */
@@ -807,67 +800,67 @@ export interface ShopItem {
         /**
          * Variant name (e.g., Color, Style)
          */
-        name: string
+        name: string;
         options: {
-          option: string
-          id?: string | null
-        }[]
-        id?: string | null
+          option: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * External purchase URL (if sold on another platform)
    */
-  externalUrl?: string | null
+  externalUrl?: string | null;
   /**
    * Feature this item on the shop homepage
    */
-  featured?: boolean | null
+  featured?: boolean | null;
   /**
    * Mark as sold out
    */
-  soldOut?: boolean | null
+  soldOut?: boolean | null;
   /**
    * Mark as limited edition
    */
-  limitedEdition?: boolean | null
+  limitedEdition?: boolean | null;
   /**
    * Display order (lower numbers appear first)
    */
-  displayOrder?: number | null
-  updatedAt: string
-  createdAt: string
+  displayOrder?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "weeklyCharts".
  */
 export interface WeeklyChart {
-  id: number
+  id: number;
   /**
    * Eyebrow text shown above the chart title on the Listen page (e.g., "Week of October 19, 2025" or "Chicago Local Artists")
    */
-  preheader?: string | null
+  preheader?: string | null;
   /**
    * Chart title (e.g., "Top 50", "Most Added", "This Week's Adds")
    */
-  title: string
+  title: string;
   /**
    * URL-friendly identifier (e.g., "top-50", "most-added"). Auto-generated from title if left blank.
    */
-  slug?: string | null
+  slug?: string | null;
   /**
    * Legacy field - no longer used
    */
-  listType?: string | null
+  listType?: string | null;
   /**
    * Upload a CSV file (format: Position,Artist,Track,Label). Click "Create New" to select and upload a file.
    */
-  csvFile?: (number | null) | Media
+  csvFile?: (number | null) | Media;
   /**
    * Paste CSV data here (format: Song,Artist,Label). Each line should be one item. This will populate the items below when you save.
    */
-  csvImport?: string | null
+  csvImport?: string | null;
   /**
    * Items for this list. Format: Song Name – Artist Name (Record Company)
    */
@@ -875,131 +868,131 @@ export interface WeeklyChart {
     /**
      * Song/track/album title
      */
-    songName: string
+    songName: string;
     /**
      * Artist name
      */
-    artistName: string
+    artistName: string;
     /**
      * Record label/company (use "self-released" if independent)
      */
-    recordCompany: string
-    id?: string | null
-  }[]
+    recordCompany: string;
+    id?: string | null;
+  }[];
   /**
    * Mark this as the current week's chart to display on the Listen page
    */
-  isCurrentWeek?: boolean | null
+  isCurrentWeek?: boolean | null;
   /**
    * Optional notes or highlights for this week
    */
-  notes?: string | null
+  notes?: string | null;
   /**
    * Position of the featured/highlighted track (optional)
    */
-  featuredTrack?: number | null
+  featuredTrack?: number | null;
   /**
    * Publish status
    */
-  status?: ('draft' | 'published') | null
-  updatedAt: string
-  createdAt: string
+  status?: ('draft' | 'published') | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "volunteerCalendar".
  */
 export interface VolunteerCalendar {
-  id: number
-  name: string
-  startDate: string
+  id: number;
+  name: string;
+  startDate: string;
   /**
    * Optional - leave blank if same as start date
    */
-  endDate?: string | null
+  endDate?: string | null;
   /**
    * Human-readable date and time (e.g., "Wednesday, October 15, 2025 at 6:00 PM")
    */
-  dateTime: string
+  dateTime: string;
   /**
    * Brief description of the event
    */
-  description: string
+  description: string;
   /**
    * Full address or virtual meeting info
    */
-  location: string
+  location: string;
   /**
    * Bullet points with additional event details
    */
   eventDetails?:
     | {
-        detail: string
-        id?: string | null
+        detail: string;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Optional link for more information
    */
-  moreInfoUrl?: string | null
-  updatedAt: string
-  createdAt: string
+  moreInfoUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "announcements".
  */
 export interface Announcement {
-  id: number
+  id: number;
   /**
    * Main headline for the announcement
    */
-  headlineText: string
+  headlineText: string;
   /**
    * Body content (supports rich text)
    */
   bodyText: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   /**
    * Display style of the announcement
    */
-  variant: 'donation' | 'motivation'
+  variant: 'donation' | 'motivation';
   textureBackground:
     | 'cr-bg-natural-a500'
     | 'cr-bg-natural-s100'
     | 'cr-bg-natural-s900'
     | 'cr-bg-natural-d100'
-    | 'cr-bg-natural-d900'
-  showLink?: boolean | null
+    | 'cr-bg-natural-d900';
+  showLink?: boolean | null;
   /**
    * Link text (e.g., "Donate Today!")
    */
-  linkText?: string | null
+  linkText?: string | null;
   /**
    * Link URL
    */
-  linkUrl?: string | null
+  linkUrl?: string | null;
   /**
    * Number of action buttons to display
    */
-  buttonCount?: ('none' | 'one' | 'two') | null
+  buttonCount?: ('none' | 'one' | 'two') | null;
   /**
    * First button text
    */
-  button1Text?: string | null
+  button1Text?: string | null;
   /**
    * First button icon
    */
@@ -1062,11 +1055,11 @@ export interface Announcement {
         | 'speaker'
         | 'mobile'
       )
-    | null
+    | null;
   /**
    * Second button text
    */
-  button2Text?: string | null
+  button2Text?: string | null;
   /**
    * Second button icon
    */
@@ -1129,96 +1122,90 @@ export interface Announcement {
         | 'speaker'
         | 'mobile'
       )
-    | null
+    | null;
   /**
    * Current donation amount
    */
-  currentAmount?: number | null
+  currentAmount?: number | null;
   /**
    * Target donation goal
    */
-  targetAmount?: number | null
-  updatedAt: string
-  createdAt: string
+  targetAmount?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "advertisements".
  */
 export interface Advertisement {
-  id: number
+  id: number;
   /**
    * Internal name for this advertisement
    */
-  name: string
+  name: string;
   /**
    * Whether this ad is currently active
    */
-  isActive?: boolean | null
+  isActive?: boolean | null;
   /**
    * Standard ad size or custom dimensions
    */
-  size:
-    | 'large-rectangle'
-    | 'leaderboard'
-    | 'medium-rectangle'
-    | 'mobile-banner'
-    | 'wide-skyscraper'
-    | 'custom'
+  size: 'large-rectangle' | 'leaderboard' | 'medium-rectangle' | 'mobile-banner' | 'wide-skyscraper' | 'custom';
   /**
    * Custom width in pixels (only used if size is "custom")
    */
-  customWidth?: number | null
+  customWidth?: number | null;
   /**
    * Custom height in pixels (only used if size is "custom")
    */
-  customHeight?: number | null
+  customHeight?: number | null;
   /**
    * Type of advertisement content
    */
-  contentType: 'image' | 'video' | 'html' | 'embed'
+  contentType: 'image' | 'video' | 'html' | 'embed';
   /**
    * Upload an image for the advertisement
    */
-  image?: (number | null) | Media
+  image?: (number | null) | Media;
   /**
    * Or provide an external image URL
    */
-  imageUrl?: string | null
+  imageUrl?: string | null;
   /**
    * Alt text for the image/ad
    */
-  alt?: string | null
+  alt?: string | null;
   /**
    * Upload a video file
    */
-  video?: (number | null) | Media
+  video?: (number | null) | Media;
   /**
    * Or provide an external video URL
    */
-  videoUrl?: string | null
+  videoUrl?: string | null;
   /**
    * Raw HTML content for the advertisement
    */
-  htmlContent?: string | null
+  htmlContent?: string | null;
   /**
    * Third-party embed code (e.g., Google Ads, AdSense)
    */
-  embedCode?: string | null
+  embedCode?: string | null;
   /**
    * URL to navigate to when ad is clicked
    */
-  href?: string | null
+  href?: string | null;
   /**
    * How to open the link
    */
-  target?: ('_blank' | '_self') | null
+  target?: ('_blank' | '_self') | null;
   /**
    * Show ad size label in placeholder
    */
-  showLabel?: boolean | null
-  updatedAt: string
-  createdAt: string
+  showLabel?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * Fallback images displayed in the music player when album art is unavailable. These images are randomly selected to provide visual variety.
@@ -1227,104 +1214,104 @@ export interface Advertisement {
  * via the `definition` "player-fallback-images".
  */
 export interface PlayerFallbackImage {
-  id: number
+  id: number;
   /**
    * Descriptive name for this fallback image (e.g., "Abstract Pattern 1")
    */
-  alt: string
+  alt: string;
   /**
    * Uncheck to temporarily disable this image from the random pool
    */
-  isActive?: boolean | null
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
   sizes?: {
     thumbnail?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
     player?: {
-      url?: string | null
-      width?: number | null
-      height?: number | null
-      mimeType?: string | null
-      filesize?: number | null
-      filename?: string | null
-    }
-  }
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "donations".
  */
 export interface Donation {
-  id: number
+  id: number;
   /**
    * Member who made this donation
    */
-  member: number | Listener
+  member: number | Listener;
   /**
    * Donation amount in USD
    */
-  amount: number
+  amount: number;
   /**
    * Date of donation
    */
-  date: string
+  date: string;
   /**
    * Type of donation
    */
-  type: 'One-time' | 'Monthly' | 'Annual' | 'In-kind'
+  type: 'One-time' | 'Monthly' | 'Annual' | 'In-kind';
   /**
    * Status of donation transaction
    */
-  status: 'completed' | 'pending' | 'failed' | 'refunded'
+  status: 'completed' | 'pending' | 'failed' | 'refunded';
   /**
    * Unique transaction ID from payment processor
    */
-  transactionId: string
+  transactionId: string;
   /**
    * Payment source/processor
    */
-  source?: ('Neon' | 'PayPal' | 'Manual' | 'Other') | null
+  source?: ('Neon' | 'PayPal' | 'Manual' | 'Other') | null;
   /**
    * Whether tax receipt has been sent to donor
    */
-  taxReceiptSent?: boolean | null
+  taxReceiptSent?: boolean | null;
   /**
    * URL to downloadable receipt PDF
    */
-  receiptUrl?: string | null
+  receiptUrl?: string | null;
   /**
    * Internal notes about this donation
    */
-  notes?: string | null
-  updatedAt: string
-  createdAt: string
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "purchases".
  */
 export interface Purchase {
-  id: number
+  id: number;
   /**
    * Member who made this purchase
    */
-  member: number | Listener
+  member: number | Listener;
   /**
    * Items purchased in this order
    */
@@ -1332,153 +1319,153 @@ export interface Purchase {
     /**
      * Product ID from store
      */
-    productId: string
+    productId: string;
     /**
      * Name of product purchased
      */
-    productName: string
+    productName: string;
     /**
      * Quantity purchased
      */
-    quantity: number
+    quantity: number;
     /**
      * Price per unit
      */
-    price: number
-    id?: string | null
-  }[]
+    price: number;
+    id?: string | null;
+  }[];
   /**
    * Total purchase amount in USD
    */
-  total: number
+  total: number;
   /**
    * Date of purchase
    */
-  date: string
+  date: string;
   /**
    * Status of purchase
    */
-  status: 'completed' | 'pending' | 'shipped' | 'cancelled' | 'refunded'
+  status: 'completed' | 'pending' | 'shipped' | 'cancelled' | 'refunded';
   /**
    * Unique transaction ID from payment processor
    */
-  transactionId: string
+  transactionId: string;
   /**
    * Shipping address for this order
    */
   shippingAddress?: {
-    name?: string | null
-    street?: string | null
-    city?: string | null
-    state?: string | null
-    zip?: string | null
-    country?: string | null
-  }
+    name?: string | null;
+    street?: string | null;
+    city?: string | null;
+    state?: string | null;
+    zip?: string | null;
+    country?: string | null;
+  };
   /**
    * Shipping tracking number
    */
-  trackingNumber?: string | null
+  trackingNumber?: string | null;
   /**
    * Internal notes about this purchase
    */
-  notes?: string | null
-  updatedAt: string
-  createdAt: string
+  notes?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
 export interface Page {
-  id: number
+  id: number;
   /**
    * The title displayed in browser tabs and search results (SEO)
    */
-  title: string
-  slug: string
+  title: string;
+  slug: string;
   /**
    * Brief page summary used for SEO meta description and social media previews (recommended 150-160 characters)
    */
-  excerpt?: string | null
+  excerpt?: string | null;
   /**
    * Choose the overall page layout structure
    */
-  layoutTemplate: 'default' | 'sidebar-right'
+  layoutTemplate: 'default' | 'sidebar-right';
   layout?:
     | (
         | {
             /**
              * Small text above the title
              */
-            preheader?: string | null
-            title: string
-            titleTag?: ('h1' | 'h2' | 'h3' | 'h4') | null
+            preheader?: string | null;
+            title: string;
+            titleTag?: ('h1' | 'h2' | 'h3' | 'h4') | null;
             content: {
               root: {
-                type: string
+                type: string;
                 children: {
-                  type: any
-                  version: number
-                  [k: string]: unknown
-                }[]
-                direction: ('ltr' | 'rtl') | null
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                indent: number
-                version: number
-              }
-              [k: string]: unknown
-            }
-            imagePosition?: ('none' | 'left' | 'right') | null
-            backgroundImage?: (number | null) | Media
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            imagePosition?: ('none' | 'left' | 'right') | null;
+            backgroundImage?: (number | null) | Media;
             /**
              * Or provide external URL
              */
-            backgroundImageUrl?: string | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'contentCard'
+            backgroundImageUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contentCard';
           }
         | {
             images?:
               | {
-                  image?: (number | null) | Media
-                  imageUrl?: string | null
-                  alt?: string | null
-                  id?: string | null
+                  image?: (number | null) | Media;
+                  imageUrl?: string | null;
+                  alt?: string | null;
+                  id?: string | null;
                 }[]
-              | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'imageRow'
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'imageRow';
           }
       )[]
-    | null
+    | null;
   /**
    * Optional announcement to display in sidebar
    */
-  sidebarAnnouncement?: (number | null) | Announcement
+  sidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Type of content to display in sidebar cards
    */
-  sidebarContentType?: ('none' | 'articles' | 'events' | 'podcasts') | null
+  sidebarContentType?: ('none' | 'articles' | 'events' | 'podcasts') | null;
   /**
    * Number of items to display (1-10)
    */
-  sidebarContentCount?: number | null
+  sidebarContentCount?: number | null;
   /**
    * Advertisement to display in sidebar
    */
-  sidebarAdvertisement?: (number | null) | Advertisement
+  sidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Number of minutes users must wait between song requests to prevent spam. Set to 0 to disable cooldown.
    */
-  songRequestCooldownMinutes?: number | null
+  songRequestCooldownMinutes?: number | null;
   /**
    * Message shown to users during cooldown period. Use {minutes} as placeholder for remaining time.
    */
-  songRequestCooldownMessage?: string | null
-  updatedAt: string
-  createdAt: string
+  songRequestCooldownMessage?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * Manage page-specific content for mobile app screens
@@ -1487,7 +1474,7 @@ export interface Page {
  * via the `definition` "mobilePageContent".
  */
 export interface MobilePageContent {
-  id: number
+  id: number;
   /**
    * Which mobile screen this content is for (one entry per page)
    */
@@ -1497,69 +1484,69 @@ export interface MobilePageContent {
     | 'recently-played'
     | 'my-collection'
     | 'account-settings'
-    | 'android-auto'
+    | 'android-auto';
   /**
    * Page heading (e.g., "Make a Song Request")
    */
-  pageTitle?: string | null
+  pageTitle?: string | null;
   /**
    * Text shown above the form (e.g., "Request a song for the DJ to play during their show")
    */
-  pageSubtitle?: string | null
+  pageSubtitle?: string | null;
   /**
    * Content shown at the top of the page (before main content)
    */
   introContent?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   /**
    * Hint text for forms (e.g., "Keep it friendly and respectful")
    */
-  formHintText?: string | null
+  formHintText?: string | null;
   /**
    * Select announcement to display on this page (optional)
    */
-  announcement?: (number | null) | Announcement
+  announcement?: (number | null) | Announcement;
   /**
    * Override the global not-logged-in message for this specific page (optional)
    */
   customNotLoggedInMessage?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   /**
    * Does this page require the user to be logged in? (Not currently used - login requirements are defined by the app code)
    */
-  isLoginRequired?: boolean | null
+  isLoginRequired?: boolean | null;
   /**
    * Uncheck to temporarily hide this page without deleting it. The page will not be shown in the app when inactive.
    */
-  isActive?: boolean | null
-  updatedAt: string
-  createdAt: string
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * Manage onboarding tour steps shown to new users
@@ -1568,29 +1555,29 @@ export interface MobilePageContent {
  * via the `definition` "onboarding".
  */
 export interface Onboarding {
-  id: number
+  id: number;
   /**
    * Title of this onboarding step (e.g., "Complete Your Profile")
    */
-  title: string
+  title: string;
   /**
    * Description text explaining this feature to the user
    */
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   /**
    * Which feature this step demonstrates (used by frontend to trigger appropriate UI)
    */
@@ -1601,928 +1588,974 @@ export interface Onboarding {
     | 'explore-features'
     | 'support'
     | 'favorite-djs'
-    | 'request-songs'
+    | 'request-songs';
   /**
    * Order in which this step appears (lower numbers appear first)
    */
-  order: number
+  order: number;
   /**
    * Which platform(s) should show this step
    */
-  platform: 'both' | 'web' | 'mobile'
+  platform: 'both' | 'web' | 'mobile';
   /**
    * Optional image or video to illustrate this step
    */
-  media?: (number | null) | Media
+  media?: (number | null) | Media;
   /**
    * Call-to-action button text (e.g., "Get Started", "Next", "Skip")
    */
-  ctaText?: string | null
+  ctaText?: string | null;
   /**
    * Uncheck to temporarily hide this step without deleting it
    */
-  isActive?: boolean | null
-  updatedAt: string
-  createdAt: string
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Historical record of all tracks played on CHIRP Radio
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tracks-played".
+ */
+export interface TracksPlayed {
+  id: number;
+  /**
+   * Original CHIRP playlist event ID from current_playlist API
+   */
+  playlistEventId?: string | null;
+  artistName: string;
+  trackName: string;
+  albumName?: string | null;
+  labelName?: string | null;
+  albumArt?: string | null;
+  djName: string;
+  showName: string;
+  isLocal?: boolean | null;
+  playedAt: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
-  id: number
-  from: string
+  id: number;
+  from: string;
   to?: {
-    type?: ('reference' | 'custom') | null
+    type?: ('reference' | 'custom') | null;
     reference?:
       | ({
-          relationTo: 'pages'
-          value: number | Page
+          relationTo: 'pages';
+          value: number | Page;
         } | null)
       | ({
-          relationTo: 'articles'
-          value: number | Article
+          relationTo: 'articles';
+          value: number | Article;
         } | null)
       | ({
-          relationTo: 'events'
-          value: number | Event
+          relationTo: 'events';
+          value: number | Event;
         } | null)
       | ({
-          relationTo: 'podcasts'
-          value: number | Podcast
-        } | null)
-    url?: string | null
-  }
-  updatedAt: string
-  createdAt: string
+          relationTo: 'podcasts';
+          value: number | Podcast;
+        } | null);
+    url?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: number
+  id: number;
   document?:
     | ({
-        relationTo: 'users'
-        value: number | User
+        relationTo: 'users';
+        value: number | User;
       } | null)
     | ({
-        relationTo: 'listeners'
-        value: number | Listener
+        relationTo: 'listeners';
+        value: number | Listener;
       } | null)
     | ({
-        relationTo: 'showSchedules'
-        value: number | ShowSchedule
+        relationTo: 'showSchedules';
+        value: number | ShowSchedule;
       } | null)
     | ({
-        relationTo: 'articles'
-        value: number | Article
+        relationTo: 'articles';
+        value: number | Article;
       } | null)
     | ({
-        relationTo: 'events'
-        value: number | Event
+        relationTo: 'events';
+        value: number | Event;
       } | null)
     | ({
-        relationTo: 'podcasts'
-        value: number | Podcast
+        relationTo: 'podcasts';
+        value: number | Podcast;
       } | null)
     | ({
-        relationTo: 'shopItems'
-        value: number | ShopItem
+        relationTo: 'shopItems';
+        value: number | ShopItem;
       } | null)
     | ({
-        relationTo: 'weeklyCharts'
-        value: number | WeeklyChart
+        relationTo: 'weeklyCharts';
+        value: number | WeeklyChart;
       } | null)
     | ({
-        relationTo: 'volunteerCalendar'
-        value: number | VolunteerCalendar
+        relationTo: 'volunteerCalendar';
+        value: number | VolunteerCalendar;
       } | null)
     | ({
-        relationTo: 'categories'
-        value: number | Category
+        relationTo: 'categories';
+        value: number | Category;
       } | null)
     | ({
-        relationTo: 'venues'
-        value: number | Venue
+        relationTo: 'venues';
+        value: number | Venue;
       } | null)
     | ({
-        relationTo: 'announcements'
-        value: number | Announcement
+        relationTo: 'announcements';
+        value: number | Announcement;
       } | null)
     | ({
-        relationTo: 'advertisements'
-        value: number | Advertisement
+        relationTo: 'advertisements';
+        value: number | Advertisement;
       } | null)
     | ({
-        relationTo: 'ageGate'
-        value: number | AgeGate
+        relationTo: 'ageGate';
+        value: number | AgeGate;
       } | null)
     | ({
-        relationTo: 'media'
-        value: number | Media
+        relationTo: 'media';
+        value: number | Media;
       } | null)
     | ({
-        relationTo: 'player-fallback-images'
-        value: number | PlayerFallbackImage
+        relationTo: 'player-fallback-images';
+        value: number | PlayerFallbackImage;
       } | null)
     | ({
-        relationTo: 'donations'
-        value: number | Donation
+        relationTo: 'donations';
+        value: number | Donation;
       } | null)
     | ({
-        relationTo: 'purchases'
-        value: number | Purchase
+        relationTo: 'purchases';
+        value: number | Purchase;
       } | null)
     | ({
-        relationTo: 'pages'
-        value: number | Page
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
-        relationTo: 'mobilePageContent'
-        value: number | MobilePageContent
+        relationTo: 'mobilePageContent';
+        value: number | MobilePageContent;
       } | null)
     | ({
-        relationTo: 'onboarding'
-        value: number | Onboarding
+        relationTo: 'onboarding';
+        value: number | Onboarding;
       } | null)
     | ({
-        relationTo: 'redirects'
-        value: number | Redirect
+        relationTo: 'tracks-played';
+        value: number | TracksPlayed;
       } | null)
-  globalSlug?: string | null
+    | ({
+        relationTo: 'redirects';
+        value: number | Redirect;
+      } | null);
+  globalSlug?: string | null;
   user:
     | {
-        relationTo: 'users'
-        value: number | User
+        relationTo: 'users';
+        value: number | User;
       }
     | {
-        relationTo: 'listeners'
-        value: number | Listener
-      }
-  updatedAt: string
-  createdAt: string
+        relationTo: 'listeners';
+        value: number | Listener;
+      };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number
+  id: number;
   user:
     | {
-        relationTo: 'users'
-        value: number | User
+        relationTo: 'users';
+        value: number | User;
       }
     | {
-        relationTo: 'listeners'
-        value: number | Listener
-      }
-  key?: string | null
+        relationTo: 'listeners';
+        value: number | Listener;
+      };
+  key?: string | null;
   value?:
     | {
-        [k: string]: unknown
+        [k: string]: unknown;
       }
     | unknown[]
     | string
     | number
     | boolean
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number
-  name?: string | null
-  batch?: number | null
-  updatedAt: string
-  createdAt: string
+  id: number;
+  name?: string | null;
+  batch?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  name?: T
-  avatar?: T
-  updatedAt?: T
-  createdAt?: T
-  email?: T
-  resetPasswordToken?: T
-  resetPasswordExpiration?: T
-  salt?: T
-  hash?: T
-  loginAttempts?: T
-  lockUntil?: T
+  name?: T;
+  avatar?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
   sessions?:
     | T
     | {
-        id?: T
-        createdAt?: T
-        expiresAt?: T
-      }
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "listeners_select".
  */
 export interface ListenersSelect<T extends boolean = true> {
-  displayTitle?: T
-  email?: T
-  username?: T
-  firstName?: T
-  lastName?: T
-  memberSince?: T
-  roles?: T
-  profileImage?: T
-  profileImageOrientation?: T
-  location?: T
+  displayTitle?: T;
+  email?: T;
+  username?: T;
+  firstName?: T;
+  lastName?: T;
+  memberSince?: T;
+  roles?: T;
+  profileImage?: T;
+  profileImageOrientation?: T;
+  location?: T;
   preferences?:
     | T
     | {
-        emailNotifications?: T
-        showNotifications?: T
-        darkMode?: T
-        autoPlay?: T
-      }
-  onboardingCompleted?: T
+        emailNotifications?: T;
+        showNotifications?: T;
+        darkMode?: T;
+        autoPlay?: T;
+      };
+  onboardingCompleted?: T;
   collection?:
     | T
     | {
-        id?: T
-        trackName?: T
-        artistName?: T
-        albumName?: T
-        labelName?: T
-        albumArt?: T
-        albumArtAlt?: T
-        isLocal?: T
-        dateAdded?: T
-      }
+        id?: T;
+        trackName?: T;
+        artistName?: T;
+        albumName?: T;
+        labelName?: T;
+        albumArt?: T;
+        albumArtAlt?: T;
+        isLocal?: T;
+        dateAdded?: T;
+      };
   favoriteDJs?:
     | T
     | {
-        djId?: T
-        id?: T
-      }
-  donorLevel?: T
-  _purchaseNote?: T
-  primaryPhoneType?: T
-  primaryPhone?: T
-  secondaryPhoneType?: T
-  secondaryPhone?: T
-  address?: T
-  city?: T
-  state?: T
-  zipCode?: T
-  age?: T
-  education?: T
-  employer?: T
+        djId?: T;
+        id?: T;
+      };
+  donorLevel?: T;
+  _purchaseNote?: T;
+  primaryPhoneType?: T;
+  primaryPhone?: T;
+  secondaryPhoneType?: T;
+  secondaryPhone?: T;
+  address?: T;
+  city?: T;
+  state?: T;
+  zipCode?: T;
+  age?: T;
+  education?: T;
+  employer?: T;
   volunteerOrgs?:
     | T
     | {
-        org?: T
-        id?: T
-      }
-  hasRadioExperience?: T
-  radioStations?: T
+        org?: T;
+        id?: T;
+      };
+  hasRadioExperience?: T;
+  radioStations?: T;
   specialSkills?:
     | T
     | {
-        skill?: T
-        id?: T
-      }
+        skill?: T;
+        id?: T;
+      };
   hearAboutChirp?:
     | T
     | {
-        source?: T
-        id?: T
-      }
+        source?: T;
+        id?: T;
+      };
   interests?:
     | T
     | {
-        interest?: T
-        id?: T
-      }
-  wantsToDJ?: T
+        interest?: T;
+        id?: T;
+      };
+  wantsToDJ?: T;
   djAvailability?:
     | T
     | {
-        time?: T
-        id?: T
-      }
+        time?: T;
+        id?: T;
+      };
   socialLinks?:
     | T
     | {
-        facebook?: T
-        instagram?: T
-        twitter?: T
-        tiktok?: T
-        bluesky?: T
-        linkedin?: T
-      }
-  djName?: T
-  showName?: T
-  showTime?: T
-  djExcerpt?: T
-  djBio?: T
-  djDonationLink?: T
+        facebook?: T;
+        instagram?: T;
+        twitter?: T;
+        tiktok?: T;
+        bluesky?: T;
+        linkedin?: T;
+      };
+  djName?: T;
+  showName?: T;
+  showTime?: T;
+  djExcerpt?: T;
+  djBio?: T;
+  djDonationLink?: T;
   previousShows?:
     | T
     | {
-        title?: T
-        date?: T
-        audioUrl?: T
-        duration?: T
-        gcsFileName?: T
-        id?: T
-      }
+        title?: T;
+        date?: T;
+        audioUrl?: T;
+        duration?: T;
+        gcsFileName?: T;
+        id?: T;
+      };
   substituteAvailability?:
     | T
     | {
-        time?: T
-        id?: T
-      }
+        time?: T;
+        id?: T;
+      };
   canSubstituteFor?:
     | T
     | {
-        djId?: T
-        id?: T
-      }
-  boardPosition?: T
-  boardSince?: T
-  boardTermEnd?: T
-  updatedAt?: T
-  createdAt?: T
-  resetPasswordToken?: T
-  resetPasswordExpiration?: T
-  salt?: T
-  hash?: T
-  _verified?: T
-  _verificationToken?: T
-  loginAttempts?: T
-  lockUntil?: T
+        djId?: T;
+        id?: T;
+      };
+  boardPosition?: T;
+  boardSince?: T;
+  boardTermEnd?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  _verified?: T;
+  _verificationToken?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
   sessions?:
     | T
     | {
-        id?: T
-        createdAt?: T
-        expiresAt?: T
-      }
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "showSchedules_select".
  */
 export interface ShowSchedulesSelect<T extends boolean = true> {
-  title?: T
-  dayOfWeek?: T
-  startTime?: T
-  endTime?: T
-  isMusicMix?: T
-  dj?: T
-  isActive?: T
-  notes?: T
-  displayOrder?: T
-  updatedAt?: T
-  createdAt?: T
+  title?: T;
+  dayOfWeek?: T;
+  startTime?: T;
+  endTime?: T;
+  isMusicMix?: T;
+  dj?: T;
+  isActive?: T;
+  notes?: T;
+  displayOrder?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "articles_select".
  */
 export interface ArticlesSelect<T extends boolean = true> {
-  category?: T
-  title?: T
-  slug?: T
-  author?: T
-  featuredImage?: T
-  featuredImageUrl?: T
-  excerpt?: T
-  content?: T
-  videoTitle?: T
-  youtubeVideoId?: T
+  category?: T;
+  title?: T;
+  slug?: T;
+  author?: T;
+  featuredImage?: T;
+  featuredImageUrl?: T;
+  excerpt?: T;
+  content?: T;
+  videoTitle?: T;
+  youtubeVideoId?: T;
   tags?:
     | T
     | {
-        tag?: T
-        id?: T
-      }
-  publishedDate?: T
-  updatedAt?: T
-  createdAt?: T
+        tag?: T;
+        id?: T;
+      };
+  publishedDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "events_select".
  */
 export interface EventsSelect<T extends boolean = true> {
-  category?: T
-  title?: T
-  slug?: T
-  excerpt?: T
-  content?: T
-  featuredImage?: T
-  featuredImageUrl?: T
-  showPhotoCredit?: T
-  photographerName?: T
-  venue?: T
-  date?: T
-  endDate?: T
-  featured?: T
-  ageRestriction?: T
-  updatedAt?: T
-  createdAt?: T
+  category?: T;
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  featuredImage?: T;
+  featuredImageUrl?: T;
+  showPhotoCredit?: T;
+  photographerName?: T;
+  venue?: T;
+  date?: T;
+  endDate?: T;
+  featured?: T;
+  ageRestriction?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "podcasts_select".
  */
 export interface PodcastsSelect<T extends boolean = true> {
-  category?: T
-  title?: T
-  slug?: T
-  excerpt?: T
-  content?: T
-  host?: T
-  coverArt?: T
-  coverArtUrl?: T
-  soundCloudEmbedUrl?: T
-  pullQuote?: T
-  pullQuoteAttribution?: T
-  additionalInfo?: T
-  transcriptUrl?: T
+  category?: T;
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  host?: T;
+  coverArt?: T;
+  coverArtUrl?: T;
+  soundCloudEmbedUrl?: T;
+  pullQuote?: T;
+  pullQuoteAttribution?: T;
+  additionalInfo?: T;
+  transcriptUrl?: T;
   tags?:
     | T
     | {
-        tag?: T
-        id?: T
-      }
-  updatedAt?: T
-  createdAt?: T
+        tag?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "shopItems_select".
  */
 export interface ShopItemsSelect<T extends boolean = true> {
-  name?: T
-  slug?: T
-  description?: T
-  itemType?: T
-  category?: T
-  price?: T
+  name?: T;
+  slug?: T;
+  description?: T;
+  itemType?: T;
+  category?: T;
+  price?: T;
   images?:
     | T
     | {
-        image?: T
-        alt?: T
-        id?: T
-      }
-  imageUrl?: T
+        image?: T;
+        alt?: T;
+        id?: T;
+      };
+  imageUrl?: T;
   additionalImageUrls?:
     | T
     | {
-        url?: T
-        alt?: T
-        id?: T
-      }
-  inStock?: T
+        url?: T;
+        alt?: T;
+        id?: T;
+      };
+  inStock?: T;
   sizes?:
     | T
     | {
-        size?: T
-        id?: T
-      }
+        size?: T;
+        id?: T;
+      };
   variants?:
     | T
     | {
-        name?: T
+        name?: T;
         options?:
           | T
           | {
-              option?: T
-              id?: T
-            }
-        id?: T
-      }
-  externalUrl?: T
-  featured?: T
-  soldOut?: T
-  limitedEdition?: T
-  displayOrder?: T
-  updatedAt?: T
-  createdAt?: T
+              option?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  externalUrl?: T;
+  featured?: T;
+  soldOut?: T;
+  limitedEdition?: T;
+  displayOrder?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "weeklyCharts_select".
  */
 export interface WeeklyChartsSelect<T extends boolean = true> {
-  preheader?: T
-  title?: T
-  slug?: T
-  listType?: T
-  csvFile?: T
-  csvImport?: T
+  preheader?: T;
+  title?: T;
+  slug?: T;
+  listType?: T;
+  csvFile?: T;
+  csvImport?: T;
   tracks?:
     | T
     | {
-        songName?: T
-        artistName?: T
-        recordCompany?: T
-        id?: T
-      }
-  isCurrentWeek?: T
-  notes?: T
-  featuredTrack?: T
-  status?: T
-  updatedAt?: T
-  createdAt?: T
+        songName?: T;
+        artistName?: T;
+        recordCompany?: T;
+        id?: T;
+      };
+  isCurrentWeek?: T;
+  notes?: T;
+  featuredTrack?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "volunteerCalendar_select".
  */
 export interface VolunteerCalendarSelect<T extends boolean = true> {
-  name?: T
-  startDate?: T
-  endDate?: T
-  dateTime?: T
-  description?: T
-  location?: T
+  name?: T;
+  startDate?: T;
+  endDate?: T;
+  dateTime?: T;
+  description?: T;
+  location?: T;
   eventDetails?:
     | T
     | {
-        detail?: T
-        id?: T
-      }
-  moreInfoUrl?: T
-  updatedAt?: T
-  createdAt?: T
+        detail?: T;
+        id?: T;
+      };
+  moreInfoUrl?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories_select".
  */
 export interface CategoriesSelect<T extends boolean = true> {
-  name?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "venues_select".
  */
 export interface VenuesSelect<T extends boolean = true> {
-  name?: T
-  address?: T
-  city?: T
-  state?: T
-  zip?: T
-  phone?: T
-  website?: T
-  mapUrl?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  address?: T;
+  city?: T;
+  state?: T;
+  zip?: T;
+  phone?: T;
+  website?: T;
+  mapUrl?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "announcements_select".
  */
 export interface AnnouncementsSelect<T extends boolean = true> {
-  headlineText?: T
-  bodyText?: T
-  variant?: T
-  textureBackground?: T
-  showLink?: T
-  linkText?: T
-  linkUrl?: T
-  buttonCount?: T
-  button1Text?: T
-  button1Icon?: T
-  button2Text?: T
-  button2Icon?: T
-  currentAmount?: T
-  targetAmount?: T
-  updatedAt?: T
-  createdAt?: T
+  headlineText?: T;
+  bodyText?: T;
+  variant?: T;
+  textureBackground?: T;
+  showLink?: T;
+  linkText?: T;
+  linkUrl?: T;
+  buttonCount?: T;
+  button1Text?: T;
+  button1Icon?: T;
+  button2Text?: T;
+  button2Icon?: T;
+  currentAmount?: T;
+  targetAmount?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "advertisements_select".
  */
 export interface AdvertisementsSelect<T extends boolean = true> {
-  name?: T
-  isActive?: T
-  size?: T
-  customWidth?: T
-  customHeight?: T
-  contentType?: T
-  image?: T
-  imageUrl?: T
-  alt?: T
-  video?: T
-  videoUrl?: T
-  htmlContent?: T
-  embedCode?: T
-  href?: T
-  target?: T
-  showLabel?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  isActive?: T;
+  size?: T;
+  customWidth?: T;
+  customHeight?: T;
+  contentType?: T;
+  image?: T;
+  imageUrl?: T;
+  alt?: T;
+  video?: T;
+  videoUrl?: T;
+  htmlContent?: T;
+  embedCode?: T;
+  href?: T;
+  target?: T;
+  showLabel?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ageGate_select".
  */
 export interface AgeGateSelect<T extends boolean = true> {
-  age?: T
-  updatedAt?: T
-  createdAt?: T
+  age?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
-  alt?: T
-  category?: T
-  updatedAt?: T
-  createdAt?: T
-  url?: T
-  thumbnailURL?: T
-  filename?: T
-  mimeType?: T
-  filesize?: T
-  width?: T
-  height?: T
-  focalX?: T
-  focalY?: T
+  alt?: T;
+  category?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
   sizes?:
     | T
     | {
         thumbnail?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
         card?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
         large?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
-      }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "player-fallback-images_select".
  */
 export interface PlayerFallbackImagesSelect<T extends boolean = true> {
-  alt?: T
-  isActive?: T
-  updatedAt?: T
-  createdAt?: T
-  url?: T
-  thumbnailURL?: T
-  filename?: T
-  mimeType?: T
-  filesize?: T
-  width?: T
-  height?: T
-  focalX?: T
-  focalY?: T
+  alt?: T;
+  isActive?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
   sizes?:
     | T
     | {
         thumbnail?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
         player?:
           | T
           | {
-              url?: T
-              width?: T
-              height?: T
-              mimeType?: T
-              filesize?: T
-              filename?: T
-            }
-      }
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "donations_select".
  */
 export interface DonationsSelect<T extends boolean = true> {
-  member?: T
-  amount?: T
-  date?: T
-  type?: T
-  status?: T
-  transactionId?: T
-  source?: T
-  taxReceiptSent?: T
-  receiptUrl?: T
-  notes?: T
-  updatedAt?: T
-  createdAt?: T
+  member?: T;
+  amount?: T;
+  date?: T;
+  type?: T;
+  status?: T;
+  transactionId?: T;
+  source?: T;
+  taxReceiptSent?: T;
+  receiptUrl?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "purchases_select".
  */
 export interface PurchasesSelect<T extends boolean = true> {
-  member?: T
+  member?: T;
   items?:
     | T
     | {
-        productId?: T
-        productName?: T
-        quantity?: T
-        price?: T
-        id?: T
-      }
-  total?: T
-  date?: T
-  status?: T
-  transactionId?: T
+        productId?: T;
+        productName?: T;
+        quantity?: T;
+        price?: T;
+        id?: T;
+      };
+  total?: T;
+  date?: T;
+  status?: T;
+  transactionId?: T;
   shippingAddress?:
     | T
     | {
-        name?: T
-        street?: T
-        city?: T
-        state?: T
-        zip?: T
-        country?: T
-      }
-  trackingNumber?: T
-  notes?: T
-  updatedAt?: T
-  createdAt?: T
+        name?: T;
+        street?: T;
+        city?: T;
+        state?: T;
+        zip?: T;
+        country?: T;
+      };
+  trackingNumber?: T;
+  notes?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  title?: T
-  slug?: T
-  excerpt?: T
-  layoutTemplate?: T
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  layoutTemplate?: T;
   layout?:
     | T
     | {
         contentCard?:
           | T
           | {
-              preheader?: T
-              title?: T
-              titleTag?: T
-              content?: T
-              imagePosition?: T
-              backgroundImage?: T
-              backgroundImageUrl?: T
-              id?: T
-              blockName?: T
-            }
+              preheader?: T;
+              title?: T;
+              titleTag?: T;
+              content?: T;
+              imagePosition?: T;
+              backgroundImage?: T;
+              backgroundImageUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
         imageRow?:
           | T
           | {
               images?:
                 | T
                 | {
-                    image?: T
-                    imageUrl?: T
-                    alt?: T
-                    id?: T
-                  }
-              id?: T
-              blockName?: T
-            }
-      }
-  sidebarAnnouncement?: T
-  sidebarContentType?: T
-  sidebarContentCount?: T
-  sidebarAdvertisement?: T
-  songRequestCooldownMinutes?: T
-  songRequestCooldownMessage?: T
-  updatedAt?: T
-  createdAt?: T
+                    image?: T;
+                    imageUrl?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  sidebarAnnouncement?: T;
+  sidebarContentType?: T;
+  sidebarContentCount?: T;
+  sidebarAdvertisement?: T;
+  songRequestCooldownMinutes?: T;
+  songRequestCooldownMessage?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mobilePageContent_select".
  */
 export interface MobilePageContentSelect<T extends boolean = true> {
-  pageIdentifier?: T
-  pageTitle?: T
-  pageSubtitle?: T
-  introContent?: T
-  formHintText?: T
-  announcement?: T
-  customNotLoggedInMessage?: T
-  isLoginRequired?: T
-  isActive?: T
-  updatedAt?: T
-  createdAt?: T
+  pageIdentifier?: T;
+  pageTitle?: T;
+  pageSubtitle?: T;
+  introContent?: T;
+  formHintText?: T;
+  announcement?: T;
+  customNotLoggedInMessage?: T;
+  isLoginRequired?: T;
+  isActive?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "onboarding_select".
  */
 export interface OnboardingSelect<T extends boolean = true> {
-  title?: T
-  description?: T
-  featureIdentifier?: T
-  order?: T
-  platform?: T
-  media?: T
-  ctaText?: T
-  isActive?: T
-  updatedAt?: T
-  createdAt?: T
+  title?: T;
+  description?: T;
+  featureIdentifier?: T;
+  order?: T;
+  platform?: T;
+  media?: T;
+  ctaText?: T;
+  isActive?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tracks-played_select".
+ */
+export interface TracksPlayedSelect<T extends boolean = true> {
+  playlistEventId?: T;
+  artistName?: T;
+  trackName?: T;
+  albumName?: T;
+  labelName?: T;
+  albumArt?: T;
+  djName?: T;
+  showName?: T;
+  isLocal?: T;
+  playedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects_select".
  */
 export interface RedirectsSelect<T extends boolean = true> {
-  from?: T
+  from?: T;
   to?:
     | T
     | {
-        type?: T
-        reference?: T
-        url?: T
-      }
-  updatedAt?: T
-  createdAt?: T
+        type?: T;
+        reference?: T;
+        url?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
-  document?: T
-  globalSlug?: T
-  user?: T
-  updatedAt?: T
-  createdAt?: T
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences_select".
  */
 export interface PayloadPreferencesSelect<T extends boolean = true> {
-  user?: T
-  key?: T
-  value?: T
-  updatedAt?: T
-  createdAt?: T
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations_select".
  */
 export interface PayloadMigrationsSelect<T extends boolean = true> {
-  name?: T
-  batch?: T
-  updatedAt?: T
-  createdAt?: T
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * Global settings and shared content for the mobile app
@@ -2531,7 +2564,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  * via the `definition` "mobileAppSettings".
  */
 export interface MobileAppSetting {
-  id: number
+  id: number;
   /**
    * Default message shown on pages that require login (used across all pages unless overridden)
    */
@@ -2539,34 +2572,34 @@ export interface MobileAppSetting {
     /**
      * Heading for not-logged-in state
      */
-    title?: string | null
+    title?: string | null;
     /**
      * Explanation of why login is required
      */
     message?: {
       root: {
-        type: string
+        type: string;
         children: {
-          type: any
-          version: number
-          [k: string]: unknown
-        }[]
-        direction: ('ltr' | 'rtl') | null
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-        indent: number
-        version: number
-      }
-      [k: string]: unknown
-    } | null
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
     /**
      * Text for login button
      */
-    loginButtonText?: string | null
+    loginButtonText?: string | null;
     /**
      * Text for signup button
      */
-    signupButtonText?: string | null
-  }
+    signupButtonText?: string | null;
+  };
   /**
    * Messages shown in the login/signup modal
    */
@@ -2576,38 +2609,38 @@ export interface MobileAppSetting {
      */
     loginMessage?: {
       root: {
-        type: string
+        type: string;
         children: {
-          type: any
-          version: number
-          [k: string]: unknown
-        }[]
-        direction: ('ltr' | 'rtl') | null
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-        indent: number
-        version: number
-      }
-      [k: string]: unknown
-    } | null
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
     /**
      * Message shown when user clicks "Sign Up"
      */
     signupMessage?: {
       root: {
-        type: string
+        type: string;
         children: {
-          type: any
-          version: number
-          [k: string]: unknown
-        }[]
-        direction: ('ltr' | 'rtl') | null
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-        indent: number
-        version: number
-      }
-      [k: string]: unknown
-    } | null
-  }
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+  };
   /**
    * List of benefits shown on not-logged-in pages
    */
@@ -2615,41 +2648,41 @@ export interface MobileAppSetting {
     /**
      * Heading above benefits list
      */
-    title?: string | null
+    title?: string | null;
     /**
      * Individual benefit items
      */
     benefits?:
       | {
-          benefit: string
-          id?: string | null
+          benefit: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   /**
    * Heading for benefits section
    */
-  accountBenefitsTitle?: string | null
+  accountBenefitsTitle?: string | null;
   /**
    * Content explaining benefits of creating an account (use bullet list format)
    */
   accountBenefitsContent?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
-  updatedAt?: string | null
-  createdAt?: string | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * Configure the Volunteer Details form fields and options
@@ -2658,102 +2691,102 @@ export interface MobileAppSetting {
  * via the `definition` "volunteerFormSettings".
  */
 export interface VolunteerFormSetting {
-  id: number
+  id: number;
   ageQuestion?: {
-    label?: string | null
+    label?: string | null;
     options?:
       | {
-          value: string
-          id?: string | null
+          value: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   educationQuestion?: {
-    label?: string | null
-    placeholder?: string | null
-  }
+    label?: string | null;
+    placeholder?: string | null;
+  };
   employerQuestion?: {
-    label?: string | null
-    placeholder?: string | null
-  }
+    label?: string | null;
+    placeholder?: string | null;
+  };
   volunteerOrgsQuestion?: {
-    label?: string | null
-    placeholder?: string | null
-    addButtonText?: string | null
-  }
+    label?: string | null;
+    placeholder?: string | null;
+    addButtonText?: string | null;
+  };
   radioExperienceQuestion?: {
-    label?: string | null
-    followUpLabel?: string | null
-    followUpPlaceholder?: string | null
-  }
+    label?: string | null;
+    followUpLabel?: string | null;
+    followUpPlaceholder?: string | null;
+  };
   specialSkillsQuestion?: {
-    label?: string | null
+    label?: string | null;
     options?:
       | {
-          value: string
-          id?: string | null
+          value: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   hearAboutChirpQuestion?: {
-    label?: string | null
+    label?: string | null;
     options?:
       | {
-          value: string
-          id?: string | null
+          value: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   interestsQuestion?: {
-    label?: string | null
+    label?: string | null;
     options?:
       | {
-          value: string
-          id?: string | null
+          value: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   wantsToDJQuestion?: {
-    label?: string | null
-  }
+    label?: string | null;
+  };
   djAvailabilityQuestion?: {
-    label?: string | null
+    label?: string | null;
     options?:
       | {
-          value: string
-          id?: string | null
+          value: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   formActions?: {
-    cancelButtonText?: string | null
-    saveButtonText?: string | null
-  }
-  updatedAt?: string | null
-  createdAt?: string | null
+    cancelButtonText?: string | null;
+    saveButtonText?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "siteSettings".
  */
 export interface SiteSetting {
-  id: number
+  id: number;
   /**
    * Show announcement banner at top of landing page
    */
-  showTopAnnouncement?: boolean | null
+  showTopAnnouncement?: boolean | null;
   /**
    * Select which announcement to display at top of landing page
    */
-  topAnnouncement?: (number | null) | Announcement
+  topAnnouncement?: (number | null) | Announcement;
   /**
    * Select which announcement to display in sidebar
    */
-  sidebarAnnouncement?: (number | null) | Announcement
+  sidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which advertisement to display in sidebar
    */
-  sidebarAdvertisement?: (number | null) | Advertisement
+  sidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Drag to reorder navigation items. Maximum 8 items to maintain layout integrity.
    */
@@ -2761,274 +2794,265 @@ export interface SiteSetting {
     /**
      * Select which page this navigation item links to
      */
-    navItem:
-      | 'listen'
-      | 'schedule'
-      | 'events'
-      | 'articles'
-      | 'podcasts'
-      | 'support'
-      | 'about'
-      | 'volunteer'
-      | 'shop'
+    navItem: 'listen' | 'schedule' | 'events' | 'articles' | 'podcasts' | 'support' | 'about' | 'volunteer' | 'shop';
     /**
      * Optional: Override the default label (e.g., "Listen Live" instead of "Listen")
      */
-    customLabel?: string | null
+    customLabel?: string | null;
     /**
      * Check to open this link in a new browser tab
      */
-    openInNewTab?: boolean | null
-    id?: string | null
-  }[]
+    openInNewTab?: boolean | null;
+    id?: string | null;
+  }[];
   /**
    * Show 3 random songs from logged-in user's saved collection (if they have any)
    */
-  showUserCollection?: boolean | null
+  showUserCollection?: boolean | null;
   /**
    * Main page title for Listen page
    */
-  listenPageTitle?: string | null
+  listenPageTitle?: string | null;
   /**
    * Title for current playlist section
    */
-  listenCurrentPlaylistTitle?: string | null
+  listenCurrentPlaylistTitle?: string | null;
   /**
    * Button text to navigate to full playlist page
    */
-  listenPreviousPlaysButtonText?: string | null
+  listenPreviousPlaysButtonText?: string | null;
   /**
    * Title for user collection sidebar section
    */
-  listenUserCollectionTitle?: string | null
+  listenUserCollectionTitle?: string | null;
   /**
    * Button text to navigate to full collection page
    */
-  listenYourCollectionButtonText?: string | null
+  listenYourCollectionButtonText?: string | null;
   /**
    * Select which Weekly Chart list to display in sidebar
    */
-  listenSidebarWeeklyChart?: (number | null) | WeeklyChart
+  listenSidebarWeeklyChart?: (number | null) | WeeklyChart;
   /**
    * Select which advertisement to display in sidebar
    */
-  listenSidebarAdvertisement?: (number | null) | Advertisement
+  listenSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select announcement for full-width section (e.g., "DJ Applications Now Open")
    */
-  fullWidthAnnouncement?: (number | null) | Announcement
+  fullWidthAnnouncement?: (number | null) | Announcement;
   /**
    * Select which Weekly Chart list to display on the left
    */
-  leftWeeklyChart?: (number | null) | WeeklyChart
+  leftWeeklyChart?: (number | null) | WeeklyChart;
   /**
    * Select which Weekly Chart list to display on the right
    */
-  rightWeeklyChart?: (number | null) | WeeklyChart
+  rightWeeklyChart?: (number | null) | WeeklyChart;
   /**
    * Select which announcement to display in sidebar
    */
-  eventsSidebarAnnouncement?: (number | null) | Announcement
+  eventsSidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which content type to display in sidebar
    */
-  eventsSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null
+  eventsSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null;
   /**
    * Number of content items to display (1-3)
    */
-  eventsSidebarContentCount?: ('1' | '2' | '3') | null
+  eventsSidebarContentCount?: ('1' | '2' | '3') | null;
   /**
    * Select which advertisement to display in sidebar
    */
-  eventsSidebarAdvertisement?: (number | null) | Advertisement
+  eventsSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select announcement for full-width section (e.g., "Stream Quality Upgrade")
    */
-  eventsFullWidthAnnouncement?: (number | null) | Announcement
+  eventsFullWidthAnnouncement?: (number | null) | Announcement;
   /**
    * Select which announcement to display in sidebar
    */
-  articlesSidebarAnnouncement?: (number | null) | Announcement
+  articlesSidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which content type to display in sidebar
    */
-  articlesSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null
+  articlesSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null;
   /**
    * Number of content items to display (1-3)
    */
-  articlesSidebarContentCount?: ('1' | '2' | '3') | null
+  articlesSidebarContentCount?: ('1' | '2' | '3') | null;
   /**
    * Select which advertisement to display in sidebar
    */
-  articlesSidebarAdvertisement?: (number | null) | Advertisement
+  articlesSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select announcement for full-width section
    */
-  articlesFullWidthAnnouncement?: (number | null) | Announcement
+  articlesFullWidthAnnouncement?: (number | null) | Announcement;
   /**
    * Main page title for Podcasts page
    */
-  podcastsPageTitle?: string | null
+  podcastsPageTitle?: string | null;
   /**
    * Select which announcement to display in sidebar
    */
-  podcastsSidebarAnnouncement?: (number | null) | Announcement
+  podcastsSidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which advertisement to display in sidebar
    */
-  podcastsSidebarAdvertisement?: (number | null) | Advertisement
+  podcastsSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select announcement for full-width section
    */
-  podcastsFullWidthAnnouncement?: (number | null) | Announcement
+  podcastsFullWidthAnnouncement?: (number | null) | Announcement;
   /**
    * Select which announcement to display in sidebar
    */
-  djDetailSidebarAnnouncement?: (number | null) | Announcement
+  djDetailSidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which advertisement to display in sidebar
    */
-  djDetailSidebarAdvertisement?: (number | null) | Advertisement
+  djDetailSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select which content type to display in sidebar
    */
-  djDetailSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null
+  djDetailSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null;
   /**
    * Number of content items to display (1-3)
    */
-  djDetailSidebarContentCount?: ('1' | '2' | '3') | null
+  djDetailSidebarContentCount?: ('1' | '2' | '3') | null;
   /**
    * Select which announcement to display in sidebar
    */
-  scheduleSidebarAnnouncement?: (number | null) | Announcement
+  scheduleSidebarAnnouncement?: (number | null) | Announcement;
   /**
    * Select which advertisement to display in sidebar
    */
-  scheduleSidebarAdvertisement?: (number | null) | Advertisement
+  scheduleSidebarAdvertisement?: (number | null) | Advertisement;
   /**
    * Select which content type to display in sidebar
    */
-  scheduleSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null
+  scheduleSidebarContentType?: ('articles' | 'podcasts' | 'events' | 'none') | null;
   /**
    * Number of content items to display (1-3)
    */
-  scheduleSidebarContentCount?: ('1' | '2' | '3') | null
+  scheduleSidebarContentCount?: ('1' | '2' | '3') | null;
   /**
    * Informational message about Your Collection feature. Explains that saved songs are available on web and mobile, and can be downloaded as CSV. Shows above the table on web, or in the main section on mobile (hidden when collection has items).
    */
   collectionPageContent?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   /**
    * 404 error page heading
    */
-  notFoundPageHeading?: string | null
+  notFoundPageHeading?: string | null;
   /**
    * 404 error page message
    */
-  notFoundPageMessage?: string | null
+  notFoundPageMessage?: string | null;
   /**
    * 403 forbidden page heading
    */
-  forbiddenPageHeading?: string | null
+  forbiddenPageHeading?: string | null;
   /**
    * 403 forbidden page message
    */
-  forbiddenPageMessage?: string | null
+  forbiddenPageMessage?: string | null;
   /**
    * 403 message for logged-out users
    */
-  forbiddenPageMessageLoggedIn?: string | null
+  forbiddenPageMessageLoggedIn?: string | null;
   /**
    * 500 server error page heading
    */
-  serverErrorPageHeading?: string | null
+  serverErrorPageHeading?: string | null;
   /**
    * 500 server error page message
    */
-  serverErrorPageMessage?: string | null
+  serverErrorPageMessage?: string | null;
   /**
    * Toast message shown after successful login
    */
-  loginSuccessMessage?: string | null
+  loginSuccessMessage?: string | null;
   /**
    * Toast message shown after successful sign out
    */
-  logoutSuccessMessage?: string | null
+  logoutSuccessMessage?: string | null;
   /**
    * Toast message shown after successful signup
    */
-  signupSuccessMessage?: string | null
+  signupSuccessMessage?: string | null;
   /**
    * Toast message shown after profile update
    */
-  profileUpdateSuccessMessage?: string | null
+  profileUpdateSuccessMessage?: string | null;
   /**
    * Toast message shown when profile update fails
    */
-  profileUpdateErrorMessage?: string | null
+  profileUpdateErrorMessage?: string | null;
   /**
    * Toast message shown when track added to collection
    */
-  addToCollectionSuccessMessage?: string | null
+  addToCollectionSuccessMessage?: string | null;
   /**
    * Toast message shown when track removed from collection
    */
-  removeFromCollectionSuccessMessage?: string | null
+  removeFromCollectionSuccessMessage?: string | null;
   /**
    * Content for the support section above the footer
    */
   supportContent?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: any
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   /**
    * Show DCase logo in support section
    */
-  showDCaseLogo?: boolean | null
+  showDCaseLogo?: boolean | null;
   /**
    * DCase logo image
    */
-  dCaseLogo?: (number | null) | Media
+  dCaseLogo?: (number | null) | Media;
   /**
    * URL when DCase logo is clicked
    */
-  dCaseLogoUrl?: string | null
+  dCaseLogoUrl?: string | null;
   /**
    * Show Illinois Arts Council logo in support section
    */
-  showIlArtsCouncilLogo?: boolean | null
+  showIlArtsCouncilLogo?: boolean | null;
   /**
    * Illinois Arts Council logo image
    */
-  ilArtsCouncilLogo?: (number | null) | Media
+  ilArtsCouncilLogo?: (number | null) | Media;
   /**
    * URL when Illinois Arts Council logo is clicked
    */
-  ilArtsCouncilLogoUrl?: string | null
+  ilArtsCouncilLogoUrl?: string | null;
   /**
    * Additional support logos (up to 3)
    */
@@ -3037,26 +3061,26 @@ export interface SiteSetting {
         /**
          * Logo image
          */
-        logo?: (number | null) | Media
+        logo?: (number | null) | Media;
         /**
          * URL when logo is clicked (optional)
          */
-        logoUrl?: string | null
+        logoUrl?: string | null;
         /**
          * Alt text for logo
          */
-        alt?: string | null
-        id?: string | null
+        alt?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Advertisement to show in support section
    */
-  supportAdvertisement?: (number | null) | Advertisement
+  supportAdvertisement?: (number | null) | Advertisement;
   /**
    * Copyright text. Use {year} as placeholder for current year.
    */
-  copyrightText?: string | null
+  copyrightText?: string | null;
   /**
    * Social media links for footer
    */
@@ -3072,41 +3096,41 @@ export interface SiteSetting {
           | 'linkedin'
           | 'spotify'
           | 'apple-music'
-          | 'other'
-        url: string
+          | 'other';
+        url: string;
         /**
          * Optional custom label (defaults to platform name)
          */
-        label?: string | null
-        id?: string | null
+        label?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   /**
    * Show CHIRP Radio Film Fest logo in footer
    */
-  showChirpFilmFestLogo?: boolean | null
+  showChirpFilmFestLogo?: boolean | null;
   /**
    * CHIRP Radio Film Fest logo image
    */
-  chirpFilmFestLogo?: (number | null) | Media
+  chirpFilmFestLogo?: (number | null) | Media;
   /**
    * URL when Film Fest logo is clicked
    */
-  chirpFilmFestLogoUrl?: string | null
+  chirpFilmFestLogoUrl?: string | null;
   /**
    * Show First Time logo in footer
    */
-  showFirstTimeLogo?: boolean | null
+  showFirstTimeLogo?: boolean | null;
   /**
    * First Time logo image
    */
-  firstTimeLogo?: (number | null) | Media
+  firstTimeLogo?: (number | null) | Media;
   /**
    * URL when First Time logo is clicked
    */
-  firstTimeLogoUrl?: string | null
-  updatedAt?: string | null
-  createdAt?: string | null
+  firstTimeLogoUrl?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -3116,33 +3140,33 @@ export interface MobileAppSettingsSelect<T extends boolean = true> {
   notLoggedInMessage?:
     | T
     | {
-        title?: T
-        message?: T
-        loginButtonText?: T
-        signupButtonText?: T
-      }
+        title?: T;
+        message?: T;
+        loginButtonText?: T;
+        signupButtonText?: T;
+      };
   loginModal?:
     | T
     | {
-        loginMessage?: T
-        signupMessage?: T
-      }
+        loginMessage?: T;
+        signupMessage?: T;
+      };
   accountBenefits?:
     | T
     | {
-        title?: T
+        title?: T;
         benefits?:
           | T
           | {
-              benefit?: T
-              id?: T
-            }
-      }
-  accountBenefitsTitle?: T
-  accountBenefitsContent?: T
-  updatedAt?: T
-  createdAt?: T
-  globalType?: T
+              benefit?: T;
+              id?: T;
+            };
+      };
+  accountBenefitsTitle?: T;
+  accountBenefitsContent?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -3152,206 +3176,207 @@ export interface VolunteerFormSettingsSelect<T extends boolean = true> {
   ageQuestion?:
     | T
     | {
-        label?: T
+        label?: T;
         options?:
           | T
           | {
-              value?: T
-              id?: T
-            }
-      }
+              value?: T;
+              id?: T;
+            };
+      };
   educationQuestion?:
     | T
     | {
-        label?: T
-        placeholder?: T
-      }
+        label?: T;
+        placeholder?: T;
+      };
   employerQuestion?:
     | T
     | {
-        label?: T
-        placeholder?: T
-      }
+        label?: T;
+        placeholder?: T;
+      };
   volunteerOrgsQuestion?:
     | T
     | {
-        label?: T
-        placeholder?: T
-        addButtonText?: T
-      }
+        label?: T;
+        placeholder?: T;
+        addButtonText?: T;
+      };
   radioExperienceQuestion?:
     | T
     | {
-        label?: T
-        followUpLabel?: T
-        followUpPlaceholder?: T
-      }
+        label?: T;
+        followUpLabel?: T;
+        followUpPlaceholder?: T;
+      };
   specialSkillsQuestion?:
     | T
     | {
-        label?: T
+        label?: T;
         options?:
           | T
           | {
-              value?: T
-              id?: T
-            }
-      }
+              value?: T;
+              id?: T;
+            };
+      };
   hearAboutChirpQuestion?:
     | T
     | {
-        label?: T
+        label?: T;
         options?:
           | T
           | {
-              value?: T
-              id?: T
-            }
-      }
+              value?: T;
+              id?: T;
+            };
+      };
   interestsQuestion?:
     | T
     | {
-        label?: T
+        label?: T;
         options?:
           | T
           | {
-              value?: T
-              id?: T
-            }
-      }
+              value?: T;
+              id?: T;
+            };
+      };
   wantsToDJQuestion?:
     | T
     | {
-        label?: T
-      }
+        label?: T;
+      };
   djAvailabilityQuestion?:
     | T
     | {
-        label?: T
+        label?: T;
         options?:
           | T
           | {
-              value?: T
-              id?: T
-            }
-      }
+              value?: T;
+              id?: T;
+            };
+      };
   formActions?:
     | T
     | {
-        cancelButtonText?: T
-        saveButtonText?: T
-      }
-  updatedAt?: T
-  createdAt?: T
-  globalType?: T
+        cancelButtonText?: T;
+        saveButtonText?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "siteSettings_select".
  */
 export interface SiteSettingsSelect<T extends boolean = true> {
-  showTopAnnouncement?: T
-  topAnnouncement?: T
-  sidebarAnnouncement?: T
-  sidebarAdvertisement?: T
+  showTopAnnouncement?: T;
+  topAnnouncement?: T;
+  sidebarAnnouncement?: T;
+  sidebarAdvertisement?: T;
   navigationItems?:
     | T
     | {
-        navItem?: T
-        customLabel?: T
-        openInNewTab?: T
-        id?: T
-      }
-  showUserCollection?: T
-  listenPageTitle?: T
-  listenCurrentPlaylistTitle?: T
-  listenPreviousPlaysButtonText?: T
-  listenUserCollectionTitle?: T
-  listenYourCollectionButtonText?: T
-  listenSidebarWeeklyChart?: T
-  listenSidebarAdvertisement?: T
-  fullWidthAnnouncement?: T
-  leftWeeklyChart?: T
-  rightWeeklyChart?: T
-  eventsSidebarAnnouncement?: T
-  eventsSidebarContentType?: T
-  eventsSidebarContentCount?: T
-  eventsSidebarAdvertisement?: T
-  eventsFullWidthAnnouncement?: T
-  articlesSidebarAnnouncement?: T
-  articlesSidebarContentType?: T
-  articlesSidebarContentCount?: T
-  articlesSidebarAdvertisement?: T
-  articlesFullWidthAnnouncement?: T
-  podcastsPageTitle?: T
-  podcastsSidebarAnnouncement?: T
-  podcastsSidebarAdvertisement?: T
-  podcastsFullWidthAnnouncement?: T
-  djDetailSidebarAnnouncement?: T
-  djDetailSidebarAdvertisement?: T
-  djDetailSidebarContentType?: T
-  djDetailSidebarContentCount?: T
-  scheduleSidebarAnnouncement?: T
-  scheduleSidebarAdvertisement?: T
-  scheduleSidebarContentType?: T
-  scheduleSidebarContentCount?: T
-  collectionPageContent?: T
-  notFoundPageHeading?: T
-  notFoundPageMessage?: T
-  forbiddenPageHeading?: T
-  forbiddenPageMessage?: T
-  forbiddenPageMessageLoggedIn?: T
-  serverErrorPageHeading?: T
-  serverErrorPageMessage?: T
-  loginSuccessMessage?: T
-  logoutSuccessMessage?: T
-  signupSuccessMessage?: T
-  profileUpdateSuccessMessage?: T
-  profileUpdateErrorMessage?: T
-  addToCollectionSuccessMessage?: T
-  removeFromCollectionSuccessMessage?: T
-  supportContent?: T
-  showDCaseLogo?: T
-  dCaseLogo?: T
-  dCaseLogoUrl?: T
-  showIlArtsCouncilLogo?: T
-  ilArtsCouncilLogo?: T
-  ilArtsCouncilLogoUrl?: T
+        navItem?: T;
+        customLabel?: T;
+        openInNewTab?: T;
+        id?: T;
+      };
+  showUserCollection?: T;
+  listenPageTitle?: T;
+  listenCurrentPlaylistTitle?: T;
+  listenPreviousPlaysButtonText?: T;
+  listenUserCollectionTitle?: T;
+  listenYourCollectionButtonText?: T;
+  listenSidebarWeeklyChart?: T;
+  listenSidebarAdvertisement?: T;
+  fullWidthAnnouncement?: T;
+  leftWeeklyChart?: T;
+  rightWeeklyChart?: T;
+  eventsSidebarAnnouncement?: T;
+  eventsSidebarContentType?: T;
+  eventsSidebarContentCount?: T;
+  eventsSidebarAdvertisement?: T;
+  eventsFullWidthAnnouncement?: T;
+  articlesSidebarAnnouncement?: T;
+  articlesSidebarContentType?: T;
+  articlesSidebarContentCount?: T;
+  articlesSidebarAdvertisement?: T;
+  articlesFullWidthAnnouncement?: T;
+  podcastsPageTitle?: T;
+  podcastsSidebarAnnouncement?: T;
+  podcastsSidebarAdvertisement?: T;
+  podcastsFullWidthAnnouncement?: T;
+  djDetailSidebarAnnouncement?: T;
+  djDetailSidebarAdvertisement?: T;
+  djDetailSidebarContentType?: T;
+  djDetailSidebarContentCount?: T;
+  scheduleSidebarAnnouncement?: T;
+  scheduleSidebarAdvertisement?: T;
+  scheduleSidebarContentType?: T;
+  scheduleSidebarContentCount?: T;
+  collectionPageContent?: T;
+  notFoundPageHeading?: T;
+  notFoundPageMessage?: T;
+  forbiddenPageHeading?: T;
+  forbiddenPageMessage?: T;
+  forbiddenPageMessageLoggedIn?: T;
+  serverErrorPageHeading?: T;
+  serverErrorPageMessage?: T;
+  loginSuccessMessage?: T;
+  logoutSuccessMessage?: T;
+  signupSuccessMessage?: T;
+  profileUpdateSuccessMessage?: T;
+  profileUpdateErrorMessage?: T;
+  addToCollectionSuccessMessage?: T;
+  removeFromCollectionSuccessMessage?: T;
+  supportContent?: T;
+  showDCaseLogo?: T;
+  dCaseLogo?: T;
+  dCaseLogoUrl?: T;
+  showIlArtsCouncilLogo?: T;
+  ilArtsCouncilLogo?: T;
+  ilArtsCouncilLogoUrl?: T;
   additionalLogos?:
     | T
     | {
-        logo?: T
-        logoUrl?: T
-        alt?: T
-        id?: T
-      }
-  supportAdvertisement?: T
-  copyrightText?: T
+        logo?: T;
+        logoUrl?: T;
+        alt?: T;
+        id?: T;
+      };
+  supportAdvertisement?: T;
+  copyrightText?: T;
   socialLinks?:
     | T
     | {
-        platform?: T
-        url?: T
-        label?: T
-        id?: T
-      }
-  showChirpFilmFestLogo?: T
-  chirpFilmFestLogo?: T
-  chirpFilmFestLogoUrl?: T
-  showFirstTimeLogo?: T
-  firstTimeLogo?: T
-  firstTimeLogoUrl?: T
-  updatedAt?: T
-  createdAt?: T
-  globalType?: T
+        platform?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
+  showChirpFilmFestLogo?: T;
+  chirpFilmFestLogo?: T;
+  chirpFilmFestLogoUrl?: T;
+  showFirstTimeLogo?: T;
+  firstTimeLogo?: T;
+  firstTimeLogoUrl?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}

@@ -29,6 +29,7 @@ import { Purchases } from './src/collections/Purchases'
 import { Categories } from './src/collections/Categories'
 import { MobilePageContent } from './src/collections/MobilePageContent'
 import { Onboarding } from './src/collections/Onboarding'
+import { TracksPlayed } from './src/collections/TracksPlayed'
 import { SiteSettings } from './src/globals/SiteSettings'
 import { MobileAppSettings } from './src/globals/MobileAppSettings'
 import { VolunteerFormSettings } from './src/globals/VolunteerFormSettings'
@@ -128,6 +129,9 @@ export default buildConfig({
     // 8. Mobile App
     MobilePageContent,
     Onboarding,
+
+    // 9. Radio Data
+    TracksPlayed,
   ],
   globals: [
     // Mobile App

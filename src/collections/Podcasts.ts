@@ -15,12 +15,18 @@ export const Podcasts: CollectionConfig = {
     livePreview: {
       url: ({ data }) => {
         // Use existing slug or generate from title for preview
-        const slug = data.slug || data.title?.toLowerCase()
-          .replace(/[^\w\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-')
-          .replace(/^-+|-+$/g, '')
-        return `http://localhost:5173/podcasts/${slug || 'preview'}`
+        const slug =
+          data.slug ||
+          data.title
+            ?.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '')
+        const frontendUrl =
+          process.env.FRONTEND_URL ||
+          'http://chirp-radio-alb-1362747273.us-east-1.elb.amazonaws.com'
+        return `${frontendUrl}/podcasts/${slug || 'preview'}`
       },
     },
   },

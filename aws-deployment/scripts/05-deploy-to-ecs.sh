@@ -34,7 +34,7 @@ echo ""
 # ================================
 # 1. Load Configuration
 # ================================
-CONFIG_FILE="aws-deployment/infrastructure-config.env"
+CONFIG_FILE="infrastructure-config.env"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     log_error "Configuration file not found: $CONFIG_FILE"
@@ -46,7 +46,7 @@ log_info "Loading configuration from $CONFIG_FILE"
 source "$CONFIG_FILE"
 
 # Get Account ID
-ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+ACCOUNT_ID=$(aws sts get-caller-identity --profile sberardelli --query Account --output text)
 
 # ================================
 # 2. Collect Required Secrets
@@ -77,11 +77,13 @@ log_info "Storing secrets in AWS Secrets Manager..."
 aws secretsmanager create-secret \
     --name "${PROJECT_NAME}/payload-secret" \
     --secret-string "$PAYLOAD_SECRET" \
-    --region $REGION 2>/dev/null || \
+    --region $REGION \
+    --profile sberardelli 2>/dev/null || \
     aws secretsmanager update-secret \
         --secret-id "${PROJECT_NAME}/payload-secret" \
         --secret-string "$PAYLOAD_SECRET" \
-        --region $REGION
+        --region $REGION \
+        --profile sberardelli
 
 log_success "PAYLOAD_SECRET stored"
 
@@ -90,11 +92,13 @@ if [ ! -z "$RESEND_API_KEY" ]; then
     aws secretsmanager create-secret \
         --name "${PROJECT_NAME}/resend-api-key" \
         --secret-string "$RESEND_API_KEY" \
-        --region $REGION 2>/dev/null || \
+        --region $REGION \
+        --profile sberardelli 2>/dev/null || \
         aws secretsmanager update-secret \
             --secret-id "${PROJECT_NAME}/resend-api-key" \
             --secret-string "$RESEND_API_KEY" \
-            --region $REGION
+            --region $REGION \
+            --profile sberardelli
     log_success "RESEND_API_KEY stored"
 else
     log_info "Skipping RESEND_API_KEY (not provided)"
@@ -105,11 +109,13 @@ if [ ! -z "$OPENAI_API_KEY" ]; then
     aws secretsmanager create-secret \
         --name "${PROJECT_NAME}/openai-api-key" \
         --secret-string "$OPENAI_API_KEY" \
-        --region $REGION 2>/dev/null || \
+        --region $REGION \
+        --profile sberardelli 2>/dev/null || \
         aws secretsmanager update-secret \
             --secret-id "${PROJECT_NAME}/openai-api-key" \
             --secret-string "$OPENAI_API_KEY" \
-            --region $REGION
+            --region $REGION \
+            --profile sberardelli
     log_success "OPENAI_API_KEY stored"
 else
     log_info "Skipping OPENAI_API_KEY (not provided)"
@@ -129,7 +135,7 @@ IMAGE_URI="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/${REPOSITORY_NAME}:late
 log_info "Using image: $IMAGE_URI"
 
 # Create task definition from template
-TASK_DEF_TEMPLATE="aws-deployment/ecs/task-definition-template.json"
+TASK_DEF_TEMPLATE="ecs/task-definition-template.json"
 TASK_DEF_FILE="/tmp/chirp-cms-task-definition.json"
 
 # Replace placeholders in template
@@ -151,6 +157,7 @@ log_info "Registering task definition..."
 TASK_DEF_ARN=$(aws ecs register-task-definition \
     --cli-input-json file://"$TASK_DEF_FILE" \
     --region $REGION \
+    --profile sberardelli \
     --query 'taskDefinition.taskDefinitionArn' \
     --output text)
 
@@ -168,6 +175,7 @@ SERVICE_EXISTS=$(aws ecs describe-services \
     --cluster $CLUSTER_NAME \
     --services $SERVICE_NAME \
     --region $REGION \
+    --profile sberardelli \
     --query 'services[0].serviceName' \
     --output text 2>/dev/null || echo "None")
 
@@ -184,7 +192,8 @@ if [ "$SERVICE_EXISTS" = "None" ] || [ "$SERVICE_EXISTS" = "" ]; then
         --network-configuration "awsvpcConfiguration={subnets=[$SUBNET_1,$SUBNET_2],securityGroups=[$ECS_SG_ID],assignPublicIp=ENABLED}" \
         --load-balancers "targetGroupArn=$TG_ARN,containerName=chirp-cms,containerPort=3000" \
         --health-check-grace-period-seconds 60 \
-        --region $REGION > /dev/null
+        --region $REGION \
+        --profile sberardelli > /dev/null
 
     log_success "ECS service created"
 else
@@ -195,7 +204,8 @@ else
         --service $SERVICE_NAME \
         --task-definition $TASK_DEF_ARN \
         --force-new-deployment \
-        --region $REGION > /dev/null
+        --region $REGION \
+        --profile sberardelli > /dev/null
 
     log_success "ECS service updated"
 fi
@@ -213,7 +223,8 @@ log_info "You can press Ctrl+C to stop waiting (deployment will continue)"
 aws ecs wait services-stable \
     --cluster $CLUSTER_NAME \
     --services $SERVICE_NAME \
-    --region $REGION || log_info "Wait interrupted or timed out"
+    --region $REGION \
+    --profile sberardelli || log_info "Wait interrupted or timed out"
 
 # ================================
 # Output Deployment Info
