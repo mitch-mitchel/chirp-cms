@@ -9,7 +9,7 @@ import { getPayload } from 'payload'
 import config from '../payload.config'
 
 const CURRENT_PLAYLIST_API = 'https://chirpradio.appspot.com/api/current_playlist'
-const POLL_INTERVAL = 30000 // 30 seconds
+const POLL_INTERVAL = 10000 // 10 seconds
 
 interface CurrentPlaylistTrack {
   id: string  // playlist event ID
@@ -19,6 +19,8 @@ interface CurrentPlaylistTrack {
   label?: string
   dj?: string
   artist_is_local?: boolean
+  played_at_gmt?: string  // UTC timestamp from API
+  played_at_local?: string  // Chicago time timestamp from API
   lastfm_urls?: {
     large_image?: string
     med_image?: string
@@ -71,7 +73,8 @@ function getDeterministicFallbackImage(artist: string, album: string): string {
   const index = seed % fallbackImages.length
   const selectedImage = fallbackImages[index]
 
-  return selectedImage.image?.url || ''
+  // Use player size (600x600) if available, otherwise base URL
+  return selectedImage.sizes?.player?.url || selectedImage.url || ''
 }
 
 async function fetchCurrentPlaylist(): Promise<CurrentPlaylistResponse | null> {
@@ -149,7 +152,7 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
         djName: djName.trim(),
         showName: 'Live on CHIRP Radio',  // API doesn't provide show name
         isLocal: track.artist_is_local || false,
-        playedAt: new Date().toISOString(),
+        playedAt: track.played_at_local || track.played_at_gmt || new Date().toISOString(),  // Use Chicago time from API
       },
     })
 
