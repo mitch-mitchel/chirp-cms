@@ -138,12 +138,22 @@ const importData = async () => {
     // Import Articles
     console.log(`📰 Importing ${articlesData.articles.length} articles...`)
     for (const article of articlesData.articles) {
+      // Get category ID - handle if category is already an ID (number) or a string name
+      let categoryId
+      if (typeof article.category === 'number') {
+        categoryId = article.category
+      } else if (typeof article.category === 'object' && article.category?.id) {
+        categoryId = article.category.id
+      } else {
+        categoryId = categoryMap[article.category] || categoryMap['News']
+      }
+
       await payload.create({
         collection: 'articles',
         data: {
           ...article,
           // Convert category string to category ID
-          category: categoryMap[article.category] || categoryMap['News'],
+          category: categoryId,
           // Convert author.name to just author
           author: article.author?.name || article.author,
           // Handle image URLs - if it's an external URL, use featuredImageUrl
@@ -240,9 +250,16 @@ const importData = async () => {
       const venueId = venueMap.get(event.venue?.name)
       const ageRestrictionId = ageGateMap.get(event.ageRestriction)
 
-      // Map event category string to category ID
-      const categoryName = eventCategoryMapping[event.category] || 'Events'
-      const categoryId = categoryMap[categoryName]
+      // Get category ID - handle if category is already an ID (number) or a string name
+      let categoryId
+      if (typeof event.category === 'number') {
+        categoryId = event.category
+      } else if (typeof event.category === 'object' && event.category?.id) {
+        categoryId = event.category.id
+      } else {
+        const categoryName = eventCategoryMapping[event.category] || 'Events'
+        categoryId = categoryMap[categoryName]
+      }
 
       await payload.create({
         collection: 'events',
@@ -291,9 +308,16 @@ const importData = async () => {
     }
 
     for (const podcast of podcastsData.podcasts) {
-      // Map podcast category string to category ID
-      const categoryName = podcastCategoryMapping[podcast.category] || 'Music'
-      const categoryId = categoryMap[categoryName]
+      // Get category ID - handle if category is already an ID (number) or a string name
+      let categoryId
+      if (typeof podcast.category === 'number') {
+        categoryId = podcast.category
+      } else if (typeof podcast.category === 'object' && podcast.category?.id) {
+        categoryId = podcast.category.id
+      } else {
+        const categoryName = podcastCategoryMapping[podcast.category] || 'Music'
+        categoryId = categoryMap[categoryName]
+      }
 
       await payload.create({
         collection: 'podcasts',
