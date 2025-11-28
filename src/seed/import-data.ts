@@ -15,6 +15,7 @@ import { seedMedia } from './seed-media'
 import { seedPlayerFallbackImages } from './seed-player-fallback-images'
 import { seedWeeklyCharts } from './seed-weekly-charts'
 import { seedOnboardingSteps } from './seed-onboarding'
+import { seedTracksPlayed } from './seed-tracks-played'
 
 dotenv.config()
 
@@ -401,6 +402,9 @@ const importData = async () => {
 
     // Seed Onboarding Steps
     await seedOnboardingSteps(payload)
+
+    // Seed Tracks Played
+    await seedTracksPlayed(payload)
 
     console.log('✨ Data import completed successfully!')
     process.exit(0)
