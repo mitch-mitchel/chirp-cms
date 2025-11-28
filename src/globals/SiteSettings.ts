@@ -64,63 +64,6 @@ export const SiteSettings: GlobalConfig = {
       ],
         },
         {
-          label: 'Navigation',
-          fields: [
-            {
-              name: 'navigationItems',
-              label: 'Main Navigation Items',
-              type: 'array',
-              required: true,
-              minRows: 3,
-              maxRows: 8,
-              admin: {
-                description: 'Drag to reorder navigation items. Maximum 8 items to maintain layout integrity.',
-                initCollapsed: false,
-                isSortable: true,
-              },
-              fields: [
-                {
-                  name: 'navItem',
-                  label: 'Navigation Item',
-                  type: 'select',
-                  required: true,
-                  options: [
-                    { label: 'Listen', value: 'listen' },
-                    { label: 'Schedule', value: 'schedule' },
-                    { label: 'Events', value: 'events' },
-                    { label: 'Articles', value: 'articles' },
-                    { label: 'Podcasts', value: 'podcasts' },
-                    { label: 'Support', value: 'support' },
-                    { label: 'About', value: 'about' },
-                    { label: 'Volunteer', value: 'volunteer' },
-                    { label: 'Shop', value: 'shop' },
-                  ],
-                  admin: {
-                    description: 'Select which page this navigation item links to',
-                  },
-                },
-                {
-                  name: 'customLabel',
-                  label: 'Custom Label',
-                  type: 'text',
-                  admin: {
-                    description: 'Optional: Override the default label (e.g., "Listen Live" instead of "Listen")',
-                  },
-                },
-                {
-                  name: 'openInNewTab',
-                  label: 'Open in New Tab',
-                  type: 'checkbox',
-                  defaultValue: false,
-                  admin: {
-                    description: 'Check to open this link in a new browser tab',
-                  },
-                },
-              ],
-            },
-          ],
-        },
-        {
           label: 'Listen Page',
       fields: [
         {
