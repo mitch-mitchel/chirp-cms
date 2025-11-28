@@ -17,7 +17,34 @@ interface AlbumArtResult {
 }
 
 /**
+ * Upgrade Last.fm image URL to higher quality
+ * Upgrades from 174s to 300x300 and converts to WebP format
+ */
+function upgradeImageQuality(
+  url: string,
+  quality: 'low' | 'medium' | 'high' = 'medium'
+): string {
+  if (!url || !url.includes('lastfm')) {
+    return url
+  }
+
+  // Map quality to size parameter
+  const sizeMap = {
+    low: '174s', // 174x174px
+    medium: '300x300', // 300x300px
+    high: '300x300', // 300x300px
+  }
+
+  const size = sizeMap[quality]
+
+  // Replace any /u/###s/ or /u/###x###/ pattern with the desired size
+  // Then convert to WebP format
+  return url.replace(/\/u\/(\d+s|\d+x\d+)\//, `/u/${size}/`).replace(/\.(jpg|png)$/, '.webp')
+}
+
+/**
  * Test if a Last.fm URL is valid and accessible
+ * Upgrades URL to higher quality before validation
  */
 async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
   const start = performance.now()
@@ -27,16 +54,19 @@ async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
     return { url: null, source: 'Last.fm URL ✗', time: performance.now() - start }
   }
 
+  // Upgrade to higher quality (300x300 WebP)
+  const upgradedUrl = upgradeImageQuality(lastfmUrl, 'medium')
+
   try {
-    console.log(`[Last.fm URL] Checking URL: ${lastfmUrl}`)
-    const res = await fetch(lastfmUrl, { method: 'HEAD' })
+    console.log(`[Last.fm URL] Checking upgraded URL: ${upgradedUrl}`)
+    const res = await fetch(upgradedUrl, { method: 'HEAD' })
     const time = performance.now() - start
 
     if (res.ok) {
-      console.log('[Last.fm URL] ✓ URL is valid')
-      return { url: lastfmUrl, source: 'Last.fm URL ✓', time }
+      console.log('[Last.fm URL] ✓ Upgraded URL is valid')
+      return { url: upgradedUrl, source: 'Last.fm URL ✓', time }
     } else {
-      console.log(`[Last.fm URL] ✗ URL returned ${res.status}`)
+      console.log(`[Last.fm URL] ✗ Upgraded URL returned ${res.status}`)
       return { url: null, source: 'Last.fm URL ✗', time }
     }
   } catch (error) {
