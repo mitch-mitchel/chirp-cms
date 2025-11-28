@@ -193,7 +193,47 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
       3000 // 3 second timeout
     )
 
-    // If parallel resolution failed, use deterministic fallback image (same logic as player)
+    // If parallel resolution failed, retry by re-fetching from CHIRP API for fresh Last.fm URL
+    if (!albumArt || albumArt.trim() === '') {
+      console.log(`🔄 Retrying: Re-fetching CHIRP API for fresh Last.fm URL...`)
+      try {
+        const retryResponse = await fetch(CURRENT_PLAYLIST_API)
+        if (retryResponse.ok) {
+          const retryData: CurrentPlaylistResponse = await retryResponse.json()
+
+          // Find the same track in the response (check now_playing and recently_played)
+          let freshTrack: CurrentPlaylistTrack | undefined
+          if (retryData.now_playing?.id === track.id) {
+            freshTrack = retryData.now_playing
+          } else if (retryData.recently_played) {
+            freshTrack = retryData.recently_played.find(t => t.id === track.id)
+          }
+
+          if (freshTrack) {
+            const freshLastfmUrl = freshTrack.lastfm_urls?.large_image || freshTrack.lastfm_urls?.med_image || ''
+
+            // Only retry if we got a different URL
+            if (freshLastfmUrl && freshLastfmUrl !== lastfmUrl) {
+              console.log(`🆕 Found new Last.fm URL, validating...`)
+              albumArt = await resolveAlbumArt(
+                track.artist.trim(),
+                albumName,
+                freshLastfmUrl,
+                2000 // 2 second timeout for retry
+              )
+            } else {
+              console.log(`⚠️  Same or empty Last.fm URL, skipping retry`)
+            }
+          } else {
+            console.log(`⚠️  Track not found in retry API response`)
+          }
+        }
+      } catch (retryError) {
+        console.log(`⚠️  Retry fetch failed:`, retryError.message)
+      }
+    }
+
+    // If still no album art after retry, use deterministic fallback image (same logic as player)
     if (!albumArt || albumArt.trim() === '') {
       albumArt = await getDeterministicFallbackImage(track.artist.trim(), albumName, payload)
       if (albumArt) {
