@@ -18,7 +18,8 @@ interface AlbumArtResult {
 
 /**
  * Upgrade Last.fm image URL to higher quality
- * Upgrades from 174s to 300x300 and converts to WebP format
+ * Upgrades from 174s to 300x300 while keeping original format
+ * Note: We keep .jpg/.png format because Last.fm doesn't always have WebP versions
  */
 function upgradeImageQuality(
   url: string,
@@ -38,8 +39,8 @@ function upgradeImageQuality(
   const size = sizeMap[quality]
 
   // Replace any /u/###s/ or /u/###x###/ pattern with the desired size
-  // Then convert to WebP format
-  return url.replace(/\/u\/(\d+s|\d+x\d+)\//, `/u/${size}/`).replace(/\.(jpg|png)$/, '.webp')
+  // Keep original format (.jpg, .png) - don't force WebP conversion
+  return url.replace(/\/u\/(\d+s|\d+x\d+)\//, `/u/${size}/`)
 }
 
 /**
@@ -54,11 +55,12 @@ async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
     return { url: null, source: 'Last.fm URL ✗', time: performance.now() - start }
   }
 
-  // Upgrade to higher quality (300x300 WebP)
+  // Upgrade to higher quality (174s → 300x300, keeping original format)
   const upgradedUrl = upgradeImageQuality(lastfmUrl, 'medium')
 
   try {
-    console.log(`[Last.fm URL] Checking upgraded URL: ${upgradedUrl}`)
+    console.log(`[Last.fm URL] Original: ${lastfmUrl}`)
+    console.log(`[Last.fm URL] Upgraded: ${upgradedUrl}`)
     const res = await fetch(upgradedUrl, { method: 'HEAD' })
     const time = performance.now() - start
 
