@@ -65,6 +65,30 @@ services:
       retries: 3
       start_period: 40s
 
+  # Playlist Poller (24/7 Track Recording)
+  poller:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: chirp-poller
+    restart: unless-stopped
+    environment:
+      # Database
+      DATABASE_URI: postgresql://chirp:chirp_dev_password@db:5432/chirp_cms
+
+      # Payload Configuration
+      PAYLOAD_CONFIG_PATH: payload.config.ts
+
+      # Node Environment
+      NODE_ENV: production
+    command: npx tsx scripts/run-playlist-poller.ts
+    depends_on:
+      db:
+        condition: service_healthy
+      app:
+        condition: service_healthy
+
   # pgAdmin (Optional - Database Management UI)
   pgadmin:
     image: dpage/pgadmin4:latest
