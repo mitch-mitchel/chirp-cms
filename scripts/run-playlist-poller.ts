@@ -32,6 +32,47 @@ interface CurrentPlaylistResponse {
 }
 
 let lastPlaylistEventId: string | null = null
+let fallbackImages: any[] = []
+
+async function loadFallbackImages(payload: any) {
+  try {
+    const { docs } = await payload.find({
+      collection: 'player-fallback-images',
+      limit: 100,
+    })
+    fallbackImages = docs
+    console.log(`📷 Loaded ${fallbackImages.length} fallback images`)
+  } catch (error) {
+    console.error('⚠️  Error loading fallback images:', error.message)
+    fallbackImages = []
+  }
+}
+
+/**
+ * DJB2 hash algorithm (same as frontend)
+ */
+function hashString(str: string): number {
+  let hash = 5381
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 33) ^ str.charCodeAt(i)
+  }
+  return Math.abs(hash >>> 0) // Unsigned 32-bit integer
+}
+
+/**
+ * Gets fallback image deterministically based on artist and album
+ * This ensures the poller uses the same fallback that the player shows
+ */
+function getDeterministicFallbackImage(artist: string, album: string): string {
+  if (fallbackImages.length === 0) return ''
+
+  // Use artist + album to deterministically select an image (same logic as frontend)
+  const seed = hashString(`${artist}|${album}`)
+  const index = seed % fallbackImages.length
+  const selectedImage = fallbackImages[index]
+
+  return selectedImage.image?.url || ''
+}
 
 async function fetchCurrentPlaylist(): Promise<CurrentPlaylistResponse | null> {
   try {
@@ -75,14 +116,24 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
       return false
     }
 
-    // Get album art from lastfm
-    const albumArt = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
+    // Get album art from lastfm, or use fallback if not available
+    let albumArt = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
+
+    // If no album art from API, use deterministic fallback image (same logic as player)
+    if (!albumArt || albumArt.trim() === '') {
+      const albumName = (track.release || '').trim()
+      albumArt = getDeterministicFallbackImage(track.artist.trim(), albumName)
+      if (albumArt) {
+        console.log(`🎨 Using deterministic fallback image for ${track.artist} - ${track.track}`)
+      }
+    }
 
     // Log the data we're about to save
     console.log(`📝 Recording track:`, {
       artistName: track.artist,
       trackName: track.track,
       djName: djName,
+      albumArt: albumArt ? 'has art' : 'no art',
     })
 
     // Create new track record
@@ -145,6 +196,10 @@ async function main() {
   console.log(`Interval: ${POLL_INTERVAL / 1000} seconds`)
   console.log(`Database: ${process.env.DATABASE_URI?.replace(/:[^:@]+@/, ':***@') || 'Not set'}`)
   console.log('═══════════════════════════════\n')
+
+  // Load fallback images
+  const payload = await getPayload({ config })
+  await loadFallbackImages(payload)
 
   // Do initial poll immediately
   await poll()
