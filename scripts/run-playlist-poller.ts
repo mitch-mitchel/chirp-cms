@@ -7,9 +7,10 @@
 
 import { getPayload } from 'payload'
 import config from '../payload.config'
+import { resolveAlbumArt } from './album-art-resolver'
 
 const CURRENT_PLAYLIST_API = 'https://chirpradio.appspot.com/api/current_playlist'
-const POLL_INTERVAL = 10000 // 10 seconds
+const POLL_INTERVAL = 6000 // 6 seconds
 
 interface CurrentPlaylistTrack {
   id: string  // playlist event ID
@@ -61,17 +62,79 @@ function hashString(str: string): number {
   return Math.abs(hash >>> 0) // Unsigned 32-bit integer
 }
 
+// Fallback image metadata for variety logic
+interface FallbackImageMetadata {
+  name: string  // album-art-8, album-art-9, etc.
+  logo: 'bird' | 'chirp'
+  color: 'red' | 'blue' | 'gray'
+}
+
+const fallbackMetadata: FallbackImageMetadata[] = [
+  { name: 'album-art-8', logo: 'bird', color: 'red' },
+  { name: 'album-art-9', logo: 'bird', color: 'blue' },
+  { name: 'album-art-10', logo: 'bird', color: 'gray' },
+  { name: 'album-art-11', logo: 'chirp', color: 'red' },
+  { name: 'album-art-12', logo: 'chirp', color: 'blue' },
+  { name: 'album-art-13', logo: 'chirp', color: 'gray' },
+]
+
 /**
- * Gets fallback image deterministically based on artist and album
- * This ensures the poller uses the same fallback that the player shows
+ * Extract metadata from fallback image filename
  */
-function getDeterministicFallbackImage(artist: string, album: string): string {
+function getFallbackMetadata(url: string): FallbackImageMetadata | null {
+  if (!url) return null
+  const match = url.match(/album-art-(\d+)/)
+  if (!match) return null
+  const name = `album-art-${match[1]}`
+  return fallbackMetadata.find(m => m.name === name) || null
+}
+
+/**
+ * Gets fallback image with variety logic to avoid repeating colors/logos
+ * Ensures no same color or logo type in consecutive tracks
+ */
+async function getDeterministicFallbackImage(artist: string, album: string, payload: any): Promise<string> {
   if (fallbackImages.length === 0) return ''
 
-  // Use artist + album to deterministically select an image (same logic as frontend)
+  // Get most recent track to check for variety
+  let previousMeta: FallbackImageMetadata | null = null
+  try {
+    const { docs } = await payload.find({
+      collection: 'tracks-played',
+      limit: 1,
+      sort: '-playedAt',
+    })
+    if (docs.length > 0 && docs[0].albumArt) {
+      previousMeta = getFallbackMetadata(docs[0].albumArt)
+    }
+  } catch (error) {
+    console.log('⚠️  Could not fetch previous track for variety logic')
+  }
+
+  // Filter fallback images based on variety rules
+  let availableImages = fallbackImages
+  if (previousMeta) {
+    availableImages = fallbackImages.filter(img => {
+      const imgMeta = getFallbackMetadata(img.sizes?.player?.url || img.url || '')
+      if (!imgMeta) return true // Include if we can't determine metadata
+
+      // Exclude same color or same logo type
+      return imgMeta.color !== previousMeta.color && imgMeta.logo !== previousMeta.logo
+    })
+
+    // If filtering resulted in no images, fall back to all images
+    if (availableImages.length === 0) {
+      console.log('⚠️  Variety filter excluded all images, using all fallbacks')
+      availableImages = fallbackImages
+    } else {
+      console.log(`🎨 Filtered fallbacks: ${availableImages.length}/${fallbackImages.length} (avoiding ${previousMeta.logo}/${previousMeta.color})`)
+    }
+  }
+
+  // Use artist + album to deterministically select from available images
   const seed = hashString(`${artist}|${album}`)
-  const index = seed % fallbackImages.length
-  const selectedImage = fallbackImages[index]
+  const index = seed % availableImages.length
+  const selectedImage = availableImages[index]
 
   // Use player size (600x600) if available, otherwise base URL
   return selectedImage.sizes?.player?.url || selectedImage.url || ''
@@ -119,13 +182,20 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
       return false
     }
 
-    // Get album art from lastfm, or use fallback if not available
-    let albumArt = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
+    // Resolve album art using parallel API tests (blocking with 3s timeout)
+    const lastfmUrl = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
+    const albumName = (track.release || '').trim()
 
-    // If no album art from API, use deterministic fallback image (same logic as player)
+    let albumArt = await resolveAlbumArt(
+      track.artist.trim(),
+      albumName,
+      lastfmUrl,
+      3000 // 3 second timeout
+    )
+
+    // If parallel resolution failed, use deterministic fallback image (same logic as player)
     if (!albumArt || albumArt.trim() === '') {
-      const albumName = (track.release || '').trim()
-      albumArt = getDeterministicFallbackImage(track.artist.trim(), albumName)
+      albumArt = await getDeterministicFallbackImage(track.artist.trim(), albumName, payload)
       if (albumArt) {
         console.log(`🎨 Using deterministic fallback image for ${track.artist} - ${track.track}`)
       }
