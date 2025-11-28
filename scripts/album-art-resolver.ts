@@ -17,7 +17,35 @@ interface AlbumArtResult {
 }
 
 /**
+ * Upgrade Last.fm image URL to higher quality
+ * Upgrades from 174s to 300x300 while keeping original format
+ * Note: We keep .jpg/.png format because Last.fm doesn't always have WebP versions
+ */
+function upgradeImageQuality(
+  url: string,
+  quality: 'low' | 'medium' | 'high' = 'medium'
+): string {
+  if (!url || !url.includes('lastfm')) {
+    return url
+  }
+
+  // Map quality to size parameter
+  const sizeMap = {
+    low: '174s', // 174x174px
+    medium: '300x300', // 300x300px
+    high: '300x300', // 300x300px
+  }
+
+  const size = sizeMap[quality]
+
+  // Replace any /u/###s/ or /u/###x###/ pattern with the desired size
+  // Keep original format (.jpg, .png) - don't force WebP conversion
+  return url.replace(/\/u\/(\d+s|\d+x\d+)\//, `/u/${size}/`)
+}
+
+/**
  * Test if a Last.fm URL is valid and accessible
+ * Upgrades URL to higher quality before validation
  */
 async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
   const start = performance.now()
@@ -27,16 +55,20 @@ async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
     return { url: null, source: 'Last.fm URL ✗', time: performance.now() - start }
   }
 
+  // Upgrade to higher quality (174s → 300x300, keeping original format)
+  const upgradedUrl = upgradeImageQuality(lastfmUrl, 'medium')
+
   try {
-    console.log(`[Last.fm URL] Checking URL: ${lastfmUrl}`)
-    const res = await fetch(lastfmUrl, { method: 'HEAD' })
+    console.log(`[Last.fm URL] Original: ${lastfmUrl}`)
+    console.log(`[Last.fm URL] Upgraded: ${upgradedUrl}`)
+    const res = await fetch(upgradedUrl, { method: 'HEAD' })
     const time = performance.now() - start
 
     if (res.ok) {
-      console.log('[Last.fm URL] ✓ URL is valid')
-      return { url: lastfmUrl, source: 'Last.fm URL ✓', time }
+      console.log('[Last.fm URL] ✓ Upgraded URL is valid')
+      return { url: upgradedUrl, source: 'Last.fm URL ✓', time }
     } else {
-      console.log(`[Last.fm URL] ✗ URL returned ${res.status}`)
+      console.log(`[Last.fm URL] ✗ Upgraded URL returned ${res.status}`)
       return { url: null, source: 'Last.fm URL ✗', time }
     }
   } catch (error) {
