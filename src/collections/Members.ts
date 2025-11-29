@@ -181,7 +181,7 @@ export const Members: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'displayTitle',
-    defaultColumns: ['firstName', 'lastName', 'email', 'roles'],
+    defaultColumns: ['id', 'displayTitle', 'djName', 'roles'],
     group: 'Community & Schedule',
     pagination: {
       defaultLimit: 50,
@@ -276,12 +276,6 @@ export const Members: CollectionConfig = {
                 hidden: true,
                 readOnly: true,
               },
-            },
-            {
-              name: 'email',
-              type: 'email',
-              required: true,
-              unique: true,
             },
             {
               name: 'username',
