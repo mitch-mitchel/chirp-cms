@@ -260,7 +260,7 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
         labelName: (track.label || '').trim(),
         albumArt: albumArt,
         djName: djName.trim(),
-        showName: 'Live on CHIRP Radio',  // API doesn't provide show name
+        showName: '',  // API doesn't provide show name - leave empty so UI doesn't display it
         isLocal: track.artist_is_local || false,
         playedAt: track.played_at_local || track.played_at_gmt || new Date().toISOString(),  // Use Chicago time from API
       },
