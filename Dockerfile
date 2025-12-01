@@ -84,6 +84,9 @@ COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
 # Copy source files needed at runtime
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 
+# Copy scripts directory needed for poller
+COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
+
 # Create media directory with proper permissions
 RUN mkdir -p media && chown nextjs:nodejs media
 
