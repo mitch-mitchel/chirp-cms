@@ -268,7 +268,6 @@ export interface Media {
 export interface Listener {
   id: number;
   displayTitle?: string | null;
-  email: string;
   username?: string | null;
   firstName?: string | null;
   lastName?: string | null;
@@ -375,6 +374,10 @@ export interface Listener {
     bluesky?: string | null;
     linkedin?: string | null;
   };
+  /**
+   * Unique DJ ID number
+   */
+  djId?: number | null;
   djName?: string | null;
   showName?: string | null;
   /**
@@ -447,6 +450,7 @@ export interface Listener {
   boardTermEnd?: string | null;
   updatedAt: string;
   createdAt: string;
+  email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
   salt?: string | null;
@@ -479,11 +483,11 @@ export interface ShowSchedule {
    */
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   /**
-   * Start time for this show
+   * Start time for this show (e.g., "6:00 AM", "12:00 PM")
    */
   startTime: string;
   /**
-   * End time for this show
+   * End time for this show (e.g., "9:00 AM", "3:00 PM")
    */
   endTime: string;
   /**
@@ -1848,7 +1852,6 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface ListenersSelect<T extends boolean = true> {
   displayTitle?: T;
-  email?: T;
   username?: T;
   firstName?: T;
   lastName?: T;
@@ -1941,6 +1944,7 @@ export interface ListenersSelect<T extends boolean = true> {
         bluesky?: T;
         linkedin?: T;
       };
+  djId?: T;
   djName?: T;
   showName?: T;
   showTime?: T;
@@ -1974,6 +1978,7 @@ export interface ListenersSelect<T extends boolean = true> {
   boardTermEnd?: T;
   updatedAt?: T;
   createdAt?: T;
+  email?: T;
   resetPasswordToken?: T;
   resetPasswordExpiration?: T;
   salt?: T;
@@ -2788,24 +2793,6 @@ export interface SiteSetting {
    */
   sidebarAdvertisement?: (number | null) | Advertisement;
   /**
-   * Drag to reorder navigation items. Maximum 8 items to maintain layout integrity.
-   */
-  navigationItems: {
-    /**
-     * Select which page this navigation item links to
-     */
-    navItem: 'listen' | 'schedule' | 'events' | 'articles' | 'podcasts' | 'support' | 'about' | 'volunteer' | 'shop';
-    /**
-     * Optional: Override the default label (e.g., "Listen Live" instead of "Listen")
-     */
-    customLabel?: string | null;
-    /**
-     * Check to open this link in a new browser tab
-     */
-    openInNewTab?: boolean | null;
-    id?: string | null;
-  }[];
-  /**
    * Show 3 random songs from logged-in user's saved collection (if they have any)
    */
   showUserCollection?: boolean | null;
@@ -3278,14 +3265,6 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   topAnnouncement?: T;
   sidebarAnnouncement?: T;
   sidebarAdvertisement?: T;
-  navigationItems?:
-    | T
-    | {
-        navItem?: T;
-        customLabel?: T;
-        openInNewTab?: T;
-        id?: T;
-      };
   showUserCollection?: T;
   listenPageTitle?: T;
   listenCurrentPlaylistTitle?: T;
