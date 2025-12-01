@@ -25,6 +25,11 @@ h2.dashboard__label,
   font-size: 21px !important;
 }
 
+/* Fix doc header title overflow - remove hidden overflow */
+.doc-header__title {
+  overflow: visible !important;
+}
+
 /* Card height - only as tall as content */
 .card,
 [class*="card--"],
@@ -332,6 +337,82 @@ button:disabled {
   border-radius: 8px;
   padding: 1rem 1.25rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Fix success toast colors - use green instead of red */
+.payload-toast-container .payload-toast-item.toast-success {
+  background-color: #d1eec6 !important;
+  color: #067a46 !important;
+  border-left: 4px solid #10b981 !important;
+  position: relative !important;
+}
+
+/* Fix toast icon colors for success */
+.payload-toast-container .payload-toast-item.toast-success .toast-icon svg path {
+  fill: #10b981 !important;
+  stroke: #ffffff !important;
+}
+
+[data-theme="dark"] .payload-toast-container .payload-toast-item.toast-success {
+  background-color: #065f46 !important;
+  color: #d1fae5 !important;
+  border-left: 4px solid #10b981 !important;
+}
+
+/* Fix error toast colors - use red */
+.payload-toast-container .payload-toast-item.toast-error {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border-left: 4px solid #ef4444 !important;
+}
+
+[data-theme="dark"] .payload-toast-container .payload-toast-item.toast-error {
+  background-color: #7f1d1d !important;
+  color: #fecaca !important;
+  border-left: 4px solid #ef4444 !important;
+}
+
+/* Warning toast colors - use yellow */
+.payload-toast-container .payload-toast-item.toast-warning {
+  background-color: #fff1cc !important;
+  color: #664b00 !important;
+  border-left: 4px solid #ffc72c !important;
+}
+
+[data-theme="dark"] .payload-toast-container .payload-toast-item.toast-warning {
+  background-color: #78550f !important;
+  color: #fef3c7 !important;
+  border-left: 4px solid #ffc72c !important;
+}
+
+/* Toast close button - fix stroke color to make X visible */
+.payload-toast-container .payload-toast-close-button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 6px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  margin-left: 95% !important;
+  margin-top: 8px !important;
+}
+
+.payload-toast-container .payload-toast-close-button svg {
+  width: 16px !important;
+  height: 16px !important;
+  stroke: currentColor !important;
+  stroke-width: 2.5 !important;
+}
+
+.payload-toast-container .payload-toast-close-button:hover {
+  opacity: 1 !important;
+  background: rgba(0, 0, 0, 0.15) !important;
 }
 
 /* ============================================
