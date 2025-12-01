@@ -479,7 +479,14 @@ export const Members: CollectionConfig = {
         {
           label: 'Volunteer',
           admin: {
-            condition: (data) => data?.roles?.includes('Volunteer'),
+            condition: (data) => {
+              const roles = data?.roles || []
+              // Show if user is a Volunteer, Regular DJ, Substitute DJ, or Board Member
+              return roles.includes('Volunteer') ||
+                     roles.includes('Regular DJ') ||
+                     roles.includes('Substitute DJ') ||
+                     roles.includes('Board Member')
+            },
           },
           fields: [
             { name: 'primaryPhoneType', type: 'text', label: 'Primary Phone Type' },
@@ -550,10 +557,21 @@ export const Members: CollectionConfig = {
         {
           label: 'DJ',
           admin: {
-            condition: (data) =>
-              data?.roles?.includes('Regular DJ') || data?.roles?.includes('Substitute DJ'),
+            condition: (data) => {
+              const roles = data?.roles || []
+              // Show if user is a Regular DJ or Substitute DJ
+              return roles.includes('Regular DJ') || roles.includes('Substitute DJ')
+            },
           },
           fields: [
+            {
+              name: 'djId',
+              label: 'DJ ID',
+              type: 'number',
+              admin: {
+                description: 'Unique DJ ID number',
+              },
+            },
             { name: 'djName', label: 'DJ Name', type: 'text' },
             { name: 'showName', label: 'Show Name', type: 'text' },
             {
@@ -677,7 +695,11 @@ export const Members: CollectionConfig = {
         {
           label: 'Board Member',
           admin: {
-            condition: (data) => data?.roles?.includes('Board Member'),
+            condition: (data) => {
+              const roles = data?.roles || []
+              // Show only if user is a Board Member
+              return roles.includes('Board Member')
+            },
           },
           fields: [
             {
