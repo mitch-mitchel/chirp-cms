@@ -53,6 +53,10 @@ services:
     volumes:
       # Mount media directory for local file storage
       - ./media:/app/media
+      # Mount source files for hot reload (development only)
+      - ./src:/app/src
+      - ./scripts:/app/scripts
+      - ./payload.config.ts:/app/payload.config.ts
     depends_on:
       db:
         condition: service_healthy
@@ -80,6 +84,11 @@ services:
 
       # Node Environment
       NODE_ENV: production
+    volumes:
+      # Mount scripts for hot reload (development only)
+      - ./scripts:/app/scripts
+      - ./src:/app/src
+      - ./payload.config.ts:/app/payload.config.ts
     command: npx tsx scripts/run-playlist-poller.ts
     depends_on:
       db:
