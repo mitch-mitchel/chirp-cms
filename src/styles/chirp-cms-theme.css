@@ -36,26 +36,26 @@
     --color-base-950: #050505;
     --color-base-1000: #000000;
 
-    /* CHIRP Primary Red Scale */
-    --color-success-50: #fef2f2;
-    --color-success-100: #fee2e2;
-    --color-success-150: #fecaca;
-    --color-success-200: #fca5a5;
-    --color-success-250: #f87171;
-    --color-success-300: #f87171;
-    --color-success-350: #ef4444;
-    --color-success-400: #ea1c2c;
-    --color-success-450: #dc2626;
-    --color-success-500: #ea1c2c;
-    --color-success-550: #c71a24;
-    --color-success-600: #a20c1d;
-    --color-success-650: #8b0a19;
-    --color-success-700: #7f1d1d;
-    --color-success-750: #6d0913;
-    --color-success-800: #5f0711;
-    --color-success-850: #4a050d;
-    --color-success-900: #3a0409;
-    --color-success-950: #1c0204;
+    /* Success Colors - Use Green for standard UI success states */
+    --color-success-50: #f0fdf4;
+    --color-success-100: #dcfce7;
+    --color-success-150: #bbf7d0;
+    --color-success-200: #86efac;
+    --color-success-250: #4ade80;
+    --color-success-300: #22c55e;
+    --color-success-350: #16a34a;
+    --color-success-400: #15803d;
+    --color-success-450: #166534;
+    --color-success-500: #10b981;
+    --color-success-550: #059669;
+    --color-success-600: #047857;
+    --color-success-650: #065f46;
+    --color-success-700: #064e3b;
+    --color-success-750: #022c22;
+    --color-success-800: #052e16;
+    --color-success-850: #021f0f;
+    --color-success-900: #011f0c;
+    --color-success-950: #000f07;
 
     /* CHIRP Secondary Blue Scale - using cr-secondary-700 as base */
     --color-blue-50: #e6f4f9;
