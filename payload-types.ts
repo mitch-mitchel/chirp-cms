@@ -483,11 +483,11 @@ export interface ShowSchedule {
    */
   dayOfWeek: 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
   /**
-   * Start time for this show (e.g., "6:00 AM", "12:00 PM")
+   * Start time for this show
    */
   startTime: string;
   /**
-   * End time for this show (e.g., "9:00 AM", "3:00 PM")
+   * End time for this show
    */
   endTime: string;
   /**
@@ -1634,7 +1634,7 @@ export interface TracksPlayed {
   labelName?: string | null;
   albumArt?: string | null;
   djName: string;
-  showName: string;
+  showName?: string | null;
   isLocal?: boolean | null;
   playedAt: string;
   updatedAt: string;
