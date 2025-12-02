@@ -168,20 +168,6 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
   }
 
   try {
-    // Check if we already recorded this exact playlist event
-    const existing = await payload.find({
-      collection: 'tracks-played',
-      where: {
-        playlistEventId: { equals: eventId },
-      },
-      limit: 1,
-    })
-
-    if (existing.docs.length > 0) {
-      console.log(`⊘ Already recorded: ${track.artist} - ${track.track} (event ${eventId.slice(0, 10)}...)`)
-      return false
-    }
-
     // Resolve album art using parallel API tests (blocking with 3s timeout)
     const lastfmUrl = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
     const albumName = (track.release || '').trim()

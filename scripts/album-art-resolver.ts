@@ -68,8 +68,17 @@ async function tryLastFm(lastfmUrl: string): Promise<AlbumArtResult> {
       console.log('[Last.fm URL] ✓ Upgraded URL is valid')
       return { url: upgradedUrl, source: 'Last.fm URL ✓', time }
     } else {
-      console.log(`[Last.fm URL] ✗ Upgraded URL returned ${res.status}`)
-      return { url: null, source: 'Last.fm URL ✗', time }
+      console.log(`[Last.fm URL] ✗ Upgraded URL returned ${res.status}, trying original...`)
+
+      // If upgraded URL failed, try the original 174s URL
+      const originalRes = await fetch(lastfmUrl, { method: 'HEAD' })
+      if (originalRes.ok) {
+        console.log('[Last.fm URL] ✓ Original 174s URL is valid')
+        return { url: lastfmUrl, source: 'Last.fm URL ✓ (original)', time: performance.now() - start }
+      }
+
+      console.log(`[Last.fm URL] ✗ Original URL also failed (${originalRes.status})`)
+      return { url: null, source: 'Last.fm URL ✗', time: performance.now() - start }
     }
   } catch (error) {
     console.error('[Last.fm URL] Error:', error)

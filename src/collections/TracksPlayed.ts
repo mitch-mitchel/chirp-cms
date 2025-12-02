@@ -40,9 +40,9 @@ export const TracksPlayed: CollectionConfig = {
           } = req.body
 
           // Validate required fields
-          if (!artistName || !trackName || !djName || !showName) {
+          if (!artistName || !trackName || !djName) {
             return Response.json(
-              { error: 'Missing required fields: artistName, trackName, djName, showName' },
+              { error: 'Missing required fields: artistName, trackName, djName' },
               { status: 400 }
             )
           }
@@ -167,7 +167,7 @@ export const TracksPlayed: CollectionConfig = {
     {
       name: 'showName',
       type: 'text',
-      required: true,
+      required: false,
     },
     {
       name: 'isLocal',
