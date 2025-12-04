@@ -8,6 +8,10 @@ export const MobileAppSettings: GlobalConfig = {
     group: 'Mobile App',
     description: 'Global settings and shared content for the mobile app',
   },
+  versions: {
+    drafts: false,
+    maxPerDoc: 25,
+  },
   access: {
     read: () => true,
   },

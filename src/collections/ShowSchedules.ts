@@ -187,6 +187,10 @@ export const ShowSchedules: CollectionConfig = {
       },
     ],
   },
+  versions: {
+    drafts: false, // No drafts for schedules
+    maxPerDoc: 25,
+  },
   access: {
     read: () => true,
     create: () => true,

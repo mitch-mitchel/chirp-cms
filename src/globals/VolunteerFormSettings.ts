@@ -8,6 +8,10 @@ export const VolunteerFormSettings: GlobalConfig = {
     group: 'Content Assets',
     description: 'Configure the Volunteer Details form fields and options',
   },
+  versions: {
+    drafts: false,
+    maxPerDoc: 25,
+  },
   access: {
     read: () => true,
   },

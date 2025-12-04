@@ -30,6 +30,10 @@ export const Podcasts: CollectionConfig = {
       },
     },
   },
+  versions: {
+    drafts: true,
+    maxPerDoc: 50,
+  },
   access: {
     read: () => true,
   },

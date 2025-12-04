@@ -31,6 +31,10 @@ export const Events: CollectionConfig = {
       },
     },
   },
+  versions: {
+    drafts: true,
+    maxPerDoc: 50,
+  },
   access: {
     read: () => true,
     create: () => true,

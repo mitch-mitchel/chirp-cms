@@ -7,6 +7,10 @@ export const SiteSettings: GlobalConfig = {
   admin: {
     group: 'Website',
   },
+  versions: {
+    drafts: false,
+    maxPerDoc: 25,
+  },
   access: {
     read: () => true,
   },

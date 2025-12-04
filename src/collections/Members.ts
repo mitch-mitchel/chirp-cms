@@ -187,6 +187,10 @@ export const Members: CollectionConfig = {
       defaultLimit: 50,
     },
   },
+  versions: {
+    drafts: false, // No drafts for user profiles
+    maxPerDoc: 25, // Keep fewer versions for member profiles
+  },
   access: {
     read: () => true,
     create: () => true,
