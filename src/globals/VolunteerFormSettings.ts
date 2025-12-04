@@ -4,6 +4,7 @@ import { sendWebhook } from '../utils/webhook'
 export const VolunteerFormSettings: GlobalConfig = {
   slug: 'volunteerFormSettings',
   label: 'Volunteer Form Settings',
+  dbName: 'volunteer_form',
   admin: {
     group: 'Content Assets',
     description: 'Configure the Volunteer Details form fields and options',
@@ -140,7 +141,7 @@ export const VolunteerFormSettings: GlobalConfig = {
       ],
     },
     {
-      name: 'specialSkillsQuestion',
+      name: 'skills',
       type: 'group',
       label: 'Special Skills Question',
       fields: [
@@ -178,7 +179,7 @@ export const VolunteerFormSettings: GlobalConfig = {
       ],
     },
     {
-      name: 'hearAboutChirpQuestion',
+      name: 'heardChirp',
       type: 'group',
       label: 'How Did You Hear About CHIRP Question',
       fields: [
@@ -213,7 +214,7 @@ export const VolunteerFormSettings: GlobalConfig = {
       ],
     },
     {
-      name: 'interestsQuestion',
+      name: 'interests',
       type: 'group',
       label: 'Interests Question',
       fields: [
@@ -260,7 +261,7 @@ export const VolunteerFormSettings: GlobalConfig = {
       ],
     },
     {
-      name: 'djAvailabilityQuestion',
+      name: 'djAvail',
       type: 'group',
       label: 'DJ Availability Question',
       fields: [
