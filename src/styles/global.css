@@ -300,7 +300,7 @@ button:disabled {
 /* Better sidebar navigation */
 .nav a {
   padding: 0.75rem 1rem;
-  border-radius: 6px;
+  border-radius: 0 !important;
   margin-bottom: 0.25rem;
   transition: background-color 0.15s ease;
 }

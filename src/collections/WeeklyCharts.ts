@@ -13,6 +13,8 @@ export const WeeklyCharts: CollectionConfig = {
   },
   access: {
     read: () => true,
+    // Note: create/update/delete access in CMS admin is controlled by admin user permissions
+    // The frontend Top Tracks page is protected by Member roles (Volunteer/Board Member)
   },
   fields: [
     {
@@ -36,7 +38,7 @@ export const WeeklyCharts: CollectionConfig = {
       type: 'text',
       required: false,
       admin: {
-        description: 'URL-friendly identifier (e.g., "top-50", "most-added"). Auto-generated from title if left blank.',
+        hidden: true, // Hide from CMS admin - auto-generated from title
       },
       hooks: {
         beforeChange: [
