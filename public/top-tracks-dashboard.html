@@ -287,7 +287,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>📊 Top Tracks Dashboard</h1>
+        <h1>Top Tracks Dashboard</h1>
         <p class="subtitle">Analyze played tracks and create Weekly Charts</p>
 
         <div id="globalMessage"></div>
@@ -297,7 +297,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <span class="card-icon">📅</span>
                         Past Week
                     </div>
                 </div>
@@ -326,7 +325,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <span class="card-icon">📆</span>
                         Past Month
                     </div>
                 </div>
@@ -355,7 +353,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <span class="card-icon">📊</span>
                         Year to Date
                     </div>
                 </div>
@@ -384,7 +381,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">
-                        <span class="card-icon">🗓️</span>
                         Last 12 Months
                     </div>
                 </div>
@@ -492,7 +488,6 @@
                 if (tracks.length === 0) {
                     contentDiv.innerHTML = `
                         <div class="empty-state">
-                            <div class="empty-state-icon">🎵</div>
                             <p>No tracks found</p>
                         </div>
                     `;
@@ -521,7 +516,6 @@
                 // Don't show error to user - just show empty state
                 contentDiv.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-state-icon">📭</div>
                         <p>No data available for this time period</p>
                     </div>
                 `;
@@ -569,7 +563,7 @@
                     throw new Error(data.error || 'Failed to create chart');
                 }
 
-                showGlobalMessage(`✅ Chart "${data.title}" created successfully!`, 'success');
+                showGlobalMessage(`Chart "${data.title}" created successfully!`, 'success');
 
                 // Open the chart in a new tab
                 if (data.id) {

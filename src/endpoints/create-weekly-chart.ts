@@ -2,7 +2,9 @@ import type { PayloadHandler } from 'payload'
 
 export const createWeeklyChartEndpoint: PayloadHandler = async (req) => {
   try {
-    const { timeRange, chartSize, tracks } = req.body as {
+    // In Payload v3, we need to parse the body from the request
+    const body = await req.json()
+    const { timeRange, chartSize, tracks } = body as {
       timeRange: string
       chartSize: number
       tracks: Array<{ songName: string; artistName: string; recordCompany: string }>
