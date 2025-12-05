@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIRP Radio - Top Tracks Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-icon {
+            font-size: 24px;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat {
+            flex: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0070f3;
+        }
+
+        .chart-size-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .chart-size-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .chart-size-btn:hover {
+            border-color: #0070f3;
+            color: #0070f3;
+        }
+
+        .chart-size-btn.active {
+            background: #0070f3;
+            color: white;
+            border-color: #0070f3;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background: #0070f3;
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #0060df;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: #059669;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .card-content {
+            margin-top: 16px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0070f3;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 12px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .track-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .track-item {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .track-item:last-child {
+            border-bottom: none;
+        }
+
+        .track-item:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .track-rank {
+            font-weight: 700;
+            color: #0070f3;
+            min-width: 30px;
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .track-artist {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .track-label {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .track-plays {
+            font-weight: 600;
+            color: #0070f3;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .message.error {
+            background: #fee;
+            color: #c00;
+            border: 1px solid #fcc;
+        }
+
+        .message.success {
+            background: #efe;
+            color: #060;
+            border: 1px solid #cfc;
+        }
+
+        .message.info {
+            background: #e3f2fd;
+            color: #01579b;
+            border: 1px solid #90caf9;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Top Tracks Dashboard</h1>
+        <p class="subtitle">Analyze played tracks and create Weekly Charts</p>
+
+        <div id="globalMessage"></div>
+
+        <div class="cards-grid">
+            <!-- Past Week Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">📅</span>
+                        Past Week
+                    </div>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-label">Total Tracks</div>
+                        <div class="stat-value" id="week-total">-</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Top Plays</div>
+                        <div class="stat-value" id="week-top">-</div>
+                    </div>
+                </div>
+                <div class="chart-size-selector">
+                    <button class="chart-size-btn active" onclick="setChartSize('week', 10)">Top 10</button>
+                    <button class="chart-size-btn" onclick="setChartSize('week', 25)">Top 25</button>
+                    <button class="chart-size-btn" onclick="setChartSize('week', 50)">Top 50</button>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-success" id="week-create" onclick="createChart('week')" disabled>Create Weekly Chart</button>
+                </div>
+                <div class="card-content" id="week-content"></div>
+            </div>
+
+            <!-- Past Month Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">📆</span>
+                        Past Month
+                    </div>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-label">Total Tracks</div>
+                        <div class="stat-value" id="month-total">-</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Top Plays</div>
+                        <div class="stat-value" id="month-top">-</div>
+                    </div>
+                </div>
+                <div class="chart-size-selector">
+                    <button class="chart-size-btn active" onclick="setChartSize('month', 10)">Top 10</button>
+                    <button class="chart-size-btn" onclick="setChartSize('month', 25)">Top 25</button>
+                    <button class="chart-size-btn" onclick="setChartSize('month', 50)">Top 50</button>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-success" id="month-create" onclick="createChart('month')" disabled>Create Monthly Chart</button>
+                </div>
+                <div class="card-content" id="month-content"></div>
+            </div>
+
+            <!-- Year to Date Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">📊</span>
+                        Year to Date
+                    </div>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-label">Total Tracks</div>
+                        <div class="stat-value" id="ytd-total">-</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Top Plays</div>
+                        <div class="stat-value" id="ytd-top">-</div>
+                    </div>
+                </div>
+                <div class="chart-size-selector">
+                    <button class="chart-size-btn active" onclick="setChartSize('ytd', 10)">Top 10</button>
+                    <button class="chart-size-btn" onclick="setChartSize('ytd', 25)">Top 25</button>
+                    <button class="chart-size-btn" onclick="setChartSize('ytd', 50)">Top 50</button>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-success" id="ytd-create" onclick="createChart('ytd')" disabled>Create YTD Chart</button>
+                </div>
+                <div class="card-content" id="ytd-content"></div>
+            </div>
+
+            <!-- Last 12 Months Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">🗓️</span>
+                        Last 12 Months
+                    </div>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-label">Total Tracks</div>
+                        <div class="stat-value" id="year-total">-</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Top Plays</div>
+                        <div class="stat-value" id="year-top">-</div>
+                    </div>
+                </div>
+                <div class="chart-size-selector">
+                    <button class="chart-size-btn active" onclick="setChartSize('year', 10)">Top 10</button>
+                    <button class="chart-size-btn" onclick="setChartSize('year', 25)">Top 25</button>
+                    <button class="chart-size-btn" onclick="setChartSize('year', 50)">Top 50</button>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-success" id="year-create" onclick="createChart('year')" disabled>Create Yearly Chart</button>
+                </div>
+                <div class="card-content" id="year-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store data for each card
+        const cardData = {
+            week: { size: 10, tracks: [] },
+            month: { size: 10, tracks: [] },
+            ytd: { size: 10, tracks: [] },
+            year: { size: 10, tracks: [] }
+        };
+
+        function showGlobalMessage(text, type) {
+            const messageDiv = document.getElementById('globalMessage');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function hideGlobalMessage() {
+            document.getElementById('globalMessage').style.display = 'none';
+        }
+
+        function setChartSize(timeRange, size) {
+            cardData[timeRange].size = size;
+
+            // Update active button
+            const card = document.querySelector(`#${timeRange}-content`).closest('.card');
+            card.querySelectorAll('.chart-size-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Reload if tracks already loaded
+            if (cardData[timeRange].tracks.length > 0) {
+                loadTracks(timeRange);
+            }
+        }
+
+        async function loadTracks(timeRange) {
+            const contentDiv = document.getElementById(`${timeRange}-content`);
+            const createBtn = document.getElementById(`${timeRange}-create`);
+            const chartSize = cardData[timeRange].size;
+
+            hideGlobalMessage();
+            createBtn.disabled = true;
+            cardData[timeRange].tracks = [];
+
+            contentDiv.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading tracks...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(`/api/top-tracks?timeRange=${timeRange}&limit=${chartSize}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    throw new Error(data.error || 'Failed to fetch tracks');
+                }
+
+                const tracks = data.tracks || [];
+                cardData[timeRange].tracks = tracks;
+
+                // Update stats
+                document.getElementById(`${timeRange}-total`).textContent = tracks.length;
+                document.getElementById(`${timeRange}-top`).textContent = tracks.length > 0 ? tracks[0].playCount : '-';
+
+                if (tracks.length === 0) {
+                    contentDiv.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🎵</div>
+                            <p>No tracks found</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                contentDiv.innerHTML = `
+                    <div class="track-list">
+                        ${tracks.map((track, index) => `
+                            <div class="track-item">
+                                <div class="track-rank">${index + 1}</div>
+                                <div class="track-info">
+                                    <div class="track-name">${escapeHtml(track.songName)}</div>
+                                    <div class="track-artist">${escapeHtml(track.artistName)}</div>
+                                    <div class="track-label">${escapeHtml(track.recordCompany)}</div>
+                                </div>
+                                <div class="track-plays">${track.playCount}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                createBtn.disabled = false;
+            } catch (error) {
+                console.error(`Error loading ${timeRange} tracks:`, error);
+                // Don't show error to user - just show empty state
+                contentDiv.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No data available for this time period</p>
+                    </div>
+                `;
+                document.getElementById(`${timeRange}-total`).textContent = '0';
+                document.getElementById(`${timeRange}-top`).textContent = '-';
+            }
+        }
+
+        async function createChart(timeRange) {
+            const tracks = cardData[timeRange].tracks;
+
+            if (tracks.length === 0) {
+                showGlobalMessage('No tracks loaded. Please load tracks first.', 'error');
+                return;
+            }
+
+            const chartSize = cardData[timeRange].size;
+            const createBtn = document.getElementById(`${timeRange}-create`);
+
+            createBtn.disabled = true;
+            hideGlobalMessage();
+
+            showGlobalMessage(`Creating ${timeRange} chart...`, 'info');
+
+            try {
+                const response = await fetch('/api/create-weekly-chart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        timeRange,
+                        chartSize,
+                        tracks
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                if (!data.success) {
+                    throw new Error(data.error || 'Failed to create chart');
+                }
+
+                showGlobalMessage(`✅ Chart "${data.title}" created successfully!`, 'success');
+
+                // Open the chart in a new tab
+                if (data.id) {
+                    const chartUrl = `/admin/collections/weeklyCharts/${data.id}`;
+                    setTimeout(() => {
+                        window.open(chartUrl, '_blank');
+                    }, 1000);
+                }
+            } catch (error) {
+                console.error('Error creating chart:', error);
+                showGlobalMessage(`Error creating chart: ${error.message}`, 'error');
+            } finally {
+                createBtn.disabled = false;
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Load all cards on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTracks('week');
+            loadTracks('month');
+            loadTracks('ytd');
+            loadTracks('year');
+        });
+    </script>
+</body>
+</html>
