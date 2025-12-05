@@ -43,6 +43,8 @@
     "migrate:to-rds": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/migrate-to-aws-rds.ts",
     "migrate:to-rds-api": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/migrate-payload-api.ts",
     "migrate:fix-remaining": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/fix-and-migrate-remaining.ts",
+    "test:html-entities": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/test-api-for-html-entities.ts",
+    "fix:html-entities": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts tsx scripts/fix-html-entities-in-excerpts.ts",
     "backup": "bash scripts/backup.sh",
     "prepare": "husky"
   },

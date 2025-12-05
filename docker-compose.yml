@@ -12,6 +12,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - chirp-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U chirp -d chirp_cms"]
       interval: 10s
@@ -57,6 +59,8 @@ services:
       - ./src:/app/src
       - ./scripts:/app/scripts
       - ./payload.config.ts:/app/payload.config.ts
+    networks:
+      - chirp-network
     depends_on:
       db:
         condition: service_healthy
@@ -89,6 +93,8 @@ services:
       - ./scripts:/app/scripts
       - ./src:/app/src
       - ./payload.config.ts:/app/payload.config.ts
+    networks:
+      - chirp-network
     command: npx tsx scripts/run-playlist-poller.ts
     depends_on:
       db:
@@ -109,6 +115,8 @@ services:
       - "5050:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - chirp-network
     depends_on:
       - db
     profiles:
@@ -119,3 +127,8 @@ volumes:
     driver: local
   pgadmin_data:
     driver: local
+
+networks:
+  chirp-network:
+    driver: bridge
+    name: chirp-network
