@@ -92,9 +92,10 @@ function getFallbackMetadata(url: string): FallbackImageMetadata | null {
 /**
  * Gets fallback image with variety logic to avoid repeating colors/logos
  * Ensures no same color or logo type in consecutive tracks
+ * Returns the fallback image record ID (not just URL)
  */
-async function getDeterministicFallbackImage(artist: string, album: string, payload: any): Promise<string> {
-  if (fallbackImages.length === 0) return ''
+async function getDeterministicFallbackImage(artist: string, album: string, payload: any): Promise<string | number | null> {
+  if (fallbackImages.length === 0) return null
 
   // Get most recent track to check for variety
   let previousMeta: FallbackImageMetadata | null = null
@@ -104,8 +105,18 @@ async function getDeterministicFallbackImage(artist: string, album: string, payl
       limit: 1,
       sort: '-playedAt',
     })
-    if (docs.length > 0 && docs[0].albumArt) {
-      previousMeta = getFallbackMetadata(docs[0].albumArt)
+    if (docs.length > 0) {
+      // Check the fallbackImage relationship first, then fall back to old albumArt field
+      if (docs[0].fallbackImage) {
+        const fallbackImageData = typeof docs[0].fallbackImage === 'object'
+          ? docs[0].fallbackImage
+          : await payload.findByID({ collection: 'player-fallback-images', id: docs[0].fallbackImage })
+        const url = fallbackImageData?.sizes?.player?.url || fallbackImageData?.url || ''
+        previousMeta = getFallbackMetadata(url)
+      } else if (docs[0].albumArt) {
+        // Legacy support for old albumArt field
+        previousMeta = getFallbackMetadata(docs[0].albumArt)
+      }
     }
   } catch (error) {
     console.log('⚠️  Could not fetch previous track for variety logic')
@@ -136,8 +147,8 @@ async function getDeterministicFallbackImage(artist: string, album: string, payl
   const index = seed % availableImages.length
   const selectedImage = availableImages[index]
 
-  // Use player size (600x600) if available, otherwise base URL
-  return selectedImage.sizes?.player?.url || selectedImage.url || ''
+  // Return the image ID for the relationship field
+  return selectedImage.id
 }
 
 async function fetchCurrentPlaylist(): Promise<CurrentPlaylistResponse | null> {
@@ -186,7 +197,7 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
     const lastfmUrl = track.lastfm_urls?.large_image || track.lastfm_urls?.med_image || ''
     const albumName = (track.release || '').trim()
 
-    let albumArt = await resolveAlbumArt(
+    let albumArtUrl = await resolveAlbumArt(
       track.artist.trim(),
       albumName,
       lastfmUrl,
@@ -194,7 +205,7 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
     )
 
     // If parallel resolution failed, retry by re-fetching from CHIRP API for fresh Last.fm URL
-    if (!albumArt || albumArt.trim() === '') {
+    if (!albumArtUrl || albumArtUrl.trim() === '') {
       console.log(`🔄 Retrying: Re-fetching CHIRP API for fresh Last.fm URL...`)
       try {
         const retryResponse = await fetch(CURRENT_PLAYLIST_API)
@@ -215,7 +226,7 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
             // Only retry if we got a different URL
             if (freshLastfmUrl && freshLastfmUrl !== lastfmUrl) {
               console.log(`🆕 Found new Last.fm URL, validating...`)
-              albumArt = await resolveAlbumArt(
+              albumArtUrl = await resolveAlbumArt(
                 track.artist.trim(),
                 albumName,
                 freshLastfmUrl,
@@ -233,10 +244,13 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
       }
     }
 
+    // Determine which field to use for album art
+    let fallbackImageId: string | number | null = null
+
     // If still no album art after retry, use deterministic fallback image (same logic as player)
-    if (!albumArt || albumArt.trim() === '') {
-      albumArt = await getDeterministicFallbackImage(track.artist.trim(), albumName, payload)
-      if (albumArt) {
+    if (!albumArtUrl || albumArtUrl.trim() === '') {
+      fallbackImageId = await getDeterministicFallbackImage(track.artist.trim(), albumName, payload)
+      if (fallbackImageId) {
         console.log(`🎨 Using deterministic fallback image for ${track.artist} - ${track.track}`)
       }
     }
@@ -246,7 +260,8 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
       artistName: track.artist,
       trackName: track.track,
       djName: djName,
-      albumArt: albumArt ? 'has art' : 'no art',
+      albumArtUrl: albumArtUrl || 'none',
+      fallbackImage: fallbackImageId || 'none',
     })
 
     // Create new track record
@@ -258,7 +273,8 @@ async function recordTrack(track: CurrentPlaylistTrack, payload: any): Promise<b
         trackName: track.track.trim(),
         albumName: (track.release || '').trim(),
         labelName: (track.label || '').trim(),
-        albumArt: albumArt,
+        albumArtUrl: albumArtUrl || undefined,
+        fallbackImage: fallbackImageId || undefined,
         djName: djName.trim(),
         showName: '',  // API doesn't provide show name - leave empty so UI doesn't display it
         isLocal: track.artist_is_local || false,
